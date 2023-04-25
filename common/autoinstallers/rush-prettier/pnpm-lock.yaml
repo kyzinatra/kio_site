@@ -1,0 +1,15 @@
+lockfileVersion: 5.3
+
+specifiers:
+  prettier: 2.6.1
+
+dependencies:
+  prettier: 2.6.1
+
+packages:
+
+  /prettier/2.6.1:
+    resolution: {integrity: sha512-8UVbTBYGwN37Bs9LERmxCPjdvPxlEowx2urIL6urHzdb3SDq4B/Z6xLFCblrSnE4iKWcS6ziJ3aOYrc1kz/E2A==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: false

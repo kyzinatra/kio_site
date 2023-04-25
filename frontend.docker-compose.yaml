@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+    backend:
+        image: node:18-alpine
+        volumes:
+            - .:/app
+        working_dir: /app
+        user: '${UID-1000}:${GID-1000}'
+        command:
+            - sh
+            - -c
+            - |
+                cd packages/backend; node ../../common/scripts/install-run-rushx.js start
+        ports:
+            - 3001:3001
+        networks:
+            - app-network
+
+    mongodb:
+        container_name: mongodb
+        image: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=admin
+            - MONGO_INITDB_DATABASE=site
+            - MONGO_INITDB_ROOT_PASSWORD=admin
+        volumes:
+            - dbdata:/data/db
+        networks:
+            - app-network
+        ports:
+            - '27015:27015'
+
+    mongo-express:
+        container_name: mongo-express
+        image: mongo-express
+        depends_on:
+            - mongodb
+        environment:
+            - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+            - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
+            - ME_CONFIG_MONGODB_SERVER=mongodb
+            - ME_CONFIG_BASICAUTH_USERNAME=admin
+            - ME_CONFIG_BASICAUTH_PASSWORD=admin
+            - ME_CONFIG_MONGODB_URL=mongodb://admin:admin@mongodb:27015/
+        ports:
+            - '8081:8081'
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    dbdata:
+    node_modules:
