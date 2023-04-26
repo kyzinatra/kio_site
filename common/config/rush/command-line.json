@@ -17,6 +17,14 @@
       "summary": "start project",
       "commandKind": "bulk",
       "ignoreMissingScript": true
+    },
+    {
+      "name": "prettier",
+      "commandKind": "global",
+      "summary": "This command invokes Prettier to reformat staged changes.",
+      "safeForSimultaneousRushProcesses": true,
+      "autoinstallerName": "rush-prettier",
+      "shellCommand": "prettier --write ."
     }
     // {
     //   /**

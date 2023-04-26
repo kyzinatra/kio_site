@@ -1,9 +1,14 @@
-function AppComponent() {
-  return (
-    <div className="App">
-     Hello epta world!
-    </div>
-  );
-}
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default AppComponent;
+export const App: React.FC = () => {
+    const [cats, setCats] = useState(0);
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/get-cats-amount').then(({ data }) => {
+            setCats(Number(data));
+        });
+    }, []);
+
+    return <div className="App">cats amount: {cats}</div>;
+};

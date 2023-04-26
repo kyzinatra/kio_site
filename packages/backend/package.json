@@ -1,21 +1,26 @@
 {
-  "name": "@kio/backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
-  "scripts": {
-    "start": "rushx build && node dist/index.js",
-    "build": "npx tsc"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "prettier": "2.8.4",
-    "express": "4.18.2"
-  },
-  "devDependencies": {
-    "typescript": "4.9.5",
-    "@types/express": "4.17.17",
-    "@types/node": "18.15.1"
-  }
+    "name": "@kio/backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "start": "rushx build && node dist/index.js",
+        "build": "npx tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "4.18.2",
+        "mongoose": "~7.0.3",
+        "cors": "2.8.5"
+    },
+    "devDependencies": {
+        "prettier": "2.8.4",
+        "typescript": "4.9.5",
+        "@types/express": "4.17.17",
+        "@types/node": "18.15.1",
+        "@types/mongoose": "5.11.97",
+        "nodemon": "2.0.22",
+        "@types/cors": "~2.8.13"
+    }
 }
