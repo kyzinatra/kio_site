@@ -64,8 +64,11 @@ export interface IUserBD {
   email: string;
   passHash: string;
   displayName: string;
+  avatarUrl: string;
+  phoneNumber: string;
   studyPlace: string;
   paymentStatus?: boolean;
+  connections: ("VK"|"GOOGLE"|"GITHUB")[];
   claims: {
     role: TRole;
   };
