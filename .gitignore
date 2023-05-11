@@ -61,6 +61,15 @@ jspm_packages/
 # IntelliJ IDEA project files; if you want to commit IntelliJ settings, this recipe may be helpful:
 # https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 .idea/
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 *.iml
 
 # Rush temporary files
