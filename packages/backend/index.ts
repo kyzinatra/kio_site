@@ -23,7 +23,6 @@ app.use(express.json());
 
 app.get('/get-cats-amount', async (req, res) => {
     const cats = await Cat.find().count();
-
     res.json(`${cats}`).status(200);
 });
 
