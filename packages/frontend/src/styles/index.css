@@ -1,0 +1,17 @@
+:root {
+  --primary-light-color: #fafafa;
+  --border-light-color: #f5f5f5;
+  --accent-light-color: #eaeaea;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
