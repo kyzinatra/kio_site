@@ -1,0 +1,7 @@
+export const QUERY_KEYS = {
+    SIGN_UP: '/SIGN_UP_QUERY',
+    SIGN_IN: '/SIGN_IN_QUERY',
+    ME: '/ME_QUERY'
+};
+
+export const QUERY_WITHOUT_AUTH = [QUERY_KEYS.SIGN_UP, QUERY_KEYS.SIGN_IN];

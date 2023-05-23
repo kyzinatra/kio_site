@@ -5,14 +5,21 @@
     "main": "index.ts",
     "scripts": {
         "start": "rushx build && node dist/index.js",
-        "build": "npx tsc"
+        "build": "npx tsc",
+        "dev": "tsnd --respawn index.ts"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
         "express": "4.18.2",
         "mongoose": "~7.0.3",
-        "cors": "2.8.5"
+        "cors": "2.8.5",
+        "jsonwebtoken": "~9.0.0",
+        "bcryptjs": "2.4.3",
+        "express-validator": "7.0.1",
+        "uuid": "9.0.0",
+        "crypto-js": "4.1.1",
+        "cookie-parser": "1.4.6"
     },
     "devDependencies": {
         "prettier": "2.8.4",
@@ -20,7 +27,13 @@
         "@types/express": "4.17.17",
         "@types/node": "18.15.1",
         "@types/mongoose": "5.11.97",
-        "nodemon": "2.0.22",
-        "@types/cors": "~2.8.13"
+        "nodemon": "~2.0.22",
+        "@types/cors": "~2.8.13",
+        "ts-node-dev": "~2.0.0",
+        "@types/uuid": "~9.0.1",
+        "@types/jsonwebtoken": "9.0.2",
+        "@types/crypto-js": "4.1.1",
+        "@types/bcryptjs": "2.4.2",
+        "@types/cookie-parser": "1.4.3"
     }
 }
