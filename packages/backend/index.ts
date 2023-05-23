@@ -5,6 +5,8 @@ import { authRouter } from './api/routes/auth-router/auth-router';
 import cookieParser from 'cookie-parser';
 import { authMiddleware } from './domain/middleware/auth-middleware';
 const app = express();
+
+// TODO: move it to env vars!!!
 const port = 3001;
 
 const MONGO_USERNAME = 'admin';
@@ -24,7 +26,7 @@ app.use(authMiddleware);
 app.use(authRouter);
 
 app.listen(port, async () => {
-    await mongoose.connect(url);
+  await mongoose.connect(url);
 
-    console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`);
 });

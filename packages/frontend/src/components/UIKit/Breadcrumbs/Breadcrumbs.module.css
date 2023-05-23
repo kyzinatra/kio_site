@@ -1,0 +1,32 @@
+.breadcrumbs {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.breadcrumbs__title {
+  margin: 0;
+}
+
+.breadcrumbs__img {
+  display: block;
+}
+
+.breadcrumbs__separator {
+  font-size: 2rem;
+  color: var(--accent-light-color);
+}
+
+.breadcrumbs__item:first-child .breadcrumbs__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
