@@ -1,6 +1,9 @@
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
+import { authRouter } from './api/routes/auth-router/auth-router';
+import cookieParser from 'cookie-parser';
+import { authMiddleware } from './domain/middleware/auth-middleware';
 const app = express();
 const port = 3001;
 
@@ -12,19 +15,13 @@ const MONGO_DB = 'site';
 
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
-const catSchema = new mongoose.Schema<{ name: string }>({
-    name: { type: String, required: true }
-});
-
-const Cat = mongoose.model('Cat', catSchema);
-
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+app.set('trust proxy', true);
+app.use(authMiddleware);
 
-app.get('/get-cats-amount', async (req, res) => {
-    const cats = await Cat.find().count();
-    res.json(`${cats}`).status(200);
-});
+app.use(authRouter);
 
 app.listen(port, async () => {
     await mongoose.connect(url);

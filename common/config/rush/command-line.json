@@ -19,6 +19,13 @@
       "ignoreMissingScript": true
     },
     {
+      "name": "dev",
+      "enableParallelism": false,
+      "summary": "start project in development mode",
+      "commandKind": "bulk",
+      "ignoreMissingScript": true
+    },
+    {
       "name": "prettier",
       "commandKind": "global",
       "summary": "This command invokes Prettier to reformat staged changes.",
