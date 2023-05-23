@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import css from './Nav.module.css';
+
 import { navRoutes } from './routes';
+
 export const Nav: FC = () => {
   return (
     <nav className={css.nav}>

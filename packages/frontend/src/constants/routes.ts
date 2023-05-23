@@ -1,8 +1,8 @@
-import type { IRoutesData } from '../types/routes';
+import type { TRoutesData } from '../types/routes';
 
 export const DEFAULT_ROUTE = '/';
 
-export const routesData: IRoutesData = {
+export const routesData: TRoutesData = {
   [DEFAULT_ROUTE]: {
     icon: '/homeIcon.svg',
     title: 'КИО'

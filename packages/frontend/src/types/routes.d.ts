@@ -1,11 +1,11 @@
 import type { DEFAULT_ROUTE } from '../constants/routes';
 
-export type IRoutesElement = {
+export interface IRoutesElement {
   icon: string;
   title: string;
 };
 
-export type IRoutesResult = {
+export type TRoutesResult = {
   icon: string;
   title: string;
   path: string;
@@ -13,6 +13,6 @@ export type IRoutesResult = {
 
 export type TRoutesNames = typeof DEFAULT_ROUTE;
 
-export type IRoutesData = {
+export type TRoutesData = {
   [key in TRoutesNames]: IRoutesElement;
 };
