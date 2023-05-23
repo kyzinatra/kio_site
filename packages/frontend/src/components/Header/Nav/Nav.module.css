@@ -1,0 +1,34 @@
+.nav {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+  font-size: 1.3rem;
+  height: 100%;
+}
+
+.nav__link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.nav__item,
+.nav__link {
+  height: 100%;
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+}
+
+.nav__link_active {
+  border-bottom: 2px solid black;
+}

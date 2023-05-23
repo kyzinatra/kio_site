@@ -1,0 +1,8 @@
+.header__breadcrumbs,
+.header__nav {
+  padding: 0 50px 0 50px;
+}
+
+.header__nav {
+  border: 1px solid var(--accent-light-color);
+}
