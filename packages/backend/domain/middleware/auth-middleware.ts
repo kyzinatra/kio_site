@@ -1,6 +1,6 @@
 import { CLIENT_ERRORS } from '../errors/client-errors';
 import { Response, NextFunction } from 'express';
-import { QUERY_WITHOUT_AUTH } from '../../api/query-keys/QUERY-KEYS';
+import { QUERY_WITHOUT_AUTH } from '../../api/query-keys/query-keys';
 import jwt from 'jsonwebtoken';
 import { secret } from '../../secret';
 import { CustomRequest } from '../types/custom-request.type';

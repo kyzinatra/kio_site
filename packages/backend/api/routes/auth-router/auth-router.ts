@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { QUERY_KEYS } from '../../query-keys/QUERY-KEYS';
+import { QUERY_KEYS } from '../../query-keys/';
 import { validationMiddleware } from '../../../domain/middleware/validation-middleware';
 import { check } from 'express-validator';
 import { singUpController } from '../../controllers';
