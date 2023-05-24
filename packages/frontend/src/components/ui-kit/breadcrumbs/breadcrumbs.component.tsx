@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBreadcrumbs } from '../../../hooks/useBreadcrumbs.hook';
+import { useBreadcrumbs } from '../../../hooks/use-breadcrumbs.hook';
 
 import css from './Breadcrumbs.module.css';
 import { Link } from 'react-router-dom';

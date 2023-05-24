@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { Nav } from './Nav/Nav.component';
+import { Nav } from './nav/nav.component';
 
-import { Breadcrumbs } from '../UIKit/Breadcrumbs/Breadcrumbs.component';
+import { Breadcrumbs } from '../ui-kit/breadcrumbs/breadcrumbs.component';
 
 import css from './Header.module.css';
 
-import type { IHeader } from './Header';
+import type { IHeader } from './header';
 
 export const Header: FC<IHeader> = ({ withNav }) => {
   return (

@@ -1,26 +1,28 @@
-export const navRoutes = [
+import { ROUTES } from '../../../constants/routes';
+
+export const NAV_ROUTES = [
   {
-    path: '/',
+    path: ROUTES.DEFAULT_ROUTE,
     title: 'Главная'
   },
   {
-    path: '/tasks',
+    path: ROUTES.TASKS_ROUTE,
     title: 'Задачи'
   },
   {
-    path: '/constructors',
+    path: ROUTES.CONSTRUCTORS_ROUTE,
     title: 'Конструкторы'
   },
   {
-    path: '/results',
+    path: ROUTES.RESULTS_ROUTE,
     title: 'Результаты'
   },
   {
-    path: '/examples',
+    path: ROUTES.EXAMPLES_ROUTE,
     title: 'Примеры'
   },
   {
-    path: '/about',
+    path: ROUTES.ABOUT_ROUTE,
     title: 'О нас'
   }
-] as const;
+];

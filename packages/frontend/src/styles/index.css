@@ -2,6 +2,11 @@
   --primary-light-color: #fafafa;
   --border-light-color: #f5f5f5;
   --accent-light-color: #eaeaea;
+
+  --default-transition-time: 200ms;
+
+  --blur-text-color: #444;
+  --dark-text-color: #000;
 }
 
 html {

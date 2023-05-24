@@ -5,12 +5,21 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './styles/normalize.css';
 import './styles/index.css';
 import { Page404 } from './pages/404/404.page';
+import { ROUTES } from './constants/routes';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: ROUTES.DEFAULT_ROUTE,
     async lazy() {
-      let { Home } = await import('./pages/Home/Home.page');
+      let { Home } = await import('./pages/home/home.page');
+      return { Component: Home };
+    },
+    errorElement: <Page404 />
+  },
+  {
+    path: ROUTES.TASKS_ROUTE,
+    async lazy() {
+      let { Home } = await import('./pages/home/home.page');
       return { Component: Home };
     },
     errorElement: <Page404 />
