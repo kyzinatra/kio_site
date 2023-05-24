@@ -1,4 +1,4 @@
-import { ISuccessResponse } from '../../../domain/types/success-anwer.interface';
+import { ISuccessResponse } from '../../../domain/types/success-answer';
 
 export interface ISingUpDto {
     password: string;

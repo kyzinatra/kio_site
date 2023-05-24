@@ -1,4 +1,4 @@
-import { TRole } from './role.type';
+import { TRole } from './role';
 
 export interface IUserBD {
     name: string;

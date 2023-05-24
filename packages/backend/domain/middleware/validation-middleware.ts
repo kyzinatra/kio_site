@@ -2,13 +2,13 @@ import { validationResult } from 'express-validator';
 import { CLIENT_ERRORS } from '../errors/client-errors';
 import { Request, Response } from 'express';
 import { Middleware } from 'express-validator/src/base';
-import { TValidator } from '../types/validator.type';
+import { TValidator } from '../types/validator';
 
 export const validationMiddleware = <T>(checks: Middleware[] = [], validator?: TValidator<T>) => {
     return async (req: Request, resp: Response, next: () => void) => {
         for (let i = 0; i < checks.length; i++) {
             const checkFn = checks[i];
-            await checkFn?.(req, resp, () => {});
+            checkFn(req, resp, () => {});
         }
 
         const errors = validationResult(req);

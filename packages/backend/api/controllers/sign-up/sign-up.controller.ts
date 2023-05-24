@@ -1,13 +1,12 @@
 import { User } from '../../../bd/schemas/user.schema';
-import { ISingUpDto, ISingUpResponse } from './sign-up.types';
+import { ISingUpDto, ISingUpResponse } from './sign-up';
 import bcrypt from 'bcryptjs';
-import { ERoles } from '../../../bd/types/role.type';
+import { ERoles } from '../../../bd/types/role';
 import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
-import { TController } from '../../../domain/types/contoller.type';
+import { TController } from '../../../domain/types/contoller';
 
 export const singUpController: TController<ISingUpDto> = async (req, resp) => {
     const { password, email, name, surname, patronymic } = req.body;
-
     try {
         await new User({
             email,

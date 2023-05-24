@@ -1,5 +1,5 @@
-import { ISingInDto } from './sign-in.types';
-import { TValidator } from '../../../domain/types/validator.type';
+import { ISingInDto } from './sign-in';
+import { TValidator } from '../../../domain/types/validator';
 import { User } from '../../../bd/schemas/user.schema';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 import { compareSync } from 'bcryptjs';

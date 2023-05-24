@@ -1,8 +1,8 @@
-import { ISingUpDto } from './sign-up.types';
+import { ISingUpDto } from './sign-up';
 import { isOnlyRussian } from '../../../domain/testers/only-russion-string';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 import { User } from '../../../bd/schemas/user.schema';
-import { TValidator } from '../../../domain/types/validator.type';
+import { TValidator } from '../../../domain/types/validator';
 
 export const signUpValidator: TValidator<ISingUpDto> = async req => {
     const { email, name, surname, patronymic } = req.body;
