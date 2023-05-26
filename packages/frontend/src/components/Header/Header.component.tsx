@@ -9,11 +9,11 @@ import type { IHeader } from './header';
 
 export const Header: FC<IHeader> = ({ withNav }) => {
   return (
-    <header className={css.header}>
+    <>
       <div className={css.header__breadcrumbs}>
         <Breadcrumbs />
       </div>
       <div className={css.header__nav}>{withNav && <Nav />}</div>
-    </header>
+    </>
   );
 };

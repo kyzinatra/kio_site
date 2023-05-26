@@ -1,8 +1,10 @@
 .nav {
-  --nav-height: 45px;
-  height: var(--nav-height);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .nav__list {
@@ -10,7 +12,6 @@
   display: flex;
   padding: 0;
   margin: 0;
-  font-size: 1.3rem;
   height: 100%;
   position: relative;
 }
@@ -23,6 +24,7 @@
 .nav__item {
   padding-left: 20px;
   padding-right: 20px;
+  z-index: 10;
 }
 
 .nav__list .nav__item:nth-child(2) {
@@ -37,7 +39,6 @@
 .nav__link {
   display: flex;
   align-items: center;
-  color: var(--blur-text-color);
   border-bottom: 2px solid transparent;
 }
 
@@ -54,10 +55,16 @@
 .nav__hover {
   position: absolute;
   height: calc(var(--nav-height) - 10px);
-  background-color: var(--accent-light-color);
-  z-index: -1;
+  background-color: var(--accent-light-color-glass);
+  z-index: 0;
   border-radius: 5px;
   top: 50%;
   transform: translateY(-50%);
   transition: all var(--default-transition-time);
+}
+
+.nav__sing {
+  display: flex;
+  gap: 40px;
+  align-items: center;
 }

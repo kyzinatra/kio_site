@@ -1,7 +1,7 @@
 .breadcrumbs {
   display: flex;
   gap: 15px;
-  margin: 15px 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .breadcrumbs__item {
@@ -11,6 +11,7 @@
   cursor: pointer;
   color: inherit;
   text-decoration: inherit;
+  font-size: 1.3rem;
 }
 
 .breadcrumbs__title {

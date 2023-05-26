@@ -6,7 +6,9 @@ export const ROUTES = {
   CONSTRUCTORS_ROUTE: '/constructors',
   RESULTS_ROUTE: '/results',
   EXAMPLES_ROUTE: '/examples',
-  ABOUT_ROUTE: '/about'
+  ABOUT_ROUTE: '/about',
+  SING_IN_ROUTE: '/sing-in',
+  SING_UP_ROUTE: '/sing-up'
 } as const;
 
 export const routesData: TRoutesData = {

@@ -1,11 +1,13 @@
 import React, { FC, useState, MouseEvent } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import css from './Nav.module.css';
 
 import { NAV_ROUTES } from './routes';
 import { clx } from '../../../utils/clx';
 import { IHoverStyle } from './nav';
+import { ROUTES } from '../../../constants/routes';
+import { ICON_HEIGHT, ICON_WIDTH } from '../../../constants/sizes';
+import { Link } from '../../ui-kit/link/link.component';
 
 export const Nav: FC = () => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
@@ -36,15 +38,22 @@ export const Nav: FC = () => {
             onMouseLeave={mouseLeaveHandler}
             key={el.path}
           >
-            <NavLink
+            <Link
               className={({ isActive }) => clx(css.nav__link, { [css.nav__link_active]: isActive })}
               to={el.path}
             >
               {el.title}
-            </NavLink>
+            </Link>
           </li>
         ))}
       </ul>
+
+      <div className={css.nav__sing}>
+        <Link to={ROUTES.SING_IN_ROUTE}>Войти</Link>
+        <Link to={ROUTES.SING_UP_ROUTE} theme="accent">
+          Регистрация
+        </Link>
+      </div>
     </nav>
   );
 };
