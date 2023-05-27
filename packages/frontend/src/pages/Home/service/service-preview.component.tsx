@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import css from './service-preview.module.css';
 import { ServiceTitle } from './service-title/service-title.component';
-import { ServiceStart } from './service-start/service-start.component';
+import { ServicePresentation } from './service-presentation/service-presentation.component';
 
-import { TServiceRefProps } from './service-start/service-start';
+import { TServiceRefProps } from './service-presentation/service-presentation';
+import { ServiceStatistics } from './service-statistics/service-statistics.component';
+import { ServiceStart } from './service-start/service-start.component';
 
 export const ServicePreview = () => {
   const startRef = useRef<TServiceRefProps>(null);
@@ -13,9 +15,13 @@ export const ServicePreview = () => {
   }
 
   return (
-    <main className={css.preview}>
-      <ServiceTitle scrollIntoStart={scrollIntoStartHandler} />
-      <ServiceStart ref={startRef} />
-    </main>
+    <>
+      <main className={css.preview}>
+        <ServiceTitle scrollIntoStart={scrollIntoStartHandler} />
+        <ServicePresentation ref={startRef} />
+      </main>
+      <ServiceStatistics />
+      <ServiceStart />
+    </>
   );
 };

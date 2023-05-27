@@ -5,11 +5,18 @@ import { NavLink } from 'react-router-dom';
 import css from './link.module.css';
 import { clx } from '../../../utils/clx';
 
-export const Link: FC<PropsWithChildren<ILink>> = ({ children, theme = 'default', className, ...props }) => {
+export const Link: FC<PropsWithChildren<ILink>> = ({
+  children,
+  theme = 'default',
+  size,
+  className,
+  ...props
+}) => {
   const classNameFn = useCallback(
     (attrs: TLinkClassNames) => {
-      if (typeof className === 'function') return clx(css[`link_${theme}`], className(attrs));
-      return clx(css[`link_${theme}`], className);
+      let dropClassNames = className;
+      if (typeof className === 'function') dropClassNames = className(attrs);
+      return clx(css[`link_size-${size}`], css[`link_${theme}`], dropClassNames);
     },
     [theme, className]
   );

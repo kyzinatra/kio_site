@@ -1,32 +1,22 @@
-import React, { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from 'react';
-import { useRef } from 'react';
+import React from 'react';
 
 import css from './service-start.module.css';
 
-import type { TServiceRefProps, IServiceStart } from './service-start';
-import { Trace } from '../../../../components/ui-kit/trace/trace.component';
+import { Link } from '../../../../components/ui-kit/link/link.component';
+import { ROUTES } from '../../../../constants/routes';
 
-const ServiceStartComponent: ForwardRefRenderFunction<TServiceRefProps, IServiceStart> = (
-  {},
-  forwardedRef
-) => {
-  const componentRef = useRef<HTMLDivElement>(null);
-
-  useImperativeHandle(
-    forwardedRef,
-    () => ({
-      scrollIntoView() {
-        componentRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }
-    }),
-    []
-  );
-
+export const ServiceStart = () => {
   return (
-    <div ref={componentRef} className={css.start}>
-      <Trace theme="red">Конструируй</Trace>
-    </div>
+    <section>
+      <p>Начни свой путь вместе с нами</p>
+      <div className="">
+        <Link to={ROUTES.EXAMPLES_ROUTE} theme="accent">
+          Примеры задач прошлых лет
+        </Link>
+        <Link to={ROUTES.EXAMPLES_ROUTE} theme="accent">
+          Зарегестироваться на конкурс
+        </Link>
+      </div>
+    </section>
   );
 };
-
-export const ServiceStart = forwardRef(ServiceStartComponent);

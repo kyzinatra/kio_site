@@ -1,3 +1,3 @@
 export interface ITrace {
-  theme: "red" | "blue" | "purple"
+  theme: "color-1" | "color-2" | "color-3"
 }

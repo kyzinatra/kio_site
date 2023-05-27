@@ -1,0 +1,23 @@
+.statistics {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 55px 0;
+  background-color: var(--accent-light-color);
+}
+
+.statistics__item {
+  text-align: center;
+}
+
+.statistics__title {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.statistics__description {
+  margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.245em;
+  color: var(--blur-text-color);
+}

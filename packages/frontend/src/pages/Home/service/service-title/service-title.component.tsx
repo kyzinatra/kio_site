@@ -5,16 +5,17 @@ import css from './service-title.module.css';
 import { IServiceTitle } from './service-title';
 import { clx } from '../../../../utils/clx';
 
-const title = ['Конструируй.', 'Исследуй.', 'Оптимизируй.'];
+const TITLE = ['Конструируй.', 'Исследуй.', 'Оптимизируй.'];
 
 export const ServiceTitle: FC<IServiceTitle> = ({ scrollIntoStart }) => {
   return (
     <section className={css.title}>
       <div className={css['title__text-wrapper']}>
-        {title.map((el, i) => (
+        {TITLE.map((el, i) => (
           <span
             className={clx(css.title__text, css['title__text-' + (i + 1)])}
             style={{ '--content': `'${el}'` } as object}
+            key={i}
           >
             <span className={clx(css['title__text-content'], css['title__text-content-' + (i + 1)])}>
               {el}
