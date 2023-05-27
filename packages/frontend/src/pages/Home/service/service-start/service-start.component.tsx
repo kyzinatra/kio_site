@@ -1,9 +1,8 @@
 import React from 'react';
 
 import css from './service-start.module.css';
-
-import { Link } from '../../../../components/ui-kit/link/link.component';
 import { ROUTES } from '../../../../constants/routes';
+import { Link } from '../../../../components/ui-kit/link/link.component';
 
 export const ServiceStart = () => {
   return (
