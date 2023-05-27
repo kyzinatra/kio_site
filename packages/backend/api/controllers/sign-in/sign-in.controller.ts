@@ -13,7 +13,7 @@ export const signInController: TController<ISingInDto> = async (req, resp) => {
 
     const refreshToken = createRefreshToken({ _id: user?._id.toString() as string, ip, browser });
 
-    resp.cookie('refreshToken', refreshToken, { httpOnly: true });
+    resp.cookie('refreshToken', refreshToken, { httpOnly: true, signed: true, sameSite: true });
 
     const response: ISignInResponse = { status: 'ok' };
 

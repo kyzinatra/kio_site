@@ -1,6 +1,6 @@
 import { TError } from './error.type';
 
-type EErrorNames =
+export type EErrorNames =
     | 'UNAUTHORIZED'
     | 'TOKEN_EXPIRED'
     | 'BAD_TOKEN'
@@ -10,7 +10,9 @@ type EErrorNames =
     | 'BAD_LOGIN_OR_PASSWORD'
     | 'LACK_OF_RIGHTS';
 
-export const CLIENT_ERRORS: Record<EErrorNames, TError<EErrorNames>> = {
+export type ICLIENT_ERROR = TError<EErrorNames>;
+
+export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     UNAUTHORIZED: {
         title: 'Ошибка авторизации',
         message: 'Кажется, вы не вошли в систему',
