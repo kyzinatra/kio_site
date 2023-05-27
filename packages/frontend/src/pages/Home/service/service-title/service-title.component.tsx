@@ -3,20 +3,24 @@ import { Button } from '../../../../components/ui-kit/button/button.component';
 
 import css from './service-title.module.css';
 import { IServiceTitle } from './service-title';
+import { clx } from '../../../../utils/clx';
+
+const title = ['Конструируй.', 'Исследуй.', 'Оптимизируй.'];
 
 export const ServiceTitle: FC<IServiceTitle> = ({ scrollIntoStart }) => {
   return (
     <section className={css.title}>
-      <div className={css.title__text}>
-        <span className={css['title__text-1']} style={{ '--content': "'Конструируй.'" } as object}>
-          <span className={css['title__text-content1']}>Конструируй.</span>
-        </span>
-        <span className={css['title__text-2']} style={{ '--content': "'Исследуй.'" } as object}>
-          <span className={css['title__text-content2']}>Исследуй.</span>
-        </span>
-        <span className={css['title__text-3']} style={{ '--content': "'Оптимизируй.'" } as object}>
-          <span className={css['title__text-content3']}>Оптимизируй.</span>
-        </span>
+      <div className={css['title__text-wrapper']}>
+        {title.map((el, i) => (
+          <span
+            className={clx(css.title__text, css['title__text-' + (i + 1)])}
+            style={{ '--content': `'${el}'` } as object}
+          >
+            <span className={clx(css['title__text-content'], css['title__text-content-' + (i + 1)])}>
+              {el}
+            </span>
+          </span>
+        ))}
       </div>
       <p className={css.title__description}>
         КИО — это конкурс, который позволяет вам раскрыть ваши таланты, попробовать множество интересных задач

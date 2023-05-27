@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import css from './service-start.module.css';
 
 import type { TServiceRefProps, IServiceStart } from './service-start';
+import { Trace } from '../../../../components/ui-kit/trace/trace.component';
 
 const ServiceStartComponent: ForwardRefRenderFunction<TServiceRefProps, IServiceStart> = (
   {},
@@ -23,7 +24,7 @@ const ServiceStartComponent: ForwardRefRenderFunction<TServiceRefProps, IService
 
   return (
     <div ref={componentRef} className={css.start}>
-      ServiceStart
+      <Trace theme="red">Конструируй</Trace>
     </div>
   );
 };

@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-.title__text {
+.title__text-wrapper {
   font-size: 4rem;
   font-weight: bold;
   display: flex;
@@ -30,35 +30,29 @@
   position: relative;
 }
 
-.title__text-1,
-.title__text-2,
-.title__text-3 {
+.title__text {
   position: relative;
   height: 1.2em;
 }
 
-.title__text-content1 {
+.title__text-content-1 {
   background: linear-gradient(90deg, var(--start-grad-color-1) 0.17%, var(--end-grad-color-1) 33.9%);
-
   text-shadow: 2px 2px 10px rgba(0, 148, 255, 0.2);
-
   animation: animated-gradient-text_fade-foreground-1 8s linear infinite;
 }
 
-.title__text-content2 {
+.title__text-content-2 {
   background: linear-gradient(91.83deg, var(--start-grad-color-2) 0.6%, var(--end-grad-color-2) 99.46%);
   text-shadow: 2px 2px 10px rgba(191, 0, 238, 0.3);
   animation: animated-gradient-text_fade-foreground-2 8s linear infinite;
 }
 
-.title__text-content3 {
+.title__text-content-3 {
   background: linear-gradient(91.51deg, var(--start-grad-color-3) 0%, var(--end-grad-color-3) 90%);
   animation: animated-gradient-text_fade-foreground-3 8s linear infinite;
   text-shadow: 2px 2px 10px rgba(255, 184, 0, 0.3);
 }
-.title__text-content1,
-.title__text-content2,
-.title__text-content3 {
+.title__text-content {
   display: block;
   position: relative;
   z-index: 1;
@@ -66,9 +60,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.title__text-1::before,
-.title__text-2::before,
-.title__text-3::before {
+.title__text::before {
   content: var(--content);
 
   position: absolute;
