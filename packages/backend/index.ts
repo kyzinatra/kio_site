@@ -19,14 +19,14 @@ const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${M
 
 app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.set('trust proxy', true);
 app.use(authMiddleware);
 
 app.use(authRouter);
 
 app.listen(port, async () => {
-  await mongoose.connect(url);
+    await mongoose.connect(url);
 
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });

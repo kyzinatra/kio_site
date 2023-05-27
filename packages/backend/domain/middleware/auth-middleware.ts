@@ -24,7 +24,7 @@ export const authMiddleware = async <T>(
         return;
     }
 
-    const token = req.cookies.refreshToken;
+    const token = req.signedCookies.refreshToken;
 
     if (!token) {
         resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
