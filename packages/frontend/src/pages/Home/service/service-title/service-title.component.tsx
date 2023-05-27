@@ -1,9 +1,10 @@
-import React from 'react';
-import { Button } from '../../ui-kit/button/button.component';
+import React, { FC } from 'react';
+import { Button } from '../../../../components/ui-kit/button/button.component';
 
 import css from './service-title.module.css';
+import { IServiceTitle } from './service-title';
 
-export const ServiceTitle = () => {
+export const ServiceTitle: FC<IServiceTitle> = ({ scrollIntoStart }) => {
   return (
     <section className={css.title}>
       <div className={css.title__text}>
@@ -21,7 +22,7 @@ export const ServiceTitle = () => {
         КИО — это конкурс, который позволяет вам раскрыть ваши таланты, попробовать множество интересных задач
         и соревноваться с друзьями
       </p>
-      <Button className={css.title__start} size="xxlong" theme="colored-blue">
+      <Button className={css.title__start} onClick={scrollIntoStart} size="xxlong" theme="default">
         Начать
       </Button>
       <div className={css.title__contributors}>
