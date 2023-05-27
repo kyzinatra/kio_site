@@ -1,3 +1,4 @@
+//TODO ^_^
 export const STATISTICS_CONTENT = {
   Городов: '35',
   Школ: '150',

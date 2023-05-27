@@ -3,7 +3,7 @@ import { Nav } from './nav/nav.component';
 
 import { Breadcrumbs } from '../ui-kit/breadcrumbs/breadcrumbs.component';
 
-import css from './Header.module.css';
+import css from './header.module.css';
 
 import type { IHeader } from './header';
 
