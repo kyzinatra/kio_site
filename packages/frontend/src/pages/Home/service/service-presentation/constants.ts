@@ -1,4 +1,4 @@
-export const START_CONTENT = [
+export const PRESENTATION_CONTENT = [
   {
     title: 'Конструируй',
     subTitle: 'Когда приходит вдохновение',

@@ -6,8 +6,8 @@ import { STATISTICS_CONTENT } from './constants';
 export const ServiceStatistics = () => {
   return (
     <section className={css.statistics}>
-      {Object.entries(STATISTICS_CONTENT).map(([desc, title], i) => (
-        <div className={css.statistics__item}>
+      {STATISTICS_CONTENT.map(([desc, title], i) => (
+        <div className={css.statistics__item} key={i}>
           <h1 className={css.statistics__title}>{title}</h1>
           <p className={css.statistics__description}>{desc}</p>
         </div>

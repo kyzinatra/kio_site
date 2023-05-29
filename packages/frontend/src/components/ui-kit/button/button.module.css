@@ -2,11 +2,11 @@
   background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid transparent;
-  font-size: 1.2rem;
   border: 1px solid black;
-  transition: background-color var(--default-transition-time);
+  font-size: 1.2rem;
   transition: color var(--default-transition-time);
+
+  transition: background-color var(--default-transition-time);
   -webkit-transition: background-color var(--default-transition-time);
   -ms-transition: background-color var(--default-transition-time);
 }

@@ -1,4 +1,4 @@
-export interface IServiceStart {}
+export interface IServicePresentation {}
 
 export type TServiceRefProps = {
   scrollIntoView: () => void;
