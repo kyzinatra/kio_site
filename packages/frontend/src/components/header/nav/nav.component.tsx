@@ -1,6 +1,6 @@
 import React, { FC, useState, MouseEvent } from 'react';
 
-import css from './Nav.module.css';
+import css from './nav.module.css';
 
 import { NAV_ROUTES } from './routes';
 import { clx } from '../../../utils/clx';
