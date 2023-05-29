@@ -1,0 +1,5 @@
+.preview {
+  padding: 0 var(--min-page-padding);
+  max-width: var(--main-width);
+  margin: 0 auto;
+}

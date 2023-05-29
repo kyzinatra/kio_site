@@ -1,0 +1,42 @@
+.link_default {
+  text-decoration: inherit;
+  color: var(--blur-text-color);
+}
+
+.link_default:hover {
+  color: var(--dark-text-color);
+}
+
+.link_accent {
+  color: var(--contrast-text-color);
+  text-decoration: inherit;
+  background-color: var(--contrast-bg-color);
+  padding: 8px 15px;
+  border: 1px solid var(--contrast-bg-color);
+  border-radius: 5px;
+  transition: color var(--default-transition-time);
+
+  transition: background-color var(--default-transition-time);
+  -webkit-transition: background-color var(--default-transition-time);
+  -ms-transition: background-color var(--default-transition-time);
+}
+
+.link_size-default {
+  composes: button_size-default from '../button/button.module.css';
+}
+
+.link_size-long {
+  composes: button_size-long from '../button/button.module.css';
+}
+
+.link_size-xlong {
+  composes: button_size-xlong from '../button/button.module.css';
+}
+.link_size-xxlong {
+  composes: button_size-xxlong from '../button/button.module.css';
+}
+
+.link_accent:hover {
+  background-color: transparent;
+  color: var(--dark-text-color);
+}
