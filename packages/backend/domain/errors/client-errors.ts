@@ -1,6 +1,6 @@
 import { TError } from './error.type';
 
-type EErrorNames =
+export type EErrorNames =
     | 'UNAUTHORIZED'
     | 'TOKEN_EXPIRED'
     | 'BAD_TOKEN'
