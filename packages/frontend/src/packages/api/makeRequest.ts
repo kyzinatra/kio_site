@@ -2,6 +2,7 @@ import { TError } from './api';
 
 async function checkRequest(res: Response) {
   if (res.ok) {
+    console.log(res);
     return res.json();
   }
 

@@ -8,8 +8,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 15 * 60 * 1000, // 15 minutes
-      retry: false,
       refetchOnWindowFocus: false,
+      retry: false,
       retryOnMount: false
     },
     mutations: {}
