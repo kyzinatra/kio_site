@@ -7,13 +7,17 @@ import css from './header.module.css';
 
 import type { IHeader } from './header';
 
-export const Header: FC<IHeader> = ({ withNav }) => {
+export const Header: FC<IHeader> = ({ withNav, withHelp }) => {
   return (
     <>
       <div className={css.header__breadcrumbs}>
-        <Breadcrumbs />
+        <Breadcrumbs withHelp={withHelp} />
       </div>
-      <div className={css.header__nav}>{withNav && <Nav />}</div>
+      {withNav && (
+        <div className={css.header__nav}>
+          <Nav />
+        </div>
+      )}
     </>
   );
 };

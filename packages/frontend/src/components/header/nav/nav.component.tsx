@@ -8,9 +8,13 @@ import { IHoverStyle } from './nav';
 import { ROUTES } from '../../../constants/routes';
 import { Link } from '../../ui-kit/link/link.component';
 import { useMeRequest } from '../../../packages/hooks/use-query/use-me-request';
+import { Badge } from '../../ui-kit/badge/badge.component';
 
 export const Nav: FC = () => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
+
+  const { isError, isLoading, data } = useMeRequest();
+  const isSingInDisplayed = isError || isLoading;
 
   function mouseEnterHandler(event: MouseEvent<HTMLElement>) {
     const element = event.target;
@@ -49,10 +53,18 @@ export const Nav: FC = () => {
       </ul>
 
       <div className={css.nav__sing}>
-        <Link to={ROUTES.SING_IN_ROUTE}>Войти</Link>
-        <Link to={ROUTES.SING_UP_ROUTE} theme="accent">
-          Регистрация
-        </Link>
+        {isSingInDisplayed ? (
+          <>
+            <Link to={ROUTES.SING_IN_ROUTE}>Войти</Link>
+            <Link to={ROUTES.SING_UP_ROUTE} theme="accent">
+              Регистрация
+            </Link>
+          </>
+        ) : (
+          <Badge src={data?.avatarUrl || ''} alt="Аватар">
+            {data?.name}
+          </Badge>
+        )}
       </div>
     </nav>
   );

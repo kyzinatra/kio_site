@@ -4,6 +4,13 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+.breadcrumbs__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .breadcrumbs__item {
   display: flex;
   align-items: center;
