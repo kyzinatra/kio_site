@@ -4,7 +4,17 @@ import { RouterProvider } from 'react-router-dom';
 import { REACT_ROUTER } from './router/routes';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 15 * 60 * 1000, // 15 minutes
+      retry: false,
+      refetchOnWindowFocus: false,
+      retryOnMount: false
+    },
+    mutations: {}
+  }
+});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

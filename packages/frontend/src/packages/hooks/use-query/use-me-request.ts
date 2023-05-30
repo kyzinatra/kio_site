@@ -7,8 +7,9 @@ const meKey = Symbol('me-request');
 export const useMeRequest = () =>
   useQuery<IMeResponse, TError>({
     queryKey: [meKey],
-    queryFn: meRequest,
+    queryFn: () => meRequest(),
     staleTime: Infinity,
     retry: false,
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    retryOnMount: false
   });

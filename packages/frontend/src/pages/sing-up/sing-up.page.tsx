@@ -1,5 +1,10 @@
 import React from 'react';
+import { Layout } from '../../components/layout/layout.component';
 
 export const SingUp = () => {
-  return <div>SingUp</div>;
+  return (
+    <Layout protectedFrom="authorized" withHelp>
+      SingUp
+    </Layout>
+  );
 };
