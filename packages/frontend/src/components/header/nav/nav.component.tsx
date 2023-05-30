@@ -7,6 +7,7 @@ import { clx } from '../../../utils/clx';
 import { IHoverStyle } from './nav';
 import { ROUTES } from '../../../constants/routes';
 import { Link } from '../../ui-kit/link/link.component';
+import { useMeRequest } from '../../../packages/hooks/use-query/use-me-request';
 
 export const Nav: FC = () => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
