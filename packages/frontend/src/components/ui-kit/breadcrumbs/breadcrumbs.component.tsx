@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { useBreadcrumbs } from '../../../hooks/use-breadcrumbs.hook';
 
 import css from './Breadcrumbs.module.css';
 import { Link } from 'react-router-dom';
 import { ICON_HEIGHT, ICON_WIDTH } from '../../../constants/sizes';
 import { IBreadcrumbs } from './breadcrumbs';
 import { Badge } from '../badge/badge.component';
+import { useBreadcrumbs } from '../../../packages/hooks/use-breadcrumbs.hook';
 
 export const Breadcrumbs: FC<IBreadcrumbs> = ({ withHelp }) => {
   const breadcrumbsData = useBreadcrumbs();
