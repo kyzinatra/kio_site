@@ -1,10 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { Header } from '../header/header.component';
 import { Footer } from '../footer/footer.component';
-import { useMeRequest } from '../../packages/hooks/use-query/use-me-request';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
-import { useSingInRequest } from '../../packages/hooks/use-query/use-sing-in-request';
+import { useMeRequest } from '../../api';
 
 export const Layout: FC<PropsWithChildren<ILayout>> = ({
   withNav,
@@ -13,7 +12,6 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
   children,
   protectedFrom
 }) => {
-  const { data: data1 } = useSingInRequest();
   const { isLoading, error, data } = useMeRequest();
 
   if (isLoading) return <h1>Loading...</h1>;

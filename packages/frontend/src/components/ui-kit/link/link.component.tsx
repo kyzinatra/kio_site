@@ -10,13 +10,19 @@ export const Link: FC<PropsWithChildren<ILink>> = ({
   theme = 'default',
   size,
   className,
+  underline,
   ...props
 }) => {
   const classNameFn = useCallback(
     (attrs: TLinkClassNames) => {
       let dropClassNames = className;
       if (typeof className === 'function') dropClassNames = className(attrs);
-      return clx(css[`link_size-${size}`], css[`link_${theme}`], dropClassNames);
+      return clx(
+        css[`link_size-${size}`],
+        css[`link_${theme}`],
+        { [css.link_underline]: underline },
+        dropClassNames
+      );
     },
     [theme, className]
   );

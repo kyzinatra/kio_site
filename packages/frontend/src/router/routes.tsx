@@ -20,7 +20,7 @@ export const REACT_ROUTER = createBrowserRouter([
   {
     path: ROUTES.SING_IN_ROUTE,
     async lazy() {
-      return { Component: (await import('../pages/sin-in/sing-in.page')).SingIn };
+      return { Component: (await import('../pages/sing-in/sing-in.page')).SingIn };
     },
     errorElement: <Page404 />
   },

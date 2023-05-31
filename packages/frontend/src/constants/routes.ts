@@ -10,6 +10,8 @@ export const ROUTES = {
   SING_IN_ROUTE: '/sing-in',
   SING_UP_ROUTE: '/sing-up',
   PAGE_404_ROUTE: '/404',
+  PROFILE_ROUTE: '/profile',
+  FORGOT_PASSWORD_ROUTE: '/forgot-password',
   HELP_ROUTE: '/help'
 } as const;
 

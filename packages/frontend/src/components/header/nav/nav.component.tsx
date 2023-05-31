@@ -7,8 +7,8 @@ import { clx } from '../../../utils/clx';
 import { IHoverStyle } from './nav';
 import { ROUTES } from '../../../constants/routes';
 import { Link } from '../../ui-kit/link/link.component';
-import { useMeRequest } from '../../../packages/hooks/use-query/use-me-request';
 import { Badge } from '../../ui-kit/badge/badge.component';
+import { useMeRequest } from '../../../api';
 
 export const Nav: FC = () => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
@@ -61,7 +61,12 @@ export const Nav: FC = () => {
             </Link>
           </>
         ) : (
-          <Badge src={data?.avatarUrl || ''} alt="Аватар">
+          <Badge
+            src={data?.avatarUrl || '/default-avatar.svg'}
+            to={ROUTES.PROFILE_ROUTE}
+            width={25}
+            height={25}
+          >
             {data?.name}
           </Badge>
         )}

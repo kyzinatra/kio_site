@@ -1,5 +1,5 @@
 import type {IUserBD} from "../../../../backend/bd/types"
-import type {IMeResponse,  ISignInResponse, ISingInDto, ISingUpDto, ISingUpResponse} from "../../../../backend/api/index"
+import type {IMeResponse,  ISignInResponse, ISingInDto, ISingUpDto, ISingUpResponse} from "../../../backend/api/index"
 
 export type {IUserBD, IMeResponse,  ISignInResponse, ISingInDto, ISingUpDto,  ISingUpResponse}
 

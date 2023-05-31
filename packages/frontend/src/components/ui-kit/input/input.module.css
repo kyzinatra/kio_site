@@ -1,0 +1,21 @@
+.input {
+  font-size: 1.1rem;
+  color: var(--middle-text-color);
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: 1px solid var(--accent-light-color);
+  outline: transparent;
+}
+
+.input:focus,
+.input:active {
+  border: 1px solid #000;
+}
+
+.input::placeholder {
+  color: var(--placeholder-text-color);
+}
+
+.input_stretch {
+  width: 100%;
+}
