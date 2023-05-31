@@ -9,7 +9,7 @@ import { Link } from '../../../../components/ui-kit/link/link.component';
 import { useSingInMutation } from '../../../../api';
 
 import css from './sing-in-form.module.css';
-import { useForm } from '../../../../packages/hooks/use-form';
+import { useForm } from '../../../../hooks/use-form';
 
 type TSingInForm = {
   email: string;

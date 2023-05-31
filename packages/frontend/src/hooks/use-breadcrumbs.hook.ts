@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { routesData } from '../../constants/routes';
-import type { TRoutesResult, TRoutesNames } from '../../types/routes';
+import { routesData } from '../constants/routes';
+import type { TRoutesResult, TRoutesNames } from '../types/routes';
 
 export function useBreadcrumbs() {
   const location = useLocation();
