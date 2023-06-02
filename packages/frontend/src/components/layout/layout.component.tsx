@@ -4,6 +4,7 @@ import { Footer } from '../footer/footer.component';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import { useMeRequest } from '../../api';
+import { Toast } from '../toast/toast.component';
 
 export const Layout: FC<PropsWithChildren<ILayout>> = ({
   withNav,
@@ -28,6 +29,7 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
       <Header withNav={withNav} withHelp={withHelp} />
       {children}
       {withFooter && <Footer />}
+      <Toast />
     </>
   );
 };

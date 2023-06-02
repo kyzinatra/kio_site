@@ -11,8 +11,8 @@ export const SingIn = () => {
       <main className={css['sing-in']}>
         <h1 className={css['sing-in__title']}>Войти через социальные сети</h1>
         <ul className={css['sing-in__networks']}>
-          {NETWORK_IMAGES.map(el => (
-            <li>
+          {NETWORK_IMAGES.map((el, i) => (
+            <li key={i}>
               <img src={`/networks/${el}-logo.png`} alt={el} />
             </li>
           ))}

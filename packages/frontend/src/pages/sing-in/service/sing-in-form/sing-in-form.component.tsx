@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useMemo, useState } from 'react';
 
 import { ROUTES } from '../../../../constants/routes';
 
@@ -10,6 +10,8 @@ import { useSingInMutation } from '../../../../api';
 
 import css from './sing-in-form.module.css';
 import { useForm } from '../../../../hooks/use-form';
+import { useToast } from '../../../../hooks/use-toast';
+import { clx } from '../../../../utils/clx';
 
 type TSingInForm = {
   email: string;
@@ -20,22 +22,56 @@ const initialForm = { email: '', password: '' };
 
 export const SingInForm = () => {
   const { form } = useForm<TSingInForm>(initialForm);
+  const tost = useToast();
+  const [isModified, setModified] = useState(false);
 
   const mutationQuery = useSingInMutation();
 
   function submitFormHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    mutationQuery.mutate({
-      email: form.email?.value || '',
-      password: form.password?.value || ''
-    });
+    setModified(false);
+    mutationQuery.mutate(
+      {
+        email: form.email?.value || '',
+        password: form.password?.value || ''
+      },
+      {
+        onError(error) {
+          tost.push({ title: error.message });
+        }
+      }
+    );
+  }
+
+  const errorStyle = useMemo(
+    () => ({ [css.form__control_error]: mutationQuery.isError && !isModified }),
+    [mutationQuery.isError, isModified]
+  );
+
+  function modifiedHandler() {
+    console.log('asass');
+    setModified(true);
   }
 
   return (
     <form className={css.form} onSubmit={submitFormHandler}>
       <div className={css.form__controls}>
-        <Input placeholder="Электронная почта" type="email" required {...form.email} />
-        <Input placeholder="Пароль" type="password" required {...form.password} />
+        <Input
+          placeholder="Почта"
+          type="email"
+          onFocus={modifiedHandler}
+          className={clx(errorStyle)}
+          required
+          {...form.email}
+        />
+        <Input
+          placeholder="Пароль"
+          type="password"
+          onFocus={modifiedHandler}
+          className={clx(errorStyle)}
+          required
+          {...form.password}
+        />
         <Button type="submit" theme="accent" disabled={mutationQuery.isLoading}>
           Отправить
         </Button>

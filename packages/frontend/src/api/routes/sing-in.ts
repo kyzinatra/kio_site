@@ -14,7 +14,7 @@ export async function singInRequest(body: ISingInDto) {
   });
 }
 
-export const useSingInMutation = (callbackSuccess?: () => void, callbackError?: () => void) => {
+export const useSingInMutation = () => {
   const client = useQueryClient();
 
   return useMutation<ISignInResponse, TError, ISingInDto>({
@@ -22,11 +22,7 @@ export const useSingInMutation = (callbackSuccess?: () => void, callbackError?: 
     mutationFn: body => singInRequest(body),
     retry: 1,
     onSuccess: () => {
-      callbackSuccess?.();
       client.invalidateQueries([QUERY_KEYS.ME]);
-    },
-    onError: () => {
-      callbackError?.();
     }
   });
 };
