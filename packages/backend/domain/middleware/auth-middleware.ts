@@ -1,40 +1,58 @@
 import { CLIENT_ERRORS } from '../errors/client-errors';
 import { Response, NextFunction } from 'express';
 import { QUERY_WITHOUT_AUTH } from '../../api/query-keys/query-keys';
-import jwt from 'jsonwebtoken';
-import { secret } from '../../secret';
 import { CustomRequest } from '../types/custom-request.type';
-import { IRefreshPayload } from '../../api/executors/refresh-token/refresh-token.types';
+import { User } from '../../bd/schemas/user.schema';
+import { IUserBD } from '../../bd/types/user-bd.interface';
+import { SERVER_ERRORS } from '../errors/server-errors';
+import { verifyRefreshToken } from '../token/token-service/refresh-token';
+import { TOKEN_COLLECTION } from '../token/token-collection';
 
-export const authMiddleware = <T>(req: CustomRequest<T>, resp: Response, next: NextFunction): void => {
-    if (req.method === 'OPTIONS') {
+export const authMiddleware = async <T>(
+    req: CustomRequest<T>,
+    resp: Response,
+    next: NextFunction
+): Promise<void> => {
+    if (req.method === 'OPTIONS' || QUERY_WITHOUT_AUTH.includes(req?.path ?? '')) {
         next();
         return;
     }
 
-    const isQueryWithoutAuth = QUERY_WITHOUT_AUTH.includes(req.path);
+    const token = req.signedCookies[TOKEN_COLLECTION.REFRESH_TOKEN];
 
-    if (isQueryWithoutAuth) {
-        next();
+    if (!token) {
+        resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
         return;
     }
+
+    const tokenInfo = verifyRefreshToken({
+        ip: req.ip,
+        browser: req.headers['user-agent'] ?? '',
+        token: token
+    });
+
+    if (tokenInfo.error) {
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
+        resp.status(tokenInfo.error.code).json(tokenInfo.error);
+        return;
+    }
+
+    let user: IUserBD | null;
 
     try {
-        const token = req.cookies.refreshToken;
-
-        if (!token) {
-            resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
-        } else {
-            const decodedToken = jwt.verify(token, secret) as IRefreshPayload;
-            req._id = decodedToken._id;
-
-            next();
-        }
-    } catch (e) {
-        if ((e as Error).name === 'TokenExpiredError') {
-            resp.status(CLIENT_ERRORS.TOKEN_EXPIRED.code).json(CLIENT_ERRORS.TOKEN_EXPIRED);
-        }
-
-        resp.status(CLIENT_ERRORS.BAD_TOKEN.code).json(CLIENT_ERRORS.BAD_TOKEN);
+        user = await User.findOne({ _id: tokenInfo.decodedToken._id });
+    } catch {
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
+        resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
+        return;
     }
+
+    if (!user) {
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
+        resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
+    }
+
+    req.user = user as IUserBD;
+
+    next();
 };
