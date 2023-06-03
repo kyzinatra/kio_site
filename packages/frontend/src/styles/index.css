@@ -1,12 +1,29 @@
 :root {
+  --lighter-color: #fff;
+  --lighter-color-glass: rgba(255, 255, 255, 0.75);
   --primary-light-color: #fafafa;
   --border-light-color: #f5f5f5;
   --accent-light-color: #eaeaea;
+  --accent-light-color-glass: rgba(234, 234, 234, 0.8);
 
-  --default-transition-time: 200ms;
+  --contrast-text-color: #fff;
+  --contrast-bg-color: #000;
 
   --blur-text-color: #444;
   --dark-text-color: #000;
+
+  --default-transition-time: 200ms;
+  --main-width: 1445px;
+  --min-page-padding: 50px;
+  --nav-height: 45px;
+  --header-height: 110px;
+
+  --start-grad-color-1: #00c2ff;
+  --start-grad-color-2: #6b00d7;
+  --start-grad-color-3: #ff4d00;
+  --end-grad-color-1: #005db4;
+  --end-grad-color-2: #c90085;
+  --end-grad-color-3: #e19600;
 }
 
 html {
@@ -15,8 +32,11 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  background-color: var(--primary-light-color);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }

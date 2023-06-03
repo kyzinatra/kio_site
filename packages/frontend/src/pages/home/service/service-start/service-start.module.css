@@ -1,0 +1,22 @@
+.start {
+  margin: 100px 0;
+  display: flex;
+  gap: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start__title {
+  font-size: 1.3rem;
+  letter-spacing: 0.245em;
+  text-transform: uppercase;
+}
+
+.start__links {
+  display: flex;
+  gap: 30px;
+}
+
+.start__link {
+  font-size: 1.3rem;
+}

@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.ts",
     "scripts": {
-        "start": "rushx build && node dist/index.js",
+        "start": "rushx build && node -r dotenv/config dist/index.js",
         "build": "npx tsc",
-        "dev": "tsnd --respawn index.ts"
+        "dev": "tsnd -r dotenv/config --respawn index.ts"
     },
     "author": "",
     "license": "ISC",
@@ -19,7 +19,8 @@
         "express-validator": "7.0.1",
         "uuid": "9.0.0",
         "crypto-js": "4.1.1",
-        "cookie-parser": "1.4.6"
+        "cookie-parser": "1.4.6",
+        "dotenv": "~16.1.0"
     },
     "devDependencies": {
         "prettier": "2.8.4",

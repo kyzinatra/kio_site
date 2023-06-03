@@ -1,0 +1,21 @@
+.header__breadcrumbs,
+.header__nav {
+  padding: 0 var(--min-page-padding);
+  background-color: var(--lighter-color);
+}
+.header__breadcrumbs {
+  padding: 15px var(--min-page-padding);
+  border-bottom: 1px solid var(--accent-light-color);
+  height: calc(var(--header-height) - var(--nav-height));
+}
+
+.header__nav {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--accent-light-color);
+  background-color: var(--lighter-color-glass);
+  height: calc(var(--nav-height));
+}

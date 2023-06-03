@@ -1,0 +1,76 @@
+.trace {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.trace__text {
+  font-weight: bold;
+  font-size: 2rem;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 20px;
+}
+
+.trace__circle {
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  margin-top: 80px;
+  position: relative;
+}
+
+.trace__circle::before {
+  content: '';
+  width: 1px;
+  height: 80px;
+  position: absolute;
+  display: block;
+
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.trace__circle_color-3::before {
+  background: linear-gradient(
+    0deg,
+    var(--start-grad-color-3) 8%,
+    var(--end-grad-color-3) 80%,
+    transparent 100%
+  );
+}
+
+.trace__circle_color-1::before {
+  background: linear-gradient(
+    0deg,
+    var(--start-grad-color-1) 8%,
+    var(--end-grad-color-1) 80%,
+    transparent 100%
+  );
+}
+
+.trace__circle_color-2::before {
+  background: linear-gradient(
+    0deg,
+    var(--start-grad-color-2) 8%,
+    var(--end-grad-color-2) 80%,
+    transparent 100%
+  );
+}
+
+.trace__circle_color-3,
+.trace__text_color-3 {
+  background-image: linear-gradient(48deg, var(--start-grad-color-3) 8%, var(--end-grad-color-3) 100%);
+}
+.trace__circle_color-1,
+.trace__text_color-1 {
+  background-image: linear-gradient(48deg, var(--start-grad-color-1) 8%, var(--end-grad-color-1) 100%);
+}
+.trace__circle_color-2,
+.trace__text_color-2 {
+  background-image: linear-gradient(48deg, var(--start-grad-color-2) 8%, var(--end-grad-color-2) 100%);
+}
