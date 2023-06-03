@@ -6,6 +6,13 @@ import { ROUTES } from '../../constants/routes';
 import { useMeRequest } from '../../api';
 import { Toast } from '../toast/toast.component';
 
+/**
+ * @description Layout HOC for base settings for all pages
+ * @param {boolean} withNav - if true, renders the navigation bar
+ * @param {boolean} withHelp - if true, renders the help button
+ * @param {boolean} withFooter - if true, renders the footer
+ * @param {string} protectedFrom - if 'anonymous', redirects to default route if user is logged in, if 'authorized', redirects to default route if user is not logged in
+ */
 export const Layout: FC<PropsWithChildren<ILayout>> = ({
   withNav,
   withHelp,

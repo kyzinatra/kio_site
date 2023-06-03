@@ -10,6 +10,10 @@ import { ToastItem } from './toast-item/toast-item.component';
 
 const container = document.getElementById('toasts') as HTMLElement;
 
+/**
+ * @description Toast component for displaying notifications. Uses context to get the toasts array
+ * DO NOT USE THIS COMPONENT DIRECTLY, use the useToast hook instead
+ */
 export const Toast: FC = () => {
   const { toasts } = useContext(ToastContext);
 

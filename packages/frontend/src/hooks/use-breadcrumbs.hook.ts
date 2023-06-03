@@ -3,7 +3,14 @@ import { useLocation } from 'react-router-dom';
 import { routesData } from '../constants/routes';
 import type { TRoutesResult, TRoutesNames } from '../types/routes';
 
-export function useBreadcrumbs() {
+/**
+ * @description Hook for getting breadcrumbs from current location
+ * @example
+ * const breadcrumbs = useBreadcrumbs();
+ * console.log(breadcrumbs); // [{title: 'Home', path: '/', icon: './icon.svg'}, {title: 'About', path: '/about/', , icon: './icon.svg'}]
+ */
+
+export function useBreadcrumbs(): TRoutesResult {
   const location = useLocation();
   return useMemo(() => {
     const path = location.pathname.replaceAll('/', ' ').trim().split(' ');

@@ -7,6 +7,11 @@ import { IBreadcrumbs } from './breadcrumbs';
 import { Badge } from '../badge/badge.component';
 import { useBreadcrumbs } from '../../../hooks/use-breadcrumbs.hook';
 
+/**
+ * @description Breadcrumbs component for displaying breadcrumbs on the page
+ * @param {boolean} withHelp - if true, renders the help button on the right side
+ */
+
 export const Breadcrumbs: FC<IBreadcrumbs> = ({ withHelp }) => {
   const breadcrumbsData = useBreadcrumbs();
 

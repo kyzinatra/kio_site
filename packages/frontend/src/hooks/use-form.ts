@@ -12,7 +12,15 @@ type IResult<T extends TForm> = {
   _clear: () => void;
 };
 
-export function useForm<T extends TForm>(defaultValue: T) {
+/**
+ * @description vue-like hook for creating forms with controlled inputs and checkboxes
+ * @example
+ * const { form, _clear } = useForm({ name: '', email: '', password: '' });
+ * console.log(form.email) // { value: '', onChange: (e) => void }
+ * ...
+ * return (<input type="email" {...form.email} />)
+ */
+export function useForm<T extends TForm>(defaultValue: T): IResult<T> {
   const [valuesState, setValuesState] = useState(defaultValue);
 
   return useMemo(() => {

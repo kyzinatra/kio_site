@@ -4,6 +4,14 @@ import { IBadge } from './badge';
 import css from './badge.module.css';
 import { Link } from '../link/link.component';
 
+/**
+ * @description Badge component for displaying badges
+ * @param {string} src - image source
+ * @param {string} to - link to
+ * @param {number} height - image height
+ * @param {number} width - image width
+ * @param {ReactNode} children - badge text
+ */
 export const Badge: FC<PropsWithChildren<IBadge>> = ({ children, src, to, height = 30, width = 30 }) => {
   const content = (
     <figure className={css.badge}>
