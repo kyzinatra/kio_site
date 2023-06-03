@@ -4,8 +4,6 @@ import { IToast } from '../components/toast/toast';
 
 export type TToastProps = (IToast & { id: string })
 
-
-
 export interface IState {
   toasts: (TToastProps & {nodeRef: RefObject<HTMLDivElement>})[];
 }
