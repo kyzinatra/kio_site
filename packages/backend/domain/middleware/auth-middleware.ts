@@ -5,26 +5,20 @@ import { CustomRequest } from '../types/custom-request.type';
 import { User } from '../../bd/schemas/user.schema';
 import { IUserBD } from '../../bd/types/user-bd.interface';
 import { SERVER_ERRORS } from '../errors/server-errors';
-import { verifyRefreshToken } from '../../api/executors/refresh-token/verify-refresh-token';
+import { verifyRefreshToken } from '../token/token-service/refresh-token';
+import { TOKEN_COLLECTION } from '../token/token-collection';
 
 export const authMiddleware = async <T>(
     req: CustomRequest<T>,
     resp: Response,
     next: NextFunction
 ): Promise<void> => {
-    if (req.method === 'OPTIONS') {
+    if (req.method === 'OPTIONS' || QUERY_WITHOUT_AUTH.includes(req?.path ?? '')) {
         next();
         return;
     }
 
-    const isQueryWithoutAuth = QUERY_WITHOUT_AUTH.includes(req?.path ?? '');
-
-    if (isQueryWithoutAuth) {
-        next();
-        return;
-    }
-
-    const token = req.signedCookies.refreshToken;
+    const token = req.signedCookies[TOKEN_COLLECTION.REFRESH_TOKEN];
 
     if (!token) {
         resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
@@ -38,7 +32,7 @@ export const authMiddleware = async <T>(
     });
 
     if (tokenInfo.error) {
-        resp.clearCookie('refreshToken');
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
         resp.status(tokenInfo.error.code).json(tokenInfo.error);
         return;
     }
@@ -48,13 +42,13 @@ export const authMiddleware = async <T>(
     try {
         user = await User.findOne({ _id: tokenInfo.decodedToken._id });
     } catch {
-        resp.clearCookie('refreshToken');
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
         resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
         return;
     }
 
     if (!user) {
-        resp.clearCookie('refreshToken');
+        resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
         resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
     }
 

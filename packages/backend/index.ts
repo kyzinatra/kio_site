@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 import cors from 'cors';
 import { authRouter } from './api';
 import cookieParser from 'cookie-parser';
-import { authMiddleware } from './domain/middleware/auth-middleware';
+import { authMiddleware } from './domain/middleware';
 const app = express();
 
 const port = process.env.PORT ?? 3001;
@@ -20,5 +20,5 @@ app.use(authRouter);
 app.listen(port, async () => {
     await mongoose.connect(url);
 
-  console.log(`App listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });

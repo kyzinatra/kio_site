@@ -1,7 +1,8 @@
-import { secret } from '../../../secret';
+import { secret } from '../../../../secret';
 import jwt from 'jsonwebtoken';
 import { IRefreshPayload } from './refresh-token.types';
-import { CLIENT_ERRORS, ICLIENT_ERROR } from '../../../domain/errors/client-errors';
+import { CLIENT_ERRORS, ICLIENT_ERROR } from '../../../errors/client-errors';
+import { tokenService } from '../token-service';
 
 interface IVerifyRefreshData extends Omit<IRefreshPayload, '_id'> {
     token: string;
@@ -33,7 +34,7 @@ export const verifyRefreshToken: IVerifyRefreshToken = ({ token, ip, browser }) 
         };
     }
 
-    if (decodedToken.browser !== browser || decodedToken.ip !== ip) {
+    if (decodedToken.browser !== browser || decodedToken.ip !== ip || tokenService.isBanned({ token })) {
         error = CLIENT_ERRORS.BAD_TOKEN;
 
         return {
