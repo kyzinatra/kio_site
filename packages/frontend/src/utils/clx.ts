@@ -1,7 +1,3 @@
-/**
- * @description
- */
-
 export function clx(...args: { [key: string]: any }[] | any[]) {
   return (
     args
