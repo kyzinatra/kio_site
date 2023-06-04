@@ -8,4 +8,5 @@ export interface IMeResponse {
     role: IUserBD['claims']['role'];
     avatarUrl: IUserBD['avatarUrl'];
     email: IUserBD['email'];
+    id: string;
 }

@@ -1,8 +1,15 @@
 import { TController } from '../../../domain/types/contoller.type';
 import { IMeResponse } from './me.types';
-import { IUserBD } from '../../../bd/types/user-bd.interface';
+import { User } from '../../../bd';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 
 export const meController: TController<null> = async (req, resp) => {
+    const user = await User.findOne({ email: req.user?.email });
+
+    if (!user) {
+        return resp.status(CLIENT_ERRORS.USER_DOESNT_EXITS.code).json(CLIENT_ERRORS.USER_DOESNT_EXITS);
+    }
+
     const {
         displayName,
         name,
@@ -10,10 +17,20 @@ export const meController: TController<null> = async (req, resp) => {
         patronymic,
         claims: { role },
         avatarUrl,
-        email
-    } = req.user as IUserBD;
+        email,
+        _id
+    } = user;
 
-    const response: IMeResponse = { displayName, name, surname, patronymic, role, avatarUrl, email };
+    const response: IMeResponse = {
+        displayName,
+        name,
+        surname,
+        patronymic,
+        role,
+        avatarUrl,
+        email,
+        id: _id.toString()
+    };
 
     resp.status(200).json(response);
 };
