@@ -7,4 +7,6 @@ export interface IMeResponse {
     patronymic: IUserBD['patronymic'];
     role: IUserBD['claims']['role'];
     avatarUrl: IUserBD['avatarUrl'];
+    email: IUserBD['email'];
+    id: string;
 }

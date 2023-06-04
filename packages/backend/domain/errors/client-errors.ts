@@ -8,7 +8,8 @@ export type EErrorNames =
     | 'BAD_NAME'
     | 'EMAIL_IS_ALREADY_USED'
     | 'BAD_LOGIN_OR_PASSWORD'
-    | 'LACK_OF_RIGHTS';
+    | 'LACK_OF_RIGHTS'
+    | 'USER_DOESNT_EXITS';
 
 export type ICLIENT_ERROR = TError<EErrorNames>;
 
@@ -60,5 +61,11 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         message: 'У вас недостаточно прав, чтобы совершить действие',
         code: 400,
         name: 'LACK_OF_RIGHTS'
+    },
+    USER_DOESNT_EXITS: {
+        title: 'Пользователь не существует',
+        message: 'Обращение к пользователю, которого не существует',
+        code: 400,
+        name: 'USER_DOESNT_EXITS'
     }
 };
