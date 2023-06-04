@@ -1,9 +1,9 @@
 import { TController } from '../../../domain/types/contoller.type';
 import { User } from '../../../bd';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
-import { ISetNameDto, ISetNameResponse } from './set-name';
+import { ISetFullNameDto, ISetFullNameResponse } from './set-full-name';
 
-export const setNameController: TController<ISetNameDto> = async (req, resp) => {
+export const setFullNameController: TController<ISetFullNameDto> = async (req, resp) => {
     const user = await User.findOne({ email: req.user?.email });
 
     if (!user) {
@@ -12,9 +12,12 @@ export const setNameController: TController<ISetNameDto> = async (req, resp) => 
     }
 
     user.name = req.body.name;
+    user.surname = req.body.surname;
+    user.patronymic = req.body.patronymic;
+
     await user.save();
 
-    const response: ISetNameResponse = { status: 'ok' };
+    const response: ISetFullNameResponse = { status: 'ok' };
 
     resp.status(200).json(response);
 };
