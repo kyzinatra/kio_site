@@ -2,11 +2,11 @@ import { CLIENT_ERRORS } from '../errors/client-errors';
 import { Response, NextFunction } from 'express';
 import { QUERY_WITHOUT_AUTH } from '../../api/query-keys/query-keys';
 import { CustomRequest } from '../types/custom-request.type';
-import { User } from '../../bd/schemas/user.schema';
+import { User } from '../../bd';
 import { IUserBD } from '../../bd/types/user-bd.interface';
 import { SERVER_ERRORS } from '../errors/server-errors';
-import { verifyRefreshToken } from '../token/token-service/refresh-token';
 import { TOKEN_COLLECTION } from '../token/token-collection';
+import { tokenService } from '../token';
 
 export const authMiddleware = async <T>(
     req: CustomRequest<T>,
@@ -25,7 +25,7 @@ export const authMiddleware = async <T>(
         return;
     }
 
-    const tokenInfo = verifyRefreshToken({
+    const tokenInfo = tokenService.verifyRefresh({
         ip: req.ip,
         browser: req.headers['user-agent'] ?? '',
         token: token
@@ -52,7 +52,7 @@ export const authMiddleware = async <T>(
         resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
     }
 
-    req.user = user as IUserBD;
+    req.user = user;
 
     next();
 };

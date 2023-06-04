@@ -1,7 +1,7 @@
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
-import { authRouter } from './api';
+import { authRouter, lkRouter } from './api';
 import cookieParser from 'cookie-parser';
 import { authMiddleware } from './domain/middleware';
 const app = express();
@@ -16,6 +16,7 @@ app.set('trust proxy', true);
 app.use(authMiddleware);
 
 app.use(authRouter);
+app.use(lkRouter);
 
 app.listen(port, async () => {
     await mongoose.connect(url);

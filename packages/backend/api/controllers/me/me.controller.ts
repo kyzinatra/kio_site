@@ -9,10 +9,11 @@ export const meController: TController<null> = async (req, resp) => {
         surname,
         patronymic,
         claims: { role },
-        avatarUrl
+        avatarUrl,
+        email
     } = req.user as IUserBD;
 
-    const response: IMeResponse = { displayName, name, surname, patronymic, role, avatarUrl };
+    const response: IMeResponse = { displayName, name, surname, patronymic, role, avatarUrl, email };
 
     resp.status(200).json(response);
 };
