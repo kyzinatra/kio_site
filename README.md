@@ -21,6 +21,7 @@
 ## Полезные ссылки
 
 Установка [Docker](https://www.docker.com/)
+
 Установка [Nodejs](https://nodejs.org/en)
 
 
@@ -51,10 +52,10 @@ docker-compose -f frontend.docker-compose.yaml up
 
 Для запуска **frontend** части:
 
-`
+```sh
 cd packages/frontend/
 rushx start || npm start
-`
+```
 
 
 ## Формулировка Задачи
