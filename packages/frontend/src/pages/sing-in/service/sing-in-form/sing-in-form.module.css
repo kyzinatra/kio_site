@@ -1,5 +1,5 @@
 .form {
-  width: clamp(200px, 60%, 700px);
+  composes: form-width from '../../styles/utils.module.css';
 }
 .form__controls {
   display: flex;

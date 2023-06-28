@@ -11,6 +11,7 @@ import css from './button.module.css';
 export const Button: FC<PropsWithChildren<IButton>> = ({
   children,
   className,
+  stretch,
   theme = 'default',
   size = 'default',
   ...props
@@ -18,7 +19,9 @@ export const Button: FC<PropsWithChildren<IButton>> = ({
   return (
     <button
       {...props}
-      className={clx(className, css.button_base, css[`button_${theme}`], css[`button_size-${size}`])}
+      className={clx(className, css.button_base, css[`button_${theme}`], css[`button_size-${size}`], {
+        [css.button_stretch]: stretch
+      })}
     >
       {children}
     </button>

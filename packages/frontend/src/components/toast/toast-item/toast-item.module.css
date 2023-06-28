@@ -16,7 +16,7 @@
 
 .toasts__item {
   padding: 10px 75px 10px 20px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   z-index: 5;
   min-width: 150px;
   position: relative;

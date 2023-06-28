@@ -1,0 +1,15 @@
+.full-height-form {
+  min-height: calc(100vh - var(--breadcrumbs-height));
+  min-height: calc(100dvh - var(--breadcrumbs-height));
+}
+
+.form-width {
+  width: clamp(300px, 60%, 1200px);
+}
+
+.center-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

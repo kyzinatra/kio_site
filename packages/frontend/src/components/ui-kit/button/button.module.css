@@ -1,6 +1,6 @@
 .button_base {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   border: 1px solid black;
   font-size: 1.2rem;
@@ -39,6 +39,10 @@
 }
 .button_size-xxlong {
   padding: 8px 130px;
+}
+
+.button_stretch {
+  width: 100%;
 }
 
 .button_base:disabled {

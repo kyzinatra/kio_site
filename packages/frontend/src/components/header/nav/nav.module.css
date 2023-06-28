@@ -57,7 +57,7 @@
   height: calc(var(--nav-height) - 10px);
   background-color: var(--accent-light-color-glass);
   z-index: 0;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   top: 50%;
   transform: translateY(-50%);
   transition: all var(--default-transition-time);

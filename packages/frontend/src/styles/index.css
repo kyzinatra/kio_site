@@ -6,6 +6,9 @@
   --accent-light-color: #eaeaea;
   --accent-light-color-glass: rgba(234, 234, 234, 0.8);
 
+  --border-radius: 5px;
+  --border-radius-big: 8px;
+
   --contrast-text-color: #fff;
   --contrast-bg-color: #000;
 
@@ -16,6 +19,7 @@
 
   --default-transition-time: 200ms;
   --main-width: 1445px;
+
   --min-page-padding: 50px;
   --header-height: 110px;
   --nav-height: 45px;

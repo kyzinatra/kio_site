@@ -1,0 +1,4 @@
+.sing-up {
+  composes: center-page from '@styles/utils.module.css';
+  composes: full-height-form from '@styles/utils.module.css';
+}

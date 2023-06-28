@@ -27,7 +27,6 @@ export const ToastItem = forwardRef<HTMLDivElement, TToastProps>(
         payload: { id }
       });
     }
-    console.log(theme);
 
     return (
       <div ref={nodeRef} className={clx(css.toasts__item, css[`toast__item_` + theme])}>

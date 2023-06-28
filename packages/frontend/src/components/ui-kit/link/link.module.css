@@ -13,7 +13,7 @@
   background-color: var(--contrast-bg-color);
   padding: 8px 15px;
   border: 1px solid var(--contrast-bg-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   transition: color var(--default-transition-time);
 
   transition: background-color var(--default-transition-time);

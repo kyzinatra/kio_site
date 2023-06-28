@@ -1,11 +1,6 @@
 .sing-in {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  min-height: calc(100vh - var(--breadcrumbs-height));
-  min-height: calc(100dvh - var(--breadcrumbs-height));
+  composes: center-page from '@styles/utils.module.css';
+  composes: full-height-form from '@styles/utils.module.css';
 }
 
 .sing-in__title {

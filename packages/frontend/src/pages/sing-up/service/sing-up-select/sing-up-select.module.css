@@ -1,0 +1,6 @@
+.sing-up-select {
+  composes: form-width from '@styles/utils.module.css';
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
