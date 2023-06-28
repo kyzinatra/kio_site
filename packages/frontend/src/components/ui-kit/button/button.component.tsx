@@ -1,6 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { IButton } from './button';
-import { clx } from '../../../utils/clx';
+import { clx } from '@utils/clx';
 
 import css from './button.module.css';
 

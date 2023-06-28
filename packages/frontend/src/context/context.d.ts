@@ -1,5 +1,5 @@
 import { LegacyRef, RefObject } from 'react';
-import { IToast } from '../components/toast/toast';
+import { IToast } from '@components/toast/toast';
 
 
 export type TToastProps = (IToast & { id: string })
