@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 import { Header } from '../header/header.component';
 import { Footer } from '../footer/footer.component';
 import { Navigate } from 'react-router-dom';
@@ -13,30 +13,26 @@ import { Toast } from '../toast/toast.component';
  * @param {boolean} withFooter - if true, renders the footer
  * @param {string} protectedFrom - if 'anonymous', redirects to default route if user is not logged in, if 'authorized', redirects to default route if user is logged in
  */
-export const Layout: FC<PropsWithChildren<ILayout>> = ({
-  withNav,
-  withHelp,
-  withFooter,
-  children,
-  protectedFrom
-}) => {
-  const { isLoading, error, data } = useMeRequest();
+export const Layout: FC<PropsWithChildren<ILayout>> = memo(
+  ({ withNav, withHelp, withFooter, children, protectedFrom }) => {
+    const { isLoading, error, data } = useMeRequest();
 
-  if (isLoading) return <h1>Loading...</h1>;
+    if (isLoading) return <h1>Loading...</h1>;
 
-  if (
-    (error?.name === 'UNAUTHORIZED' && protectedFrom === 'anonymous') ||
-    (data && protectedFrom === 'authorized')
-  ) {
-    return <Navigate to={ROUTES.DEFAULT_ROUTE} />;
+    if (
+      (error?.name === 'UNAUTHORIZED' && protectedFrom === 'anonymous') ||
+      (data && protectedFrom === 'authorized')
+    ) {
+      return <Navigate to={ROUTES.DEFAULT_ROUTE} />;
+    }
+
+    return (
+      <>
+        <Header withNav={withNav} withHelp={withHelp} />
+        {children}
+        {withFooter && <Footer />}
+        <Toast />
+      </>
+    );
   }
-
-  return (
-    <>
-      <Header withNav={withNav} withHelp={withHelp} />
-      {children}
-      {withFooter && <Footer />}
-      <Toast />
-    </>
-  );
-};
+);

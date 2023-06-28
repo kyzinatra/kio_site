@@ -24,7 +24,6 @@
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@types/*": ["src/types/*"],
       "@assets/*": ["src/assets/*"],
       "@constants/*": ["src/constants/*"],
       "@api/*": ["src/api/"]

@@ -1,5 +1,5 @@
 .form {
-  composes: form-width from '../../styles/utils.module.css';
+  composes: form-width from '@styles/utils.module.css';
 }
 .form__controls {
   display: flex;

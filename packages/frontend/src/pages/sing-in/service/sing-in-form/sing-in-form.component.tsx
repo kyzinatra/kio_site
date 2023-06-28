@@ -8,15 +8,13 @@ import { Link } from '@components/ui-kit/link/link.component';
 
 import { useSingInMutation } from '@api/';
 
-import css from './sing-in-form.module.css';
 import { useForm } from '@hooks/use-form';
 import { useToast } from '@hooks/use-toast';
 import { useModified } from '@hooks/use-modified';
 
-type TSingInForm = {
-  email: string;
-  password: string;
-};
+import { TSingInForm } from '../../../../types/forms/sing-in-form';
+
+import css from './sing-in-form.module.css';
 
 const initialForm = { email: '', password: '' };
 

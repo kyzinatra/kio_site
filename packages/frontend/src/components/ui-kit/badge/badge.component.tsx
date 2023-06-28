@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 import { IBadge } from './badge';
 
 import css from './badge.module.css';
@@ -12,7 +12,7 @@ import { Link } from '../link/link.component';
  * @param {number} width - image width
  * @param {ReactNode} children - badge text
  */
-export const Badge: FC<PropsWithChildren<IBadge>> = ({ children, src, to, height = 30, width = 30 }) => {
+export const Badge: FC<PropsWithChildren<IBadge>> = memo(({ children, src, to, height = 30, width = 30 }) => {
   const content = (
     <figure className={css.badge}>
       <img src={src} width={width} height={height} />
@@ -20,4 +20,4 @@ export const Badge: FC<PropsWithChildren<IBadge>> = ({ children, src, to, height
     </figure>
   );
   return to ? <Link to={to}>{content}</Link> : content;
-};
+});

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Nav } from './nav/nav.component';
 
 import { Breadcrumbs } from '../ui-kit/breadcrumbs/breadcrumbs.component';
@@ -7,7 +7,7 @@ import css from './header.module.css';
 
 import type { IHeader } from './header';
 
-export const Header: FC<IHeader> = ({ withNav, withHelp }) => {
+export const Header: FC<IHeader> = memo(({ withNav, withHelp }) => {
   return (
     <>
       <div className={css.header__breadcrumbs}>
@@ -20,4 +20,4 @@ export const Header: FC<IHeader> = ({ withNav, withHelp }) => {
       )}
     </>
   );
-};
+});

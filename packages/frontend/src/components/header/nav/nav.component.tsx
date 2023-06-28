@@ -1,4 +1,4 @@
-import React, { FC, useState, MouseEvent } from 'react';
+import { FC, useState, MouseEvent, memo } from 'react';
 
 import css from './nav.module.css';
 
@@ -10,7 +10,7 @@ import { Link } from '../../ui-kit/link/link.component';
 import { Badge } from '../../ui-kit/badge/badge.component';
 import { useMeRequest } from '../../../api';
 
-export const Nav: FC = () => {
+export const Nav: FC = memo(() => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
 
   const { isError, isLoading, data } = useMeRequest();
@@ -73,4 +73,4 @@ export const Nav: FC = () => {
       </div>
     </nav>
   );
-};
+});

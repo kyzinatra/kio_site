@@ -1,11 +1,11 @@
-import React from 'react';
+import { memo } from 'react';
 import { FOOTER_CONTENT, FOOTER_CONTENT_TITLES } from './constants';
 import { Link } from '../ui-kit/link/link.component';
 
 import css from './footer.module.css';
 import { ROUTES } from '../../constants/routes';
 
-export const Footer = () => {
+export const Footer = memo(() => {
   return (
     <footer className={css.footer}>
       <div className={css.footer__grid}>
@@ -36,4 +36,4 @@ export const Footer = () => {
       </div>
     </footer>
   );
-};
+});
