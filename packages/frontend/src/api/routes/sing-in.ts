@@ -19,7 +19,7 @@ export const useSingInMutation = () => {
 
   return useMutation<ISignInResponse, TError, ISingInDto>({
     mutationKey: [QUERY_KEYS.SIGN_IN],
-    mutationFn: body => singInRequest(body),
+    mutationFn: singInRequest,
     retry: 1,
     onSuccess: () => {
       client.invalidateQueries([QUERY_KEYS.ME]);

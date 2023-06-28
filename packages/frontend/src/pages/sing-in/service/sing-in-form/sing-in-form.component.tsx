@@ -1,6 +1,6 @@
-import React, { FormEvent, useMemo, useState } from 'react';
+import { FormEvent } from 'react';
 
-import { ROUTES } from '../../../../constants/routes';
+import { ROUTES } from '@constants/routes';
 
 import { Input } from '@components/ui-kit/input/input.components';
 import { Button } from '@components/ui-kit/button/button.component';
