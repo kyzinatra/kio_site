@@ -17,11 +17,14 @@
   --default-transition-time: 200ms;
   --main-width: 1445px;
   --min-page-padding: 50px;
-  --nav-height: 45px;
   --header-height: 110px;
+  --nav-height: 45px;
   --breadcrumbs-height: calc(var(--header-height) - var(--nav-height));
 
-  --danger-color: red;
+  --error-color: #ec1400;
+  --warning-color: #ed6c02;
+  --info-color: #0288d1;
+  --success-color: #2e7d32;
 
   --start-grad-color-1: #00c2ff;
   --start-grad-color-2: #6b00d7;

@@ -11,7 +11,7 @@ import { Toast } from '../toast/toast.component';
  * @param {boolean} withNav - if true, renders the navigation bar
  * @param {boolean} withHelp - if true, renders the help button
  * @param {boolean} withFooter - if true, renders the footer
- * @param {string} protectedFrom - if 'anonymous', redirects to default route if user is logged in, if 'authorized', redirects to default route if user is not logged in
+ * @param {string} protectedFrom - if 'anonymous', redirects to default route if user is not logged in, if 'authorized', redirects to default route if user is logged in
  */
 export const Layout: FC<PropsWithChildren<ILayout>> = ({
   withNav,

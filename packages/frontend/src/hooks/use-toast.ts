@@ -7,7 +7,7 @@ import { IToast } from '../components/toast/toast';
  * @description Hook for pushing toast messages
  * @example
  * const toast = useToast();
- * toast.push({ title: 'Hello', description: 'World', type: 'success' });
+ * toast.push({ title: 'Hello', theme: 'success' });
  */
 export function useToast() {
   const dispatch = useContext(ToastContextDispatch);

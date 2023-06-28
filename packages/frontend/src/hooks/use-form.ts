@@ -9,7 +9,7 @@ type IResult<T extends TForm> = {
       onChange: (e: ChangeEvent | boolean | string | number) => void;
     };
   };
-  _clear: () => void;
+  clear: () => void;
 };
 
 /**
@@ -26,7 +26,7 @@ export function useForm<T extends TForm>(defaultValue: T): IResult<T> {
   return useMemo(() => {
     const result: IResult<T> = {
       form: {},
-      _clear() {
+      clear() {
         setValuesState(lastValue => {
           for (let key in lastValue) {
             lastValue[key] = defaultValue[key];

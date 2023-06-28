@@ -12,6 +12,7 @@ import css from './sing-in-form.module.css';
 import { useForm } from '../../../../hooks/use-form';
 import { useToast } from '../../../../hooks/use-toast';
 import { clx } from '../../../../utils/clx';
+import { useModified } from '../../../../hooks/use-modified';
 
 type TSingInForm = {
   email: string;
@@ -23,34 +24,24 @@ const initialForm = { email: '', password: '' };
 export const SingInForm = () => {
   const { form } = useForm<TSingInForm>(initialForm);
   const tost = useToast();
-  const [isModified, setModified] = useState(false);
+  const [isModified, setModified, onModified] = useModified();
 
-  const mutationQuery = useSingInMutation();
+  const { mutate, isError, isLoading } = useSingInMutation();
 
   function submitFormHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setModified(false);
-    mutationQuery.mutate(
+    mutate(
       {
         email: form.email?.value || '',
         password: form.password?.value || ''
       },
       {
         onError(error) {
-          tost.push({ title: error.message });
+          tost.push({ title: error.message, theme: 'error' });
         }
       }
     );
-  }
-
-  const errorStyle = useMemo(
-    () => ({ [css.form__control_error]: mutationQuery.isError && !isModified }),
-    [mutationQuery.isError, isModified]
-  );
-
-  function modifiedHandler() {
-    console.log('asass');
-    setModified(true);
   }
 
   return (
@@ -59,20 +50,22 @@ export const SingInForm = () => {
         <Input
           placeholder="Почта"
           type="email"
-          onFocus={modifiedHandler}
-          className={clx(errorStyle)}
+          isError={isError && !isModified}
+          disabled={isLoading}
           required
           {...form.email}
+          {...onModified}
         />
         <Input
           placeholder="Пароль"
           type="password"
-          onFocus={modifiedHandler}
-          className={clx(errorStyle)}
+          isError={isError && !isModified}
+          disabled={isLoading}
           required
           {...form.password}
+          {...onModified}
         />
-        <Button type="submit" theme="accent" disabled={mutationQuery.isLoading}>
+        <Button type="submit" theme="accent" disabled={isLoading}>
           Отправить
         </Button>
       </div>
