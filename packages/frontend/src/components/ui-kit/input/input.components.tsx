@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { IInput } from './input';
-import { clx } from '../../../utils/clx';
+import { clx } from '@utils/clx';
 
 import css from './input.module.css';
 

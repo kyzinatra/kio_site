@@ -2,8 +2,8 @@ import React, { FC, PropsWithChildren } from 'react';
 import { Header } from '../header/header.component';
 import { Footer } from '../footer/footer.component';
 import { Navigate } from 'react-router-dom';
-import { ROUTES } from '../../constants/routes';
-import { useMeRequest } from '../../api';
+import { ROUTES } from '@constants/routes';
+import { useMeRequest } from '@api/';
 import { Toast } from '../toast/toast.component';
 
 /**

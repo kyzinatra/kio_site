@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import css from './service-preview.module.css';
 
 import { TServiceRefProps } from './service-presentation/service-presentation';

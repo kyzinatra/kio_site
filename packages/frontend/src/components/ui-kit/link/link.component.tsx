@@ -1,9 +1,9 @@
-import  { FC, PropsWithChildren, useCallback } from 'react';
+import { FC, PropsWithChildren, useCallback } from 'react';
 import { ILink, TLinkClassNames } from './link';
 import { NavLink } from 'react-router-dom';
 
 import css from './link.module.css';
-import { clx } from '../../../utils/clx';
+import { clx } from '@utils/clx';
 
 /**
  * @description Link component for displaying links on the page. Takes all the props of the NavLink (react-router) element and the theme, size, underline props.

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Layout } from '../../components/layout/layout.component';
+import { Layout } from '@components/layout/layout.component';
 import { SingInForm } from './service/sing-in-form/sing-in-form.component';
 import { NETWORK_IMAGES } from './service/constants';
 

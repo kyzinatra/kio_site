@@ -2,17 +2,16 @@ import React, { FormEvent, useMemo, useState } from 'react';
 
 import { ROUTES } from '../../../../constants/routes';
 
-import { Input } from '../../../../components/ui-kit/input/input.components';
-import { Button } from '../../../../components/ui-kit/button/button.component';
-import { Link } from '../../../../components/ui-kit/link/link.component';
+import { Input } from '@components/ui-kit/input/input.components';
+import { Button } from '@components/ui-kit/button/button.component';
+import { Link } from '@components/ui-kit/link/link.component';
 
-import { useSingInMutation } from '../../../../api';
+import { useSingInMutation } from '@api/';
 
 import css from './sing-in-form.module.css';
-import { useForm } from '../../../../hooks/use-form';
-import { useToast } from '../../../../hooks/use-toast';
-import { clx } from '../../../../utils/clx';
-import { useModified } from '../../../../hooks/use-modified';
+import { useForm } from '@hooks/use-form';
+import { useToast } from '@hooks/use-toast';
+import { useModified } from '@hooks/use-modified';
 
 type TSingInForm = {
   email: string;

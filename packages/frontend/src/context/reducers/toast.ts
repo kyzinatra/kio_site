@@ -1,6 +1,6 @@
 import { createRef } from 'react';
 import { IActionType, IState } from '../context';
-import { IToast } from '../../components/toast/toast';
+import { IToast } from '@components/toast/toast';
 
 export const PUSH_TOAST = 'PUSH_TOAST';
 export const DELETE_TOAST = 'DELETE_TOAST';

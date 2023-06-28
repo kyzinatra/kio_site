@@ -7,7 +7,7 @@ import './toast.animation.css';
 
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { ToastItem } from './toast-item/toast-item.component';
-import { BASE_ANIMATION_TIME } from '../../api/constants/layout';
+import { BASE_ANIMATION_TIME } from '@constants/layout';
 
 const container = document.getElementById('toasts') as HTMLElement;
 

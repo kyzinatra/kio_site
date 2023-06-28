@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 
 import css from './trace.module.css';
 import { ITrace } from './trace';
-import { clx } from '../../../utils/clx';
+import { clx } from '@utils/clx';
 
 /**
  * @description Trace component for displaying traces on the page. Using by Home page for KIO presentation

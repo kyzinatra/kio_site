@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 
 import css from './Breadcrumbs.module.css';
 import { Link } from 'react-router-dom';
-import { ICON_HEIGHT, ICON_WIDTH } from '../../../constants/sizes';
+import { ICON_HEIGHT, ICON_WIDTH } from '@constants/sizes';
 import { IBreadcrumbs } from './breadcrumbs';
 import { Badge } from '../badge/badge.component';
-import { useBreadcrumbs } from '../../../hooks/use-breadcrumbs.hook';
+import { useBreadcrumbs } from '@hooks/use-breadcrumbs.hook';
 
 /**
  * @description Breadcrumbs component for displaying breadcrumbs on the page

@@ -1,4 +1,3 @@
-import React from 'react';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import css from './404.module.css';
 export const Page404 = () => {

@@ -1,8 +1,6 @@
-import React from 'react';
-
 import css from './service-start.module.css';
-import { ROUTES } from '../../../../constants/routes';
-import { Link } from '../../../../components/ui-kit/link/link.component';
+import { ROUTES } from '@constants/routes';
+import { Link } from '@components/ui-kit/link/link.component';
 
 export const ServiceStart = () => {
   // TODO: Как  я пойму как сделать так, чтобы это выглядело не как дохлая псина я поправлю. Пока такой дизайн.
