@@ -3,19 +3,19 @@ import { Input } from '@components/ui-kit/input/input.components';
 import RadioContainer from '@components/ui-kit/radio/radio-container/radio-container.component';
 import { Radio } from '@components/ui-kit/radio/radio.component';
 
-import { SELECT_OPTIONS } from '@pages/sing-up/service/sing-up-select/constants';
+import { SELECT_OPTIONS } from '@pages/sign-up/service/sign-up-select/constants';
 
 import { FC } from 'react';
 
-import css from './sing-up-select.module.css';
+import css from './sign-up-select.module.css';
 import { useForm } from '@hooks/use-form';
 import { useToast } from '@hooks/use-toast';
 
-import { ISingUpSelect } from './sing-up-select';
-import { TSingUpSelectForm } from 'src/types/forms/sing-up-form';
+import { ISignUpSelect } from './sign-up-select';
+import { TSignUpSelectForm } from '@pages/sign-up/sign-up';
 
-const SingUpSelect: FC<ISingUpSelect> = ({ onSubmit }) => {
-  const { form } = useForm<TSingUpSelectForm>({ email: '', role: '' });
+const SignUpSelect: FC<ISignUpSelect> = ({ onSubmit, baseForm }) => {
+  const { form } = useForm<TSignUpSelectForm>(baseForm);
   const toast = useToast();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -30,8 +30,8 @@ const SingUpSelect: FC<ISingUpSelect> = ({ onSubmit }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={css['sing-up-select']}>
-      <RadioContainer name="register_options" onChange={form.role?.onChange}>
+    <form onSubmit={handleSubmit} className={css['sign-up-select']}>
+      <RadioContainer name="register_options" {...form.role}>
         {SELECT_OPTIONS.map(({ title, content }) => (
           <Radio title={title} value={title} key={title}>
             {content}
@@ -46,4 +46,4 @@ const SingUpSelect: FC<ISingUpSelect> = ({ onSubmit }) => {
   );
 };
 
-export default SingUpSelect;
+export default SignUpSelect;

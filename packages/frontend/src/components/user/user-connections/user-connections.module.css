@@ -1,0 +1,10 @@
+.sign-in__title {
+  font-size: 2.5rem;
+}
+
+.sign-in__networks {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}

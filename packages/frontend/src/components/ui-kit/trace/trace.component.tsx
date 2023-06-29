@@ -5,7 +5,7 @@ import { ITrace } from './trace';
 import { clx } from '@utils/clx';
 
 /**
- * @description Trace component for displaying traces on the page. Using by Home page for KIO presentation
+ * @description Trace component for displaying traces on the page. Usign by Home page for KIO presentation
  */
 export const Trace: FC<PropsWithChildren<ITrace>> = ({ children, theme }) => {
   return (

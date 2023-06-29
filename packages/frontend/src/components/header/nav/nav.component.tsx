@@ -14,7 +14,7 @@ export const Nav: FC = memo(() => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
 
   const { isError, isLoading, data } = useMeRequest();
-  const isSingInDisplayed = isError || isLoading;
+  const isSignInDisplayed = isError || isLoading;
 
   function mouseEnterHandler(event: MouseEvent<HTMLElement>) {
     const element = event.target;
@@ -52,11 +52,11 @@ export const Nav: FC = memo(() => {
         ))}
       </ul>
 
-      <div className={css.nav__sing}>
-        {isSingInDisplayed ? (
+      <div className={css.nav__sign}>
+        {isSignInDisplayed ? (
           <>
-            <Link to={ROUTES.SING_IN_ROUTE}>Войти</Link>
-            <Link to={ROUTES.SING_UP_ROUTE} theme="accent">
+            <Link to={ROUTES.SIGN_IN_ROUTE}>Войти</Link>
+            <Link to={ROUTES.SIGN_UP_ROUTE} theme="accent">
               Регистрация
             </Link>
           </>

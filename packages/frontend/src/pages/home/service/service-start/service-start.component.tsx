@@ -11,7 +11,7 @@ export const ServiceStart = () => {
         <Link className={css.start__link} to={ROUTES.EXAMPLES_ROUTE} theme="accent" size="xxlong">
           Примеры задач прошлых лет
         </Link>
-        <Link className={css.start__link} to={ROUTES.SING_UP_ROUTE} theme="accent" size="xxlong">
+        <Link className={css.start__link} to={ROUTES.SIGN_UP_ROUTE} theme="accent" size="xxlong">
           Зарегестироваться на конкурс
         </Link>
       </div>

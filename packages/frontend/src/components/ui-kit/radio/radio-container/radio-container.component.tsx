@@ -1,10 +1,14 @@
-import React, { ChangeEvent, FC, ReactElement, useState } from 'react';
+import React, { ChangeEvent, FC, ReactElement, useEffect, useState } from 'react';
 import { IRadioContainer } from './radio-container';
 
 import css from './radio-container.module.css';
 
-const RadioContainer: FC<IRadioContainer> = ({ children, name, onChange }) => {
-  const [selectedValue, setSelectedValue] = useState('');
+const RadioContainer: FC<IRadioContainer> = ({ children, name, onChange, value }) => {
+  const [selectedValue, setSelectedValue] = useState(value);
+
+  useEffect(() => {
+    if (selectedValue !== value) setSelectedValue(value || '');
+  }, [value]);
 
   function changeHandler(event: ChangeEvent<HTMLInputElement>) {
     setSelectedValue(event.target.value);

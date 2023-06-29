@@ -1,4 +1,4 @@
 import { useMeRequest } from './routes/me';
-import { useSingInMutation } from './routes/sing-in';
+import { useSignInMutation } from './routes/sign-in';
 
-export { useSingInMutation, useMeRequest };
+export { useSignInMutation, useMeRequest };

@@ -1,6 +1,8 @@
 import { ChangeEvent, useMemo, useState } from 'react';
 
-type TForm = { [key: string]: string | boolean | number };
+interface TForm {
+  [key: string]: any;
+}
 
 type IResult<T extends TForm> = {
   form: {

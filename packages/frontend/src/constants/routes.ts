@@ -7,8 +7,8 @@ export const ROUTES = {
   RESULTS_ROUTE: '/results',
   EXAMPLES_ROUTE: '/examples',
   ABOUT_ROUTE: '/about',
-  SING_IN_ROUTE: '/sing-in',
-  SING_UP_ROUTE: '/sing-up',
+  SIGN_IN_ROUTE: '/sign-in',
+  SIGN_UP_ROUTE: '/sign-up',
   PAGE_404_ROUTE: '/404',
   PROFILE_ROUTE: '/profile',
   FORGOT_PASSWORD_ROUTE: '/forgot-password',
@@ -24,12 +24,12 @@ export const routesData: TRoutesData = {
     icon: '/tasks-icon.svg',
     title: 'Задачи'
   },
-  [ROUTES.SING_IN_ROUTE]: {
-    icon: '/sing-in-icon.svg',
+  [ROUTES.SIGN_IN_ROUTE]: {
+    icon: '/sign-in-icon.svg',
     title: 'Войти'
   },
-  [ROUTES.SING_UP_ROUTE]: {
-    icon: '/sing-in-icon.svg',
+  [ROUTES.SIGN_UP_ROUTE]: {
+    icon: '/sign-in-icon.svg',
     title: 'Регистрация'
   }
 } as const;

@@ -18,16 +18,16 @@ export const REACT_ROUTER = createBrowserRouter([
     errorElement: <Page404 />
   },
   {
-    path: ROUTES.SING_IN_ROUTE,
+    path: ROUTES.SIGN_IN_ROUTE,
     async lazy() {
-      return { Component: (await import('../pages/sing-in/sing-in.page')).SingIn };
+      return { Component: (await import('../pages/sign-in/sign-in.page')).SignIn };
     },
     errorElement: <Page404 />
   },
   {
-    path: ROUTES.SING_UP_ROUTE,
+    path: ROUTES.SIGN_UP_ROUTE,
     async lazy() {
-      return { Component: (await import('../pages/sing-up/sing-up.page')).SingUp };
+      return { Component: (await import('../pages/sign-up/sign-up.page')).SignUp };
     },
     errorElement: <Page404 />
   }

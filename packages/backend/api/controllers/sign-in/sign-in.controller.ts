@@ -1,9 +1,9 @@
 import { TController } from '../../../domain/types/contoller.type';
-import { ISignInResponse, ISingInDto } from './sign-in.types';
+import { ISignInResponse, ISignInDto } from './sign-in.types';
 import { User } from '../../../bd/schemas/user.schema';
 import { createRefreshToken } from '../../executors/refresh-token/create-refresh-token';
 
-export const signInController: TController<ISingInDto> = async (req, resp) => {
+export const signInController: TController<ISignInDto> = async (req, resp) => {
     const { email } = req.body;
 
     const ip = req.ip;

@@ -63,7 +63,7 @@
   transition: all var(--default-transition-time);
 }
 
-.nav__sing {
+.nav__sign {
   display: flex;
   gap: 40px;
   align-items: center;
