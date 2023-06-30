@@ -74,3 +74,5 @@ export const Nav: FC = memo(() => {
     </nav>
   );
 });
+
+Nav.displayName = 'memo(Nav)';

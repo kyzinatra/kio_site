@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 
 import css from './Breadcrumbs.module.css';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ import { useBreadcrumbs } from '@hooks/use-breadcrumbs.hook';
  * @param {boolean} withHelp - if true, renders the help button on the right side
  */
 
-export const Breadcrumbs: FC<IBreadcrumbs> = ({ withHelp }) => {
+export const Breadcrumbs: FC<IBreadcrumbs> = memo(({ withHelp }) => {
   const breadcrumbsData = useBreadcrumbs();
 
   return (
@@ -41,4 +41,6 @@ export const Breadcrumbs: FC<IBreadcrumbs> = ({ withHelp }) => {
       )}
     </div>
   );
-};
+});
+
+Breadcrumbs.displayName = 'memo(Breadcrumbs)';

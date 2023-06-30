@@ -21,3 +21,5 @@ export const Header: FC<IHeader> = memo(({ withNav, withHelp }) => {
     </>
   );
 });
+
+Header.displayName = 'memo(Header)';

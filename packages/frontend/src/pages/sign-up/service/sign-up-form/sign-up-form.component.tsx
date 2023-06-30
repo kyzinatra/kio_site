@@ -1,4 +1,4 @@
-import { FC, ChangeEvent, FormEvent, useState } from 'react';
+import { FC, ChangeEvent, FormEvent, useState, useCallback } from 'react';
 import { ISignUpFormProps } from './sign-up-form';
 import { useForm } from '@hooks/use-form';
 import UserConnections from '@components/user/user-connections/user-connections';
@@ -28,7 +28,7 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
       return;
     }
 
-    const fullName = form.fullName?.value.split(' ');
+    const fullName = form.fullName?.value.split(' ').filter(Boolean);
 
     if (!fullName || fullName.length < 2) {
       toast.push({ title: 'Введите полное имя', theme: 'error' });
@@ -44,9 +44,12 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
     });
   }
 
-  function handleUserChange(e: ChangeEvent<HTMLInputElement>) {
-    form.fullName?.onChange(capitalize(e.target.value));
-  }
+  const handleUserChange = useCallback(
+    function handleUserChange(e: ChangeEvent<HTMLInputElement>) {
+      form.fullName?.onChange(capitalize(e.target.value));
+    },
+    [form.fullName]
+  );
 
   const isErrorStatus = (isError || isErrorState) && !isModified;
 

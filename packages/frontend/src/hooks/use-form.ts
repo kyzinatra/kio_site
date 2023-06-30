@@ -25,7 +25,7 @@ type IResult<T extends TForm> = {
 export function useForm<T extends TForm>(defaultValue: T): IResult<T> {
   const [valuesState, setValuesState] = useState(defaultValue);
 
-  return useMemo(() => {
+  const memoResult = useMemo(() => {
     const result: IResult<T> = {
       form: {},
       clear() {
@@ -35,26 +35,37 @@ export function useForm<T extends TForm>(defaultValue: T): IResult<T> {
           }
           return lastValue;
         });
+        for (let key in result.form) {
+          const field = this.form[key[0]];
+          if (field?.value) {
+            field.value = defaultValue[key[0]];
+          }
+        }
       }
     };
 
     for (let key in valuesState) {
-      result.form[key] = {
+      const currentField = {
         value: String(valuesState[key]),
 
         onChange(e: ChangeEvent | boolean | string | number) {
           if (typeof e !== 'object') {
+            currentField.value = String(e);
             setValuesState(lastState => ({ ...lastState, [key]: e }));
             return;
           }
           const el = e.target;
           if (el instanceof HTMLInputElement) {
+            currentField.value = String(el.value);
             setValuesState(lastState => ({ ...lastState, [key]: el.value }));
           }
         }
       };
+      result.form[key] = currentField;
     }
 
     return result;
-  }, [valuesState]);
+  }, []);
+
+  return memoResult;
 }

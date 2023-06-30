@@ -14,3 +14,13 @@ export type TError = {
   code: number,
   name: string
 }
+export type TUseAppMutation = < 
+  TData = unknown, 
+  TError = unknown,
+  TVariables = void,
+  TContext = unknown
+>(
+  options: UseMutationOptions<TData, TError, TVariables, TContext>,
+  withSuccess?: string | false 
+)=> UseMutationResult<TData, TError, TVariables, TContext>;
+

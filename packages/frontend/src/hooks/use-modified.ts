@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 type TUseModified = [boolean, React.Dispatch<React.SetStateAction<boolean>>, { onFocus: () => void }];
 
@@ -11,5 +11,9 @@ type TUseModified = [boolean, React.Dispatch<React.SetStateAction<boolean>>, { o
 export function useModified(defaultState: boolean = true): TUseModified {
   const [isModified, setModified] = useState(defaultState);
 
-  return [isModified, setModified, { onFocus: () => setModified(true) }];
+  const onFocus = useCallback(() => {
+    setModified(true);
+  }, []);
+
+  return [isModified, setModified, { onFocus }];
 }

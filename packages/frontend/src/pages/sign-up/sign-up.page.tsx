@@ -7,8 +7,7 @@ import { TSignUpDataForm, TSignUpSelectForm } from '@pages/sign-up/sign-up';
 import Swapper from '@components/ui-kit/swapper/swapper.components';
 import SignUpForm from './service/sign-up-form/sign-up-form.component';
 import { ISignUpDto } from '@api/api';
-import { useSignUpMutation } from '@api/routes/sign-up';
-import { useToast } from '@hooks/use-toast';
+import { useSignUpMutation } from '@api/index';
 
 export const SignUp = () => {
   const [combinedForm, setCombinedForm] = useState<Partial<ISignUpDto & { role: string }>>({});

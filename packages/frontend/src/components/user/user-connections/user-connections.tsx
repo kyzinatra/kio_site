@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, memo } from 'react';
 import { NETWORK_IMAGES } from './constants';
 import css from './user-connections.module.css';
-const UserConnections: FC<PropsWithChildren> = ({ children }) => {
+const UserConnections: FC<PropsWithChildren> = memo(({ children }) => {
   return (
     <section>
       <h1 className={css['sign-in__title']}>{children}</h1>
@@ -14,6 +14,8 @@ const UserConnections: FC<PropsWithChildren> = ({ children }) => {
       </ul>
     </section>
   );
-};
+});
+
+UserConnections.displayName = 'memo(UserConnections)';
 
 export default UserConnections;

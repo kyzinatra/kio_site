@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useCallback } from 'react';
+import { FC, PropsWithChildren, memo, useCallback } from 'react';
 import { ILink, TLinkClassNames } from './link';
 import { NavLink } from 'react-router-dom';
 
@@ -11,31 +11,28 @@ import { clx } from '@utils/clx';
  * DO NOT USE THE REACT ROUTER NAV LINK OR LINK COMPONENTS DIRECTLY, use this component instead
  */
 
-export const Link: FC<PropsWithChildren<ILink>> = ({
-  children,
-  theme = 'default',
-  size,
-  className,
-  underline,
-  ...props
-}) => {
-  const classNameFn = useCallback(
-    (attrs: TLinkClassNames) => {
-      let dropClassNames = className;
-      if (typeof className === 'function') dropClassNames = className(attrs);
-      return clx(
-        css[`link_size-${size}`],
-        css[`link_${theme}`],
-        { [css.link_underline]: underline },
-        dropClassNames
-      );
-    },
-    [theme, className]
-  );
+export const Link: FC<PropsWithChildren<ILink>> = memo(
+  ({ children, theme = 'default', size, className, underline, ...props }) => {
+    const classNameFn = useCallback(
+      (attrs: TLinkClassNames) => {
+        let dropClassNames = className;
+        if (typeof className === 'function') dropClassNames = className(attrs);
+        return clx(
+          css[`link_size-${size}`],
+          css[`link_${theme}`],
+          { [css.link_underline]: underline },
+          dropClassNames
+        );
+      },
+      [theme, className]
+    );
 
-  return (
-    <NavLink className={classNameFn} {...props}>
-      {children}
-    </NavLink>
-  );
-};
+    return (
+      <NavLink className={classNameFn} {...props}>
+        {children}
+      </NavLink>
+    );
+  }
+);
+
+Link.displayName = 'memo(Link)';

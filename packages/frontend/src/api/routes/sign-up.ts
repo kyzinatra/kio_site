@@ -1,9 +1,8 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { ISignUpDto, ISignUpResponse, TError } from '../api';
 import { BASE_URL } from '../constants/base';
-import { makeRequest } from '../makeRequest';
+import { makeRequest, useAppMutation } from '../utils';
 import { QUERY_KEYS } from '../constants/keys';
-import { useToast } from '@hooks/use-toast';
 
 const SIGN_UP_URL = `${BASE_URL}/SIGN_UP_QUERY`;
 
@@ -16,17 +15,13 @@ export async function signUpRequest(body: ISignUpDto) {
 // TODO вынести логику onError отдельно
 export const useSignUpMutation = () => {
   const client = useQueryClient();
-  const toast = useToast();
 
-  return useMutation<ISignUpResponse, TError, ISignUpDto>({
+  return useAppMutation<ISignUpResponse, TError, ISignUpDto>({
     mutationKey: [QUERY_KEYS.SIGN_UP],
     mutationFn: signUpRequest,
     retry: 1,
     onSuccess: () => {
       client.invalidateQueries([QUERY_KEYS.ME]);
-    },
-    onError(error: TError) {
-      toast.push({ title: error.message, theme: 'error' });
     }
   });
 };

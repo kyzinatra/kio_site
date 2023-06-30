@@ -21,3 +21,5 @@ export const Badge: FC<PropsWithChildren<IBadge>> = memo(({ children, src, to, h
   );
   return to ? <Link to={to}>{content}</Link> : content;
 });
+
+Badge.displayName = 'memo(Badge)';
