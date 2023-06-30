@@ -1,9 +1,9 @@
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
-import { authRouter } from './api';
+import { authRouter, lkRouter } from './api';
 import cookieParser from 'cookie-parser';
-import { authMiddleware } from './domain/middleware/auth-middleware';
+import { authMiddleware } from './domain/middleware';
 const app = express();
 
 const port = process.env.PORT ?? 3001;
@@ -11,11 +11,12 @@ const url = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWOR
 
 app.use(cors({ origin: process.env.FRONT_DEV_URL, credentials: true }));
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser('secret'));
 app.set('trust proxy', true);
 app.use(authMiddleware);
 
 app.use(authRouter);
+app.use(lkRouter);
 
 app.listen(port, async () => {
     await mongoose.connect(url);

@@ -1,4 +1,4 @@
-import { secret } from '../../../secret';
+import { secret } from '../../../../secret';
 import jwt from 'jsonwebtoken';
 import { IRefreshPayload } from './refresh-token.types';
 
