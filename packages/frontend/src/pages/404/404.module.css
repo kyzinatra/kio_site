@@ -1,5 +1,7 @@
 .page {
-  font-size: 3rem;
-  text-align: center;
-  font-weight: bold;
+  padding: 60px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }

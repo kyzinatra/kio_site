@@ -1,0 +1,25 @@
+.page{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 2rem;
+}
+
+.writeUs{
+    font-size: 1.5rem;
+    color: #444444;
+}
+
+.a{
+    margin-left: 5px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
