@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { QUERY_KEYS } from '../../query-keys/';
-import { validationMiddleware } from '../../../domain/middleware/validation-middleware';
+import { validationMiddleware } from '../../../domain/middleware';
 import { check } from 'express-validator';
 import { logoutController, singUpController } from '../../controllers';
 import { signUpValidator } from '../../controllers';
@@ -17,7 +17,8 @@ authRouter.post(
             check('name').isString(),
             check('surname').isString(),
             check('email').isEmail(),
-            check('password').isString()
+            check('password').isString(),
+            check('role').isString()
         ],
         signUpValidator
     ),
