@@ -1,0 +1,13 @@
+.sign-up-form {
+  composes: form-width from '@styles/utils.module.css';
+  composes: center-page from '@styles/utils.module.css';
+
+  margin: auto;
+  gap: 40px;
+}
+
+.sign-up-form__buttons {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+}

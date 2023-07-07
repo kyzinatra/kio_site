@@ -1,3 +1,13 @@
+/**
+ * @description
+ * this function is used to join class names together. It can take any number of arguments and will join them together with a space.
+ * If you pass an object, it will only add the keys that have a truthy value. You can also pass arrays, which will be joined together.
+ * @example
+ * clx('foo', 'bar', 'baz') // => 'foo bar baz'
+ * clx('foo', { bar: true, baz: false }) // => 'foo bar'
+ * clx({ foo: true, bar: true }, { baz: true }) // => 'foo bar baz'
+ */
+
 export function clx(...args: { [key: string]: any }[] | any[]) {
   return (
     args

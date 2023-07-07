@@ -1,43 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { REACT_ROUTER } from './router/routes';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ContextProvider from './context/context-provider';
 
-import { Page404 } from './pages/404/404.page';
-import { ROUTES } from './constants/routes';
-
-const router = createBrowserRouter([
-  {
-    path: ROUTES.DEFAULT_ROUTE,
-    async lazy() {
-      return { Component: (await import('./pages/home/home.page')).Home };
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 15 * 60 * 1000, // 15 minutes
+      refetchOnWindowFocus: false,
+      retry: false,
+      retryOnMount: false
     },
-    errorElement: <Page404 />
-  },
-  {
-    path: ROUTES.TASKS_ROUTE,
-    async lazy() {
-      return { Component: (await import('./pages/home/home.page')).Home };
-    },
-    errorElement: <Page404 />
-  },
-  {
-    path: ROUTES.SING_IN_ROUTE,
-    async lazy() {
-      return { Component: (await import('./pages/sin-in/sing-in.page')).SingIn };
-    },
-    errorElement: <Page404 />
-  },
-  {
-    path: ROUTES.SING_UP_ROUTE,
-    async lazy() {
-      return { Component: (await import('./pages/sing-up/sing-up.page')).SingUp };
-    },
-    errorElement: <Page404 />
+    mutations: {}
   }
-]);
+});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <ContextProvider>
+        <RouterProvider router={REACT_ROUTER} />
+      </ContextProvider>
+      <ReactQueryDevtools position="bottom-right" />
+    </QueryClientProvider>
   </React.StrictMode>
 );

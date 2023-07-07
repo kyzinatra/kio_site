@@ -1,6 +1,6 @@
 .button_base {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   border: 1px solid black;
   font-size: 1.2rem;
@@ -10,7 +10,6 @@
   -webkit-transition: background-color var(--default-transition-time);
   -ms-transition: background-color var(--default-transition-time);
 }
-
 .button_default:hover {
   background-color: var(--contrast-bg-color);
   color: var(--contrast-text-color);
@@ -40,4 +39,14 @@
 }
 .button_size-xxlong {
   padding: 8px 130px;
+}
+
+.button_stretch {
+  width: 100%;
+}
+
+.button_base:disabled {
+  background-color: #fff;
+  color: var(--placeholder-text-color);
+  cursor: no-drop;
 }

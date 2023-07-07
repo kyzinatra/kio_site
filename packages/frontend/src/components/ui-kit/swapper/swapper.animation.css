@@ -1,0 +1,14 @@
+.swapper-enter {
+  opacity: 0;
+}
+.swapper-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+.swapper-exit {
+  opacity: 1;
+}
+.swapper-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}

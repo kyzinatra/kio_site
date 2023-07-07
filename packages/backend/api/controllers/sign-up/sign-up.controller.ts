@@ -1,11 +1,11 @@
 import { User } from '../../../bd/schemas/user.schema';
-import { ISingUpDto, ISingUpResponse } from './sign-up.types';
+import { ISignUpDto, ISignUpResponse } from './sign-up.types';
 import bcrypt from 'bcryptjs';
 import { ERoles } from '../../../bd/types/role.type';
 import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
 import { TController } from '../../../domain/types/contoller.type';
 
-export const singUpController: TController<ISingUpDto> = async (req, resp) => {
+export const signUpController: TController<ISignUpDto> = async (req, resp) => {
     const { password, email, name, surname, patronymic } = req.body;
 
     try {
@@ -35,7 +35,7 @@ export const singUpController: TController<ISingUpDto> = async (req, resp) => {
         return resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
     }
 
-    const response: ISingUpResponse = { status: 'ok' };
+    const response: ISignUpResponse = { status: 'ok' };
 
     resp.status(200).json(response);
 };
