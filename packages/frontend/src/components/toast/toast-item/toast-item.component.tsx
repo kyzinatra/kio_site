@@ -2,14 +2,15 @@ import { forwardRef, useContext, useEffect, useRef } from 'react';
 
 import css from './toast-item.module.css';
 
-import { TToastProps } from '../../../context/context';
-import { ToastContextDispatch } from '../../../context';
-import { DELETE_TOAST } from '../../../context/reducers/toast';
 import { clx } from '../../../utils/clx';
+import { useAtom } from 'jotai';
+import { removeToastAtom } from '@atoms/index';
+import { IToastItem } from '@atoms/toast/toast';
 
-export const ToastItem = forwardRef<HTMLDivElement, TToastProps>(
+export const ToastItem = forwardRef<HTMLDivElement, Exclude<IToastItem, 'nodeRef'>>(
   ({ id, title, theme = 'info', timeout = 5000 }, nodeRef) => {
-    const dispatch = useContext(ToastContextDispatch);
+    const [, removeToast] = useAtom(removeToastAtom);
+
     const timeoutId = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
@@ -22,10 +23,7 @@ export const ToastItem = forwardRef<HTMLDivElement, TToastProps>(
 
     function closeHandler() {
       if (timeoutId.current) clearTimeout(timeoutId.current);
-      dispatch({
-        type: DELETE_TOAST,
-        payload: { id }
-      });
+      removeToast(id);
     }
 
     return (
