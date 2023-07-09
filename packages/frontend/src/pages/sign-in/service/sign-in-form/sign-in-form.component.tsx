@@ -19,7 +19,6 @@ const initialForm: ISignInDto = { email: '', password: '' };
 
 export const SignInForm = () => {
   const { form } = useForm(initialForm);
-  const tost = useToast();
   const [isModified, setModified, onModified] = useModified();
 
   const { mutate, isError, isLoading } = useSignInMutation();

@@ -12,7 +12,6 @@ export async function signUpRequest(body: ISignUpDto) {
   });
 }
 
-// TODO вынести логику onError отдельно
 export const useSignUpMutation = () => {
   const client = useQueryClient();
 

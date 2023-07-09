@@ -1,6 +1,6 @@
 import { TController } from '../../../domain/types/contoller.type';
 
-import { ISignInResponse, ISingInDto } from './sign-in.types';
+import { ISignInResponse, ISignInDto } from './sign-in.types';
 import { User } from '../../../bd';
 import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
 import { tokenService } from '../../../domain/token';
