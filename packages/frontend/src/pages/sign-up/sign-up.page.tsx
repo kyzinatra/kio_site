@@ -34,7 +34,12 @@ export const SignUp = () => {
       <main className={css['sign-up']}>
         <Swapper view={currentView}>
           <SignUpSelect onSubmit={onSelectSubmit} baseForm={baseFormSelect} />
-          <SignUpForm onSubmit={onSubmitHandler} isError={mutation.isError} goBack={goBack} />
+          <SignUpForm
+            isLoading={mutation.isLoading}
+            onSubmit={onSubmitHandler}
+            isError={mutation.isError}
+            goBack={goBack}
+          />
         </Swapper>
       </main>
     </Layout>

@@ -1,7 +1,6 @@
-import { useContext, useMemo } from 'react';
-import { ToastContextDispatch } from '../context';
-import { PUSH_TOAST } from '../context/reducers/toast';
-import { IToast } from '../components/toast/toast';
+import { createRef, useContext, useMemo } from 'react';
+import { useAtom } from 'jotai';
+import { pushToastAtom } from '@atoms/index';
 
 /**
  * @description Hook for pushing toast messages
@@ -9,16 +8,20 @@ import { IToast } from '../components/toast/toast';
  * const toast = useToast();
  * toast.push({ title: 'Hello', theme: 'success' });
  */
+
+type TToastInterface = {
+  title: string;
+  theme?: 'error' | 'info' | 'success' | 'warning';
+  timeout?: string | number;
+};
+
 export function useToast() {
-  const dispatch = useContext(ToastContextDispatch);
+  const [, pushToast] = useAtom(pushToastAtom);
 
   return useMemo(() => {
     return {
-      push(toast: IToast) {
-        dispatch?.({
-          type: PUSH_TOAST,
-          payload: toast
-        });
+      push(toast: TToastInterface) {
+        pushToast({ ...toast, id: crypto.randomUUID(), nodeRef: createRef() });
       }
     };
   }, []);

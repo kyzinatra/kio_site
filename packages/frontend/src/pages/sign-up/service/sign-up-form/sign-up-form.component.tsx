@@ -11,7 +11,7 @@ import css from './sign-up-form.module.css';
 import { useToast } from '@hooks/use-toast';
 import { useModified } from '@hooks/use-modified';
 
-const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
+const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack, isLoading }) => {
   const { form } = useForm({ password: '', fullName: '', passwordRepeat: '' });
   const [isErrorState, setErrorState] = useState(false);
   const [isModified, setModified, { onFocus }] = useModified();
@@ -64,6 +64,7 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
         value={form.fullName?.value}
         onChange={handleUserChange}
         autoComplete="name"
+        disabled={isLoading}
         onFocus={onFocus}
         isError={isErrorStatus}
       />
@@ -76,6 +77,7 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
         stretch
         autoComplete="new-password"
         isError={isErrorStatus}
+        disabled={isLoading}
         onFocus={onFocus}
         {...form.password}
       />
@@ -88,14 +90,15 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, isError, goBack }) => {
         placeholder="Повтор пароля"
         onFocus={onFocus}
         isError={isErrorStatus}
+        disabled={isLoading}
         stretch
         {...form.passwordRepeat}
       />
       <div className={css['sign-up-form__buttons']}>
-        <Button onClick={goBack} type="button">
+        <Button onClick={goBack} type="button" disabled={isLoading}>
           Назад
         </Button>
-        <Button theme="accent" stretch>
+        <Button theme="accent" stretch disabled={isLoading}>
           Завершить регистрацию
         </Button>
       </div>
