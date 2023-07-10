@@ -13,12 +13,12 @@
     font-size: 2rem;
 }
 
-.writeUs{
+.pageText__contact{
     font-size: 1.5rem;
     color: #444444;
 }
 
-.a{
+.pageText__link{
     margin-left: 5px;
     text-decoration: underline;
     text-decoration-skip-ink: none;

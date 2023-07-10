@@ -19,6 +19,6 @@
 }
 
 .loader__hidden{
-    background-color: white;
+    background-color: #FAFAFA;
     z-index: 2;
 }

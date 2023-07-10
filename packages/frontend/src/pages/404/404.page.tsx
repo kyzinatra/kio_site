@@ -1,6 +1,7 @@
 import React from 'react';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import css from './404.module.css';
+import { SplashScreen} from '../splash-screen/splash-screen.page';
 import {EngTextComponent} from "./engText/engText.component";
 import {ErrorInfo} from "./errorInfo/errorInfo";
 export const Page404 = ({errorText = "Такой страницы не существует."}) => {
@@ -11,8 +12,9 @@ export const Page404 = ({errorText = "Такой страницы не суще�
     // @ts-ignore
     return (
       <main className={css.page}>
-          <ErrorInfo errorNum={error.status} errorText={errorText}/>
-          <EngTextComponent/>
+        <SplashScreen theme='blueToСyan' percent={12}/>
+        {/* <ErrorInfo errorNum={error.status} errorText={errorText}/>
+        <EngTextComponent/> */}
       </main>
   );
 };
