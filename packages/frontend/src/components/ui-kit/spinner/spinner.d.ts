@@ -1,3 +1,3 @@
-export interface ISpiner {
+export interface ISpinner {
     theme?: "default" | "yellow" | "lightBrown"
 }

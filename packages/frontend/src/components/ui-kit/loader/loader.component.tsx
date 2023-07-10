@@ -8,14 +8,17 @@ export const Loader: FC<ILoader> = ({theme = 'default', percent = 0}) => {
     if(percent > 100){
         percent = 100;
     }
-    const test = clx(css[`loader`], css[`loader__hidden`], true);
+
+    const loaderHidden = clx(css[`loader`], css[`loader__hidden`]);
+    const loaderGradientTheme = clx(css[`loader`], css[`loader__gradient--${theme}`]);
+
     return (
         <div className={css.loader}>
-            <div className={`${css.loader} ${css[`loader__gradient__${theme}`]}`}></div>
+            <div className={loaderGradientTheme}></div>
             <div style={{
                 left: percent + "%",
                 width: 100 - percent + "%",
-            }} className={test}></div>
+            }} className={loaderHidden}></div>
         </div>
     );
 };
