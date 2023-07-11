@@ -9,12 +9,11 @@ import { QUERY_KEYS } from '../constants/keys';
 const SIGN_IN_URL = `${BASE_URL}/SIGN_IN_QUERY`;
 
 export async function signInRequest(body: ISignInDto) {
-  return makeRequest<ISignInResponse>(SIGN_IN_URL, {
+  return await makeRequest<ISignInResponse>(SIGN_IN_URL, {
     body
   });
 }
 
-// TODO вынести логику onError отдельно
 export const useSignInMutation = () => {
   const client = useQueryClient();
 

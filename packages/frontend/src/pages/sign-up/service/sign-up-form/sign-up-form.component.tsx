@@ -41,7 +41,7 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, goBack, isLoading }) => {
   };
 
   return (
-    <Form onSubmit={handleOnSubmit}>
+    <Form onSubmit={handleOnSubmit} initialValues={initialForm}>
       {({ handleSubmit, submitErrors, dirtySinceLastSubmit, ...props }) => {
         console.log(submitErrors, props);
         return (

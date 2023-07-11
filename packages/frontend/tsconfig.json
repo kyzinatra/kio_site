@@ -26,7 +26,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@assets/*": ["src/assets/*"],
       "@constants/*": ["src/constants/*"],
-      "@api/*": ["src/api/*"]
+      "@api/*": ["src/api/*"],
+      "@atoms/*": ["src/atoms/*"]
     }
   },
   "include": ["src"],
