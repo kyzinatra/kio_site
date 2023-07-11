@@ -1,10 +1,10 @@
-import React, { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from 'react';
+import { ForwardRefRenderFunction, forwardRef, useImperativeHandle } from 'react';
 import { useRef } from 'react';
 
 import css from './service-presentation.module.css';
 
 import type { TServiceRefProps, IServicePresentation } from './service-presentation';
-import { Trace } from '../../../../components/ui-kit/trace/trace.component';
+import { Trace } from '@components/ui-kit/trace/trace.component';
 import { PRESENTATION_CONTENT } from './constants';
 
 const ServicePresentationComponent: ForwardRefRenderFunction<TServiceRefProps, IServicePresentation> = (

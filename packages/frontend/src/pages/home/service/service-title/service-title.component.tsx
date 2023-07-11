@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import css from './service-title.module.css';
 import { IServiceTitle } from './service-title';
-import { Button } from '../../../../components/ui-kit/button/button.component';
-import { clx } from '../../../../utils/clx';
+import { Button } from '@components/ui-kit/button/button.component';
+import { clx } from '@utils/clx';
 
 const TITLE = ['Конструируй.', 'Исследуй.', 'Оптимизируй.'];
 

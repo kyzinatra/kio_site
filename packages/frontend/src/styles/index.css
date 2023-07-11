@@ -6,17 +6,29 @@
   --accent-light-color: #eaeaea;
   --accent-light-color-glass: rgba(234, 234, 234, 0.8);
 
+  --border-radius: 5px;
+  --border-radius-big: 8px;
+
   --contrast-text-color: #fff;
   --contrast-bg-color: #000;
 
+  --placeholder-text-color: #888;
   --blur-text-color: #444;
+  --middle-text-color: #222;
   --dark-text-color: #000;
 
   --default-transition-time: 200ms;
   --main-width: 1445px;
+
   --min-page-padding: 50px;
-  --nav-height: 45px;
   --header-height: 110px;
+  --nav-height: 45px;
+  --breadcrumbs-height: calc(var(--header-height) - var(--nav-height));
+
+  --error-color: #ec1400;
+  --warning-color: #ed6c02;
+  --info-color: #0288d1;
+  --success-color: #2e7d32;
 
   --start-grad-color-1: #00c2ff;
   --start-grad-color-2: #6b00d7;

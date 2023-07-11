@@ -1,4 +1,4 @@
-import React, { FC, useState, MouseEvent } from 'react';
+import { FC, useState, MouseEvent, memo } from 'react';
 
 import css from './nav.module.css';
 
@@ -7,9 +7,14 @@ import { clx } from '../../../utils/clx';
 import { IHoverStyle } from './nav';
 import { ROUTES } from '../../../constants/routes';
 import { Link } from '../../ui-kit/link/link.component';
+import { Badge } from '../../ui-kit/badge/badge.component';
+import { useMeRequest } from '../../../api';
 
-export const Nav: FC = () => {
+export const Nav: FC = memo(() => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
+
+  const { isError, isLoading, data } = useMeRequest();
+  const isSignInDisplayed = isError || isLoading;
 
   function mouseEnterHandler(event: MouseEvent<HTMLElement>) {
     const element = event.target;
@@ -47,12 +52,27 @@ export const Nav: FC = () => {
         ))}
       </ul>
 
-      <div className={css.nav__sing}>
-        <Link to={ROUTES.SING_IN_ROUTE}>Войти</Link>
-        <Link to={ROUTES.SING_UP_ROUTE} theme="accent">
-          Регистрация
-        </Link>
+      <div className={css.nav__sign}>
+        {isSignInDisplayed ? (
+          <>
+            <Link to={ROUTES.SIGN_IN_ROUTE}>Войти</Link>
+            <Link to={ROUTES.SIGN_UP_ROUTE} theme="accent">
+              Регистрация
+            </Link>
+          </>
+        ) : (
+          <Badge
+            src={data?.avatarUrl || '/default-avatar.svg'}
+            to={ROUTES.PROFILE_ROUTE}
+            width={25}
+            height={25}
+          >
+            {data?.name}
+          </Badge>
+        )}
       </div>
     </nav>
   );
-};
+});
+
+Nav.displayName = 'memo(Nav)';

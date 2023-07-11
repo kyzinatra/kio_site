@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { QUERY_KEYS } from '../../query-keys/';
 import { validationMiddleware } from '../../../domain/middleware/validation-middleware';
 import { check } from 'express-validator';
-import { logoutController, singUpController } from '../../controllers';
+import { logoutController, signUpController } from '../../controllers';
 import { signUpValidator } from '../../controllers';
 import { signInValidator } from '../../controllers';
 import { signInController } from '../../controllers';
@@ -21,7 +21,7 @@ authRouter.post(
         ],
         signUpValidator
     ),
-    singUpController
+    signUpController
 );
 
 authRouter.post(

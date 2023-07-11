@@ -1,3 +1,3 @@
 export { signUpValidator } from './sign-up.validator';
-export { singUpController } from './sign-up.controller';
-export { ISingUpDto, ISingUpResponse } from './sign-up.types';
+export { signUpController } from './sign-up.controller';
+export { ISignUpDto, ISignUpResponse } from './sign-up.types';

@@ -1,6 +1,6 @@
 import { ISuccessResponse } from '../../../domain/types/success-anwer.interface';
 
-export interface ISingUpDto {
+export interface ISignUpDto {
     password: string;
     email: string;
     patronymic: string;
@@ -8,4 +8,4 @@ export interface ISingUpDto {
     surname: string;
 }
 
-export interface ISingUpResponse extends ISuccessResponse {}
+export interface ISignUpResponse extends ISuccessResponse {}
