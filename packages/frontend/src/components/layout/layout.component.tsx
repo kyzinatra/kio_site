@@ -22,9 +22,7 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
 }) => {
   const { isLoading, error, data } = useMeRequest();
 
-  console.log(data, isLoading, error);
   if (isLoading && !error && !data) return <h1>Loading...</h1>;
-
   if (
     (error?.name === 'UNAUTHORIZED' && protectedFrom === 'anonymous') ||
     (data && protectedFrom === 'authorized')

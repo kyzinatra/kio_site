@@ -20,7 +20,9 @@ export const Footer = memo(() => {
             <li className={css.footer__item}>{FOOTER_CONTENT_TITLES[i]}</li>
             {column.map(([path, title], j) => (
               <li key={j} className={css.footer__item}>
-                <Link to={path}>{title}</Link>
+                <Link to={path} theme="underline">
+                  {title}
+                </Link>
               </li>
             ))}
           </ul>
@@ -30,8 +32,12 @@ export const Footer = memo(() => {
         <p>CopyRight &copy; 2013-2023 Центр информатизации образования «КИО». Все права защищены.</p>
         <div className={css.footer__created}>
           <p>Создатели: </p>
-          <Link to="https://github.com/kyzinatra">kyzinatra</Link>
-          <Link to="https://github.com/yandrinsky">yandrinsky</Link>
+          <Link to="https://github.com/kyzinatra" theme="underline">
+            kyzinatra
+          </Link>
+          <Link to="https://github.com/yandrinsky" theme="underline">
+            yandrinsky
+          </Link>
         </div>
       </div>
     </footer>

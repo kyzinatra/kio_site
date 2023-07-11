@@ -10,7 +10,8 @@
   -webkit-transition: background-color var(--default-transition-time);
   -ms-transition: background-color var(--default-transition-time);
 }
-.button_default:hover {
+.button_default:hover,
+.button_default:focus {
   background-color: var(--contrast-bg-color);
   color: var(--contrast-text-color);
 }
@@ -20,7 +21,8 @@
   color: var(--contrast-text-color);
 }
 
-.button_accent:hover {
+.button_accent:hover,
+.button_accent:focus {
   border: 1px solid black;
   background-color: var(--lighter-color);
   color: var(--text-dark-color);

@@ -4,7 +4,7 @@ import css from './sign-up.module.css';
 import { useState } from 'react';
 
 import { TSignUpDataForm, TSignUpSelectForm } from '@pages/sign-up/sign-up';
-import Swapper from '@components/ui-kit/swapper/swapper.components';
+import Swapper from '@components/ui-kit/swapper/swapper.component';
 import SignUpForm from './service/sign-up-form/sign-up-form.component';
 import { ISignUpDto } from '@api/api';
 import { useSignUpMutation } from '@api/index';
@@ -34,7 +34,7 @@ export const SignUp = () => {
       <main className={css['sign-up']}>
         <Swapper view={currentView}>
           <SignUpSelect onSubmit={onSelectSubmit} baseForm={baseFormSelect} />
-          <SignUpForm onSubmit={onSubmitHandler} isError={mutation.isError} goBack={goBack} />
+          <SignUpForm onSubmit={onSubmitHandler} isLoading={mutation.isLoading} goBack={goBack} />
         </Swapper>
       </main>
     </Layout>

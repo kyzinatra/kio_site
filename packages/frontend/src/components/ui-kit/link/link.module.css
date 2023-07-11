@@ -3,7 +3,8 @@
   color: var(--blur-text-color);
 }
 
-.link_default:hover {
+.link_default:hover,
+.link_default:focus {
   color: var(--dark-text-color);
 }
 
@@ -36,7 +37,8 @@
   composes: button_size-xxlong from '../button/button.module.css';
 }
 
-.link_accent:hover {
+.link_accent:hover,
+.link_accent:focus {
   background-color: transparent;
   color: var(--dark-text-color);
 }
@@ -45,7 +47,9 @@
   text-decoration: none;
   color: var(--blur-text-color);
 }
-.link_underline:hover {
+.link_underline:hover,
+.link_underline:focus {
+  outline: none;
   text-decoration: underline;
   color: var(--dark-text-color);
 }
