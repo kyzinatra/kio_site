@@ -1,25 +1,24 @@
-.page{
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+.page {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-.pageText{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    font-size: 2rem;
+.page-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 2rem;
 }
 
-.pageText__contact{
-    font-size: 1.5rem;
-    color: #444444;
+.page-text__contact {
+  font-size: 1.5rem;
+  color: #444444;
 }
 
-.pageText__link{
-    margin-left: 5px;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
+.page-text__link {
+  margin-left: 0.5em;
+  text-decoration: underline;
 }

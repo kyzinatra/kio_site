@@ -40,3 +40,12 @@
   background-color: transparent;
   color: var(--dark-text-color);
 }
+
+.link_underline {
+  text-decoration: none;
+  color: var(--blur-text-color);
+}
+.link_underline:hover {
+  text-decoration: underline;
+  color: var(--dark-text-color);
+}
