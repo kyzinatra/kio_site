@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
-import css from './404.module.css';
+import css from './error.module.css';
 import { SplashScreen } from '../splash-screen/splash-screen.page';
 import { EngTextComponent } from './song-text/song-text.component';
 import { ErrorInfo } from './error-info/error-info.component';
