@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import { FC, PropsWithChildren } from 'react';
-||||||| 12a1aaf
-import React, { FC, PropsWithChildren } from 'react';
-=======
 import React, { FC, PropsWithChildren, memo } from 'react';
->>>>>>> master
 
 import css from './trace.module.css';
 import { ITrace } from './trace';

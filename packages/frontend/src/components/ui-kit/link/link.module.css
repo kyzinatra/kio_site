@@ -40,7 +40,6 @@
   background-color: transparent;
   color: var(--dark-text-color);
 }
-<<<<<<< HEAD
 
 .link_underline {
   text-decoration: none;
@@ -50,10 +49,3 @@
   text-decoration: underline;
   color: var(--dark-text-color);
 }
-||||||| 12a1aaf
-=======
-
-.link_underline:hover {
-  text-decoration: underline;
-}
->>>>>>> master
