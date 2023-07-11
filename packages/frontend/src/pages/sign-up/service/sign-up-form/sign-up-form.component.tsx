@@ -1,4 +1,4 @@
-import { FC, ChangeEvent, FormEvent, useState, useCallback } from 'react';
+import { FC } from 'react';
 import { ISignUpFormProps } from './sign-up-form';
 import UserConnections from '@components/user/user-connections/user-connections';
 import { Button } from '@components/ui-kit/button/button.component';
@@ -41,7 +41,7 @@ const SignUpForm: FC<ISignUpFormProps> = ({ onSubmit, goBack, isLoading }) => {
   };
 
   return (
-    <Form onSubmit={handleOnSubmit}>
+    <Form onSubmit={handleOnSubmit} initialValues={initialForm}>
       {({ handleSubmit, submitErrors, dirtySinceLastSubmit, ...props }) => {
         console.log(submitErrors, props);
         return (

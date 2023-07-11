@@ -5,10 +5,6 @@ import { ROUTES } from '@constants/routes';
 import { Button } from '@components/ui-kit/button/button.component';
 import { Link } from '@components/ui-kit/link/link.component';
 
-import { useForm } from '@hooks/use-form';
-import { useToast } from '@hooks/use-toast';
-import { useModified } from '@hooks/use-modified';
-
 import css from './sign-in-form.module.css';
 import { ISignInDto } from 'src/api/api';
 
