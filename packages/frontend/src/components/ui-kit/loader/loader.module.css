@@ -1,0 +1,24 @@
+.loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}
+
+.loader__gradient--default{
+    background: linear-gradient(to right, #FF6B00, #ECF100);
+}
+
+.loader__gradient--blueToСyan{
+    background: linear-gradient(to right, #006ACC, #00C2FF);
+}
+
+.loader__gradient--violetToMagenta{
+    background: linear-gradient(to right, #6B00D7, #C90085);
+}
+
+.loader__hidden{
+    background-color: #FAFAFA;
+    z-index: 2;
+}

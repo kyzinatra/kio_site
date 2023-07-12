@@ -1,0 +1,24 @@
+.page {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 2rem;
+}
+
+.page-text__contact {
+  font-size: 1.5rem;
+  color: #444444;
+}
+
+.page-text__link {
+  margin-left: 0.5em;
+  text-decoration: underline;
+}
