@@ -4,7 +4,7 @@ import { IUserBD } from '../types/user-bd.interface';
 const userSchema = new mongoose.Schema<IUserBD>({
     name: { type: String, required: true },
     surname: { type: String, required: true },
-    patronymic: { type: String, required: true },
+    patronymic: { type: String, required: false },
     email: { type: String, required: true, unique: true },
     displayName: { type: String, required: true },
     avatarUrl: { type: String, required: false },

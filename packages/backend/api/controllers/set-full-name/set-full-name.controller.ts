@@ -13,7 +13,7 @@ export const setFullNameController: TController<ISetFullNameDto> = async (req, r
 
     user.name = req.body.name;
     user.surname = req.body.surname;
-    user.patronymic = req.body.patronymic;
+    user.patronymic = req.body.patronymic ?? '';
 
     await user.save();
 

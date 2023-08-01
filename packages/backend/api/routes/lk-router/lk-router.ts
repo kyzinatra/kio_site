@@ -13,10 +13,7 @@ const lkRouter = Router();
 
 lkRouter.post(
     QUERY_KEYS.SET_FULL_NAME,
-    validationMiddleware(
-        [check('name').isString(), check('surname').isString(), check('patronymic').isString()],
-        setFullNameValidator
-    ),
+    validationMiddleware([check('name').isString(), check('surname').isString()], setFullNameValidator),
     setFullNameController
 );
 
