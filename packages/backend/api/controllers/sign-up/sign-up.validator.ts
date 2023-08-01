@@ -4,6 +4,7 @@ import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 import { User } from '../../../bd';
 import { TValidator } from '../../../domain/types/validator.type';
 import { isOnlyRussian } from '../../../domain/testers';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
 
 export const signUpValidator: TValidator<ISignUpDto> = async req => {
     const { email, name, surname, patronymic } = req.body;
@@ -18,7 +19,9 @@ export const signUpValidator: TValidator<ISignUpDto> = async req => {
 
     const user = await User.findOne({ email });
 
-    if (user) {
+    const keycloakUser = await keycloakApi['get-user']({ email });
+
+    if (user || keycloakUser) {
         return CLIENT_ERRORS.EMAIL_IS_ALREADY_USED;
     }
 };

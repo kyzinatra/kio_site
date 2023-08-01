@@ -5,3 +5,5 @@ COPY . /app
 
 RUN node /app/common/scripts/install-run-rush.js install
 RUN node /app/common/scripts/install-run-rush.js rebuild
+
+ADD ./data/import/realm-export.json /data/

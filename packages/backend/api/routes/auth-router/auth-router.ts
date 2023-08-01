@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { QUERY_KEYS } from '../../query-keys/';
-import { validationMiddleware } from '../../../domain/middleware/validation-middleware';
+import { validationMiddleware } from '../../../domain/middleware';
 import { check } from 'express-validator';
 import { logoutController, signUpController } from '../../controllers';
 import { signUpValidator } from '../../controllers';
