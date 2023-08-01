@@ -17,7 +17,8 @@ authRouter.post(
             check('name').isString(),
             check('surname').isString(),
             check('email').isEmail(),
-            check('password').isString()
+            check('password').isString(),
+            check('role').isString()
         ],
         signUpValidator
     ),

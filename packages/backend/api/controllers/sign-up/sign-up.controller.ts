@@ -1,6 +1,5 @@
 import { User } from '../../../bd';
 import { ISignUpDto, ISignUpResponse } from './sign-up.types';
-import { ERoles } from '../../../bd';
 import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
 import { TController } from '../../../domain/types/contoller.type';
 import { keycloakApi } from '../../../keycloak/api/keycloakApi';
@@ -8,7 +7,7 @@ import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
 
 export const signUpController: TController<ISignUpDto> = async (req, resp) => {
-    const { password, email, name, surname, patronymic } = req.body;
+    const { password, email, name, surname, patronymic, role } = req.body;
 
     try {
         await new User({
@@ -23,7 +22,7 @@ export const signUpController: TController<ISignUpDto> = async (req, resp) => {
             paymentStatus: false,
             connections: [],
             claims: {
-                role: ERoles.User
+                role
             },
             info: {
                 createDate: Date.now(),

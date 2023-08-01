@@ -5,7 +5,9 @@ import { check } from 'express-validator';
 
 import { setDisplayNameController } from '../../controllers/set-display-name';
 import { setFullNameValidator } from '../../controllers/set-full-name/set-full-name.validator';
-import { setFullNameController } from '../../controllers/set-full-name';
+import { setFullNameController } from '../../controllers';
+import { setAvatarController } from '../../controllers/set-avatar';
+import { signAvatarValidator } from '../../controllers/set-avatar/set-avatar.validator';
 
 const lkRouter = Router();
 
@@ -23,5 +25,7 @@ lkRouter.post(
     validationMiddleware([check('displayName').isString()]),
     setDisplayNameController
 );
+
+lkRouter.post(QUERY_KEYS.SET_AVATAR, validationMiddleware([], signAvatarValidator), setAvatarController);
 
 export { lkRouter };
