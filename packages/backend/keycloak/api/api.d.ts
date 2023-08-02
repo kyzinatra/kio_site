@@ -43,7 +43,7 @@ export interface IKeycloakApi {
         };
     };
     'remove-user-session': {
-        method: 'DEL';
+        method: 'DELETE';
         params: {
             user_id: string;
         };
@@ -94,6 +94,13 @@ export interface IKeycloakApi {
             value: string;
             temporary: false;
         };
+        params: {
+            user_id: string;
+        };
+    };
+
+    'delete-user': {
+        method: 'DELETE';
         params: {
             user_id: string;
         };

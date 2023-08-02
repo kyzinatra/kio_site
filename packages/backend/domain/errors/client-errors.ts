@@ -9,7 +9,8 @@ export type EErrorNames =
     | 'EMAIL_IS_ALREADY_USED'
     | 'BAD_LOGIN_OR_PASSWORD'
     | 'LACK_OF_RIGHTS'
-    | 'USER_DOESNT_EXITS';
+    | 'USER_DOESNT_EXISTS'
+    | 'BAD_PASSWORD';
 
 export type ICLIENT_ERROR = TError<EErrorNames>;
 
@@ -62,10 +63,16 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         code: 400,
         name: 'LACK_OF_RIGHTS'
     },
-    USER_DOESNT_EXITS: {
+    USER_DOESNT_EXISTS: {
         title: 'Пользователь не существует',
         message: 'Обращение к пользователю, которого не существует',
         code: 400,
-        name: 'USER_DOESNT_EXITS'
+        name: 'USER_DOESNT_EXISTS'
+    },
+    BAD_PASSWORD: {
+        title: 'Некорректный пароль',
+        message: 'Пароль не подходит по длинне или содержит недопустимые символы',
+        code: 400,
+        name: 'BAD_PASSWORD'
     }
 };

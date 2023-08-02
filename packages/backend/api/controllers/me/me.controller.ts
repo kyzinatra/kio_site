@@ -1,5 +1,5 @@
 import { TController } from '../../../domain/types/contoller.type';
-import { IMeResponse } from './me.types';
+import { IMeResponse } from './me';
 import { User } from '../../../bd';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 
@@ -7,7 +7,7 @@ export const meController: TController<null> = async (req, resp) => {
     const user = await User.findOne({ email: req.user?.email });
 
     if (!user) {
-        return resp.status(CLIENT_ERRORS.USER_DOESNT_EXITS.code).json(CLIENT_ERRORS.USER_DOESNT_EXITS);
+        return resp.status(CLIENT_ERRORS.USER_DOESNT_EXISTS.code).json(CLIENT_ERRORS.USER_DOESNT_EXISTS);
     }
 
     const {

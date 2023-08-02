@@ -1,5 +1,5 @@
 import { TController } from '../../../domain/types/contoller.type';
-import { ISignInResponse, ISignInDto } from './sign-in.types';
+import { ISignInResponse, ISignInDto } from './sign-in';
 import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
 import { keycloakApi } from '../../../keycloak/api/keycloakApi';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';

@@ -161,7 +161,6 @@ export const keycloakApi = {
                 ...getAuthHeaders(),
                 'content-type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify(body)
         });
 
@@ -179,9 +178,58 @@ export const keycloakApi = {
         return await data.json();
     },
 
-    'get-all-user-sessions': async () => {},
-    'user-all-logout': async () => {},
-    'remove-user-session': async () => {},
-    'reset-user-password': async () => {},
-    'update-user': async () => {}
+    'get-all-user-sessions': async ({ user_id }: { user_id: string }): Promise<{ id: string }[]> => {
+        const method: IKeycloakApi['get-all-user-sessions']['method'] = 'GET';
+
+        const data = await fetch(keycloakApiUrl['get-all-user-sessions'].replace('$INSERT', user_id), {
+            method,
+            headers: getAuthHeaders()
+        });
+
+        return await data.json();
+    },
+
+    'user-all-logout': async ({ user_id }: { user_id: string }) => {
+        const method: IKeycloakApi['user-all-logout']['method'] = 'POST';
+
+        return await fetch(keycloakApiUrl['user-all-logout'].replace('$INSERT', user_id), {
+            method,
+            headers: getAuthHeaders()
+        });
+    },
+
+    'remove-user-session': async ({ session_id }: { session_id: string }) => {
+        const method: IKeycloakApi['remove-user-session']['method'] = 'DELETE';
+
+        return await fetch(keycloakApiUrl['remove-user-session'].replace('$INSERT', session_id), {
+            method,
+            headers: getAuthHeaders()
+        });
+    },
+
+    'reset-user-password': async ({ password, user_id }: { password: string; user_id: string }) => {
+        const method: IKeycloakApi['reset-user-password']['method'] = 'PUT';
+
+        const body: IKeycloakApi['reset-user-password']['body'] = {
+            type: 'password',
+            value: password,
+            temporary: false
+        };
+
+        return await fetch(keycloakApiUrl['reset-user-password'].replace('$INSERT', user_id), {
+            method,
+            body: JSON.stringify(body),
+            headers: { ...getAuthHeaders(), 'content-type': 'application/json' }
+        });
+    },
+    'update-user': async () => {},
+
+    'delete-user': async ({ user_id }: { user_id: string }) => {
+        const method: IKeycloakApi['delete-user']['method'] = 'DELETE';
+
+        return await fetch(keycloakApiUrl['delete-user'].replace('$INSERT', user_id), {
+            method,
+            headers: { ...getAuthHeaders() }
+        });
+    }
 };

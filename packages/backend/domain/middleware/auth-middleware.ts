@@ -7,6 +7,7 @@ import { IUserBD } from '../../bd/types/user-bd.interface';
 import { SERVER_ERRORS } from '../errors/server-errors';
 import { TOKEN_COLLECTION } from '../token/token-collection';
 import { keycloakApi } from '../../keycloak/api/keycloakApi';
+import { setAuthTokens } from '../token/token-service';
 
 export const authMiddleware = async <T>(
     req: CustomRequest<T>,
@@ -41,22 +42,16 @@ export const authMiddleware = async <T>(
         if (refreshResult.error) {
             resp.clearCookie(TOKEN_COLLECTION.ACCESS_TOKEN);
             resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
-            resp.status(400).json(tokenInfo.error);
+
+            resp.status(CLIENT_ERRORS.BAD_TOKEN.code).json(CLIENT_ERRORS.BAD_TOKEN);
 
             return;
         } else {
-            resp.cookie(TOKEN_COLLECTION.ACCESS_TOKEN, refreshResult.access_token, {
-                httpOnly: true,
-                signed: true,
-                sameSite: true
+            setAuthTokens({
+                refresh_token: refreshResult.refresh_token,
+                access_token: refreshResult.access_token,
+                resp
             });
-            resp.cookie(TOKEN_COLLECTION.ACCESS_TOKEN, refreshResult.refresh_token, {
-                httpOnly: true,
-                signed: true,
-                sameSite: true
-            });
-
-            keycloakApi['user-logout']({ refresh_token: refreshToken });
 
             tokenInfo = await keycloakApi['introspect-user-access-token']({
                 token: refreshResult.access_token
@@ -64,7 +59,7 @@ export const authMiddleware = async <T>(
         }
     }
 
-    let user: IUserBD | null;
+    let user: (IUserBD & { _id: string }) | null;
 
     try {
         user = await User.findOne({ email: tokenInfo.email });
@@ -78,7 +73,9 @@ export const authMiddleware = async <T>(
     if (!user) {
         resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);
         resp.clearCookie(TOKEN_COLLECTION.ACCESS_TOKEN);
-        resp.status(CLIENT_ERRORS.UNAUTHORIZED.code).json(CLIENT_ERRORS.UNAUTHORIZED);
+        resp.status(CLIENT_ERRORS.USER_DOESNT_EXISTS.code).json(CLIENT_ERRORS.USER_DOESNT_EXISTS);
+
+        return;
     }
 
     req.user = user;

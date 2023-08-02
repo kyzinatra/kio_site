@@ -8,6 +8,9 @@ import { setFullNameValidator } from '../../controllers/set-full-name/set-full-n
 import { setFullNameController } from '../../controllers';
 import { setAvatarController } from '../../controllers/set-avatar';
 import { signAvatarValidator } from '../../controllers/set-avatar/set-avatar.validator';
+import { changePasswordValidator } from '../../controllers/change-password/change-password.validator';
+import { changePasswordController } from '../../controllers/change-password';
+import { changeRoleController, changeRoleValidator } from '../../controllers/change-role';
 
 const lkRouter = Router();
 
@@ -24,5 +27,20 @@ lkRouter.post(
 );
 
 lkRouter.post(QUERY_KEYS.SET_AVATAR, validationMiddleware([], signAvatarValidator), setAvatarController);
+
+lkRouter.post(
+    QUERY_KEYS.CHANGE_PASSWORD,
+    validationMiddleware(
+        [check('oldPassword').isString(), check('newPassword').isString()],
+        changePasswordValidator
+    ),
+    changePasswordController
+);
+
+lkRouter.post(
+    QUERY_KEYS.CHANGE_ROLE,
+    validationMiddleware([check('role').isString(), check('userId').isString()], changeRoleValidator),
+    changeRoleController
+);
 
 export { lkRouter };

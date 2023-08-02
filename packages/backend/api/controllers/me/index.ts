@@ -1,2 +1,2 @@
-export { IMeResponse } from './me.types';
+export { IMeResponse } from './me';
 export { meController } from './me.controller';

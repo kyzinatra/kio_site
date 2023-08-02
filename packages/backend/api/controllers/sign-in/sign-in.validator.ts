@@ -1,4 +1,4 @@
-import { ISignInDto } from './sign-in.types';
+import { ISignInDto } from './sign-in';
 import { TValidator } from '../../../domain/types/validator.type';
 import { User } from '../../../bd';
 import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';

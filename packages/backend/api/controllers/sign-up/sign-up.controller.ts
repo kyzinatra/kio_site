@@ -1,16 +1,34 @@
 import { User } from '../../../bd';
-import { ISignUpDto, ISignUpResponse } from './sign-up.types';
+import { ISignUpDto, ISignUpResponse } from './sign-up';
 import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
 import { TController } from '../../../domain/types/contoller.type';
 import { keycloakApi } from '../../../keycloak/api/keycloakApi';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
-import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
+import { setAuthTokens } from '../../../domain/token/token-service';
 
 export const signUpController: TController<ISignUpDto> = async (req, resp) => {
     const { password, email, name, surname, patronymic, role } = req.body;
 
+    await keycloakApi['create-user']({
+        username: email,
+        password,
+        email,
+        firstName: name,
+        lastName: surname
+    });
+
+    let userToken = await keycloakApi['get-user-access-token']({ username: email, password: password });
+
+    if (userToken.error) {
+        return resp.status(SERVER_ERRORS.AUTH_ERROR.code).json(SERVER_ERRORS.AUTH_ERROR);
+    }
+
+    let keycloakUser = await keycloakApi['get-user']({
+        email
+    });
+
     try {
         await new User({
+            _id: keycloakUser.id,
             email,
             name,
             surname,
@@ -31,37 +49,13 @@ export const signUpController: TController<ISignUpDto> = async (req, resp) => {
 
             tasksId: []
         }).save();
-    } catch {
+    } catch (e) {
+        await keycloakApi['delete-user']({ user_id: keycloakUser.id });
+
         return resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
     }
 
-    await keycloakApi['create-user']({
-        username: email,
-        password,
-        email,
-        firstName: name,
-        lastName: surname
-    });
-
-    const authResult = await keycloakApi['get-user-access-token']({ username: email, password: password });
-
-    if (authResult.error) {
-        return resp
-            .status(CLIENT_ERRORS.BAD_LOGIN_OR_PASSWORD.code)
-            .json(CLIENT_ERRORS.BAD_LOGIN_OR_PASSWORD);
-    }
-
-    resp.cookie(TOKEN_COLLECTION.ACCESS_TOKEN, authResult['access_token'], {
-        httpOnly: true,
-        signed: true,
-        sameSite: true
-    });
-
-    resp.cookie(TOKEN_COLLECTION.REFRESH_TOKEN, authResult['refresh_token'], {
-        httpOnly: true,
-        signed: true,
-        sameSite: true
-    });
+    setAuthTokens({ refresh_token: userToken.refresh_token, access_token: userToken.access_token, resp });
 
     const response: ISignUpResponse = { status: 'ok' };
 

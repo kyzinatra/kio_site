@@ -11,7 +11,7 @@ export const setAvatarController: TController<ISetAvatarDto> = async (req, resp)
     const user = await User.findOne({ email: req.user?.email });
 
     if (!user) {
-        resp.status(CLIENT_ERRORS.USER_DOESNT_EXITS.code).json(CLIENT_ERRORS.USER_DOESNT_EXITS);
+        resp.status(CLIENT_ERRORS.USER_DOESNT_EXISTS.code).json(CLIENT_ERRORS.USER_DOESNT_EXISTS);
         return;
     }
 
