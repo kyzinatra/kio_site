@@ -1,11 +1,8 @@
-.pageNotFoundText{
+.errorInfo__title{
     font-size: 1.8rem;
     text-align: center;
 }
 
-.a{
-    color: blue;
+.errorInfo__link{
     margin-left: 5px;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
 }

@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
-import css from './errorInfo-errorNum.module.css';
-export const ErrorInfoErrorNumComponent = ({...props}) => {
+import {FC} from 'react';
+import css from './error-info-status.module.css'
+import { IErrorInfoStatus } from '@pages/error/error-info/error-info-status/error-info-status';
+export const ErrorInfoStatusComponent: FC<IErrorInfoStatus> = ({status}) => {
 
-    // @ts-ignore
-    // @ts-ignore
-    return (
-        <div>
-            <p className={css.errorText}>{`Ошибка ${props.errorNum}`}</p>
-            <p className={css.wentWrong}>Что-то пошло не так</p>
-        </div>
+  return (
+    <div>
+      <p className={css.errorInfo__errorStatus}>{`Ошибка ${status}`}</p>
+      <p className={css.errorInfo__explanation}>Что-то пошло не так</p>
+    </div>
 
-    );
+  );
 };

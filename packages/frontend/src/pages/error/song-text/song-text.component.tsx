@@ -1,10 +1,8 @@
-import React from 'react';
+import css from './song-text.module.css';
 
-import css from './engText.module.css';
-
-export const EngTextComponent = () => {
+export const SongTextComponent = () => {
     return (
-            <p className={css.engText}>
+            <p className={css.songText}>
                 <span>When you're at the end of the road</span>
                 <span>And you lost all sense of control</span>
                 <span>And your thoughts have taken their toll</span>

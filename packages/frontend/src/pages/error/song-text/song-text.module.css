@@ -1,4 +1,4 @@
-.engText{
+.songText{
     display: flex;
     flex-direction: column;
     font-size: 1.6rem;
@@ -7,14 +7,14 @@
 
 }
 
-.engText span:nth-child(2){
+.songText span:nth-child(2){
     margin: 15px 0 0 20px;
 }
 
-.engText span:nth-child(3){
+.songText span:nth-child(3){
     margin: 0 0 15px 40px;
 }
 
-.engText span:nth-child(4){
+.songText span:nth-child(4){
     margin: 0 0 0 60px;
 }

@@ -2,12 +2,12 @@ import css from './splash-screen.module.css';
 import { FC } from 'react';
 import { Link } from '../../components/ui-kit/link/link.component';
 import { Loader } from '../../components/ui-kit/loader/loader.component';
-import { ILoader } from '../../components/ui-kit/loader/loader';
 import { ROUTES } from '../../constants/routes';
-export const SplashScreen: FC<ILoader> = ({ theme, percent }) => {
+import { ISplashScreen } from '@pages/splash-screen/splash-screen';
+export const SplashScreen: FC<ISplashScreen> = ({ theme }) => {
   return (
     <main className={css.page}>
-      <Loader theme={theme} percent={percent} />
+      <Loader theme={theme}/>
       <div className={css['page-text']}>
         <span>Загрузка страницы...</span>
         <span className={css['page-text__contact']}>
