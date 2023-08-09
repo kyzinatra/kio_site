@@ -6,7 +6,7 @@ import { Button } from '@components/ui-kit/button/button.component';
 import { capitalize } from '@utils/capitalize';
 
 import css from './sign-up-form.module.css';
-import { useToast } from '@hooks/use-toast';
+import { useToast } from '@hooks/use-toast.hook';
 import { Form } from 'react-final-form';
 import { InputFormField } from '@components/form/input-form-field/input-form-field.component';
 

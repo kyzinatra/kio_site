@@ -1,14 +1,16 @@
-import { FC, useState, MouseEvent, memo } from 'react';
+import { FC, useState, MouseEvent, memo, useRef } from 'react';
 
 import css from './nav.module.css';
 
 import { NAV_ROUTES } from './routes';
-import { clx } from '../../../utils/clx';
+import { clx } from '@utils/clx';
 import { IHoverStyle } from './nav';
 import { ROUTES } from '../../../constants/routes';
 import { Link } from '../../ui-kit/link/link.component';
 import { Badge } from '../../ui-kit/badge/badge.component';
-import { useMeRequest } from '../../../api';
+import { useMeRequest } from '@api/index';
+import { Popup } from '@components/ui-kit/popup/popup.component';
+import { ProfilePopup } from '@components/user/profile-popup/profile-popup.component';
 
 export const Nav: FC = memo(() => {
   const [hoverStyle, setHoverStyle] = useState<IHoverStyle>();
@@ -30,6 +32,10 @@ export const Nav: FC = memo(() => {
   function mouseLeaveHandler() {
     setHoverStyle(last => ({ ...last, opacity: 0 }));
   }
+
+  const NavBadge: React.ReactNode = (
+    <Badge src={data?.avatarUrl || '/default-avatar.svg'} width={25} height={25} />
+  );
 
   return (
     <nav className={css.nav}>
@@ -61,14 +67,16 @@ export const Nav: FC = memo(() => {
             </Link>
           </>
         ) : (
-          <Badge
-            src={data?.avatarUrl || '/default-avatar.svg'}
-            to={ROUTES.PROFILE_ROUTE}
-            width={25}
-            height={25}
+          <Popup
+            nested
+            trigger={NavBadge}
+            arrow={false}
+            closeOnScroll
+            keepTooltipInside
+            position={'bottom left'}
           >
-            {data?.name}
-          </Badge>
+            <ProfilePopup />
+          </Popup>
         )}
       </div>
     </nav>

@@ -1,10 +1,11 @@
-import { FC, PropsWithChildren, memo } from 'react';
+import { FC, PropsWithChildren, useState } from 'react';
 import { Header } from '../header/header.component';
 import { Footer } from '../footer/footer.component';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { useMeRequest } from '@api/index';
-import { Toast } from '../toast/toast.component';
+import { Toast } from '../ui-kit/toast/toast.component';
+import { Modal } from '@components/ui-kit/modal/modal.comoponenxt';
 
 /**
  * @description Layout HOC for base settings for all pages
@@ -39,5 +40,3 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
     </>
   );
 };
-
-Layout.displayName = 'Layout';
