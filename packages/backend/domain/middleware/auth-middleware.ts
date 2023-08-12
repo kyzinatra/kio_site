@@ -18,6 +18,8 @@ export const authMiddleware = async <T>(
         return;
     }
 
+    resp.write;
+
     const token = req.signedCookies[TOKEN_COLLECTION.REFRESH_TOKEN];
 
     if (!token) {

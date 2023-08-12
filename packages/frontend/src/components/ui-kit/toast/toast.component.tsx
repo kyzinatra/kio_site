@@ -10,8 +10,7 @@ import { BASE_ANIMATION_TIME } from '@constants/layout';
 import { readToastAtom } from '@atoms/index';
 
 import { useAtom } from 'jotai';
-
-const container = document.getElementById('toasts') as HTMLElement;
+import { useElement } from '@hooks/use-element.hook';
 
 /**
  * @description Toast component for displaying notifications. Uses context to get the toasts array
@@ -19,6 +18,9 @@ const container = document.getElementById('toasts') as HTMLElement;
  */
 export const Toast: FC = () => {
   const [toasts] = useAtom(readToastAtom);
+  const container = useElement('aside');
+
+  if (!container) return null;
 
   return ReactDOM.createPortal(
     <TransitionGroup className={css.toasts}>

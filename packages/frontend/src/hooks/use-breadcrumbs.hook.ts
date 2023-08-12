@@ -18,7 +18,8 @@ export function useBreadcrumbs(): TRoutesResult {
 
     const result: TRoutesResult = path.reduce((last: TRoutesResult, el) => {
       last.push({
-        ...routesData[`/${el}` as TRoutesNames],
+        icon: routesData[`/${el}` as TRoutesNames]?.icon || '',
+        title: routesData[`/${el}` as TRoutesNames]?.title || '',
         path: (last[last.length - 1]?.path || '') + el + '/'
       });
       return last;

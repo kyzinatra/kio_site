@@ -15,18 +15,18 @@ export const SignUp = () => {
 
   const mutation = useSignUpMutation();
 
-  function onSelectSubmit(form: TSignUpSelectForm) {
+  const onSelectSubmit = (form: TSignUpSelectForm) => {
     setCombinedForm(l => ({ ...l, ...form }));
     setView(i => ++i);
-  }
+  };
 
-  function onSubmitHandler(form: TSignUpDataForm) {
+  const onSubmitHandler = (form: TSignUpDataForm) => {
     mutation.mutate({ ...combinedForm, ...form } as ISignUpDto);
-  }
+  };
 
-  function goBack() {
+  const goBack = () => {
     setView(i => --i);
-  }
+  };
 
   const baseFormSelect = { email: combinedForm.email || '', role: combinedForm.role || '' };
   return (

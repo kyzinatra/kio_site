@@ -1,0 +1,43 @@
+.popup {
+  min-width: 300px;
+  font-size: 1rem;
+}
+
+.popup__badge {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 25px 20px;
+}
+
+.popup__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.popup__nolink-item {
+  padding: 10px 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.popup__nolink-item p {
+  margin: 0;
+}
+
+.popup__item a {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.popup__subscribe {
+  margin: auto;
+  display: flex;
+  margin-bottom: 20px;
+}

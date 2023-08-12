@@ -1,9 +1,9 @@
-import type { DEFAULT_ROUTE } from '../constants/routes';
+import { ROUTES } from '@constants/routes';
 
 export interface IRoutesElement {
   icon: string;
   title: string;
-};
+}
 
 export type TRoutesResult = {
   icon: string;
@@ -11,8 +11,8 @@ export type TRoutesResult = {
   path: string;
 }[];
 
-export type TRoutesNames = typeof DEFAULT_ROUTE;
+export type TRoutesNames = (typeof ROUTES)[keyof typeof ROUTES];
 
 export type TRoutesData = {
-  [key in TRoutesNames]: IRoutesElement;
+  [key in TRoutesNames]?: IRoutesElement;
 };

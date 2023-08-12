@@ -6,7 +6,7 @@ import { SELECT_OPTIONS } from '@pages/sign-up/service/sign-up-select/constants'
 import { FC } from 'react';
 
 import css from './sign-up-select.module.css';
-import { useToast } from '@hooks/use-toast';
+import { useToast } from '@hooks/use-toast.hook';
 
 import { ISignUpSelect } from './sign-up-select';
 import { TSignUpSelectForm } from '@pages/sign-up/sign-up';
