@@ -1,7 +1,7 @@
 import { IChangeRoleDto } from './change-role';
-import { TValidator } from '../../../domain/types/validator.type';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
-import { ERoles } from '../../../bd';
+import { TValidator } from '#domain/types';
+import { CLIENT_ERRORS } from '#domain/errors';
+import { ERoles } from '#bd';
 
 export const changeRoleValidator: TValidator<IChangeRoleDto> = async req => {
     const { role, userId } = req.body;

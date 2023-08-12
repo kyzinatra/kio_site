@@ -10,6 +10,7 @@
     },
     "author": "",
     "license": "ISC",
+    "type": "module",
     "dependencies": {
         "express": "4.18.2",
         "mongoose": "~7.0.3",
@@ -19,10 +20,9 @@
         "dotenv": "~16.1.0",
         "express-fileupload": "~1.4.0"
     },
-
     "devDependencies": {
         "prettier": "2.8.4",
-        "typescript": "4.9.5",
+        "typescript": "5.1.6",
         "@types/express": "4.17.17",
         "@types/node": "18.15.1",
         "@types/mongoose": "5.11.97",
@@ -31,5 +31,18 @@
         "ts-node-dev": "~2.0.0",
         "@types/cookie-parser": "1.4.3",
         "@types/express-fileupload": "~1.4.1"
+    },
+    "imports": {
+        "#*": [
+            "./*",
+            "./*.ts",
+            "./*.tsx",
+            "./*.js",
+            "./*.jsx",
+            "./*/index.ts",
+            "./*/index.tsx",
+            "./*/index.js",
+            "./*/index.jsx"
+        ]
     }
 }

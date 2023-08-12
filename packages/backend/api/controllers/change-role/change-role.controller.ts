@@ -1,7 +1,7 @@
-import { TController } from '../../../domain/types/contoller.type';
+import { TController } from '#domain/types';
 import { IChangeRoleDto, IChangeRoleResponse } from './change-role';
-import { User } from '../../../bd';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { User } from '#bd';
+import { CLIENT_ERRORS } from '#domain/errors';
 
 export const changeRoleController: TController<IChangeRoleDto> = async (req, resp) => {
     const { userId, role } = req.body;

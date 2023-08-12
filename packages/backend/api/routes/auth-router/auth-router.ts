@@ -1,12 +1,17 @@
 import { Router } from 'express';
-import { QUERY_KEYS } from '../../query-keys/';
-import { validationMiddleware } from '../../../domain/middleware';
+import { QUERY_KEYS } from '#api/query-keys';
 import { check } from 'express-validator';
-import { logoutController, signUpController } from '../../controllers';
-import { signUpValidator } from '../../controllers';
-import { signInValidator } from '../../controllers';
-import { signInController } from '../../controllers';
-import { meController } from '../../controllers';
+
+import {
+    logoutController,
+    meController,
+    signInController,
+    signInValidator,
+    signUpController,
+    signUpValidator
+} from '#api/controllers';
+
+import { validationMiddleware } from '#domain/middleware';
 
 const authRouter = Router();
 

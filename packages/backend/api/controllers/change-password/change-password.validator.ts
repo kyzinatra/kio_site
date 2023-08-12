@@ -1,7 +1,7 @@
-import { TValidator } from '../../../domain/types/validator.type';
+import { TValidator } from '#domain/types';
 
 import { IChangePasswordDto } from './change-password';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { CLIENT_ERRORS } from '#domain/errors';
 
 export const changePasswordValidator: TValidator<IChangePasswordDto> = async req => {
     const { newPassword, oldPassword } = req.body;

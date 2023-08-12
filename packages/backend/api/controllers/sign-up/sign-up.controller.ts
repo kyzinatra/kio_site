@@ -1,9 +1,9 @@
-import { User } from '../../../bd';
+import { User } from '#bd';
 import { ISignUpDto, ISignUpResponse } from './sign-up';
-import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
-import { TController } from '../../../domain/types/contoller.type';
-import { keycloakApi } from '../../../keycloak/api/keycloakApi';
-import { setAuthTokens } from '../../../domain/token/token-service';
+import { SERVER_ERRORS } from '#domain/errors';
+import { TController } from '#domain/types';
+import { keycloakApi } from '#keycloak/api';
+import { setAuthTokens } from '#domain/token/token-service';
 
 export const signUpController: TController<ISignUpDto> = async (req, resp) => {
     const { password, email, name, surname, patronymic, role } = req.body;

@@ -1,6 +1,6 @@
-import { TController } from '../../../domain/types/contoller.type';
-import { User } from '../../../bd';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { TController } from '#domain/types';
+import { User } from '#bd';
+import { CLIENT_ERRORS } from '#domain/errors';
 import { ISetFullNameDto, ISetFullNameResponse } from './set-full-name';
 
 export const setFullNameController: TController<ISetFullNameDto> = async (req, resp) => {
@@ -16,6 +16,8 @@ export const setFullNameController: TController<ISetFullNameDto> = async (req, r
     user.patronymic = req.body.patronymic ?? '';
 
     await user.save();
+
+    //TODO change it in keycloak
 
     const response: ISetFullNameResponse = { status: 'ok' };
 

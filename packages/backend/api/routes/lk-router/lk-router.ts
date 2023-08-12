@@ -1,16 +1,21 @@
 import { Router } from 'express';
-import { QUERY_KEYS } from '../../query-keys';
-import { validationMiddleware } from '../../../domain/middleware';
+
+import { QUERY_KEYS } from '#api/query-keys';
+
+import { validationMiddleware } from '#domain/middleware';
 import { check } from 'express-validator';
 
-import { setDisplayNameController } from '../../controllers/set-display-name';
-import { setFullNameValidator } from '../../controllers/set-full-name/set-full-name.validator';
-import { setFullNameController } from '../../controllers';
-import { setAvatarController } from '../../controllers/set-avatar';
-import { signAvatarValidator } from '../../controllers/set-avatar/set-avatar.validator';
-import { changePasswordValidator } from '../../controllers/change-password/change-password.validator';
-import { changePasswordController } from '../../controllers/change-password';
-import { changeRoleController, changeRoleValidator } from '../../controllers/change-role';
+import {
+    changePasswordController,
+    changePasswordValidator,
+    changeRoleController,
+    changeRoleValidator,
+    setAvatarController,
+    setAvatarValidator,
+    setDisplayNameController,
+    setFullNameController,
+    setFullNameValidator
+} from '#api/controllers';
 
 const lkRouter = Router();
 
@@ -26,7 +31,7 @@ lkRouter.post(
     setDisplayNameController
 );
 
-lkRouter.post(QUERY_KEYS.SET_AVATAR, validationMiddleware([], signAvatarValidator), setAvatarController);
+lkRouter.post(QUERY_KEYS.SET_AVATAR, validationMiddleware([], setAvatarValidator), setAvatarController);
 
 lkRouter.post(
     QUERY_KEYS.CHANGE_PASSWORD,

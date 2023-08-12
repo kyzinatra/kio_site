@@ -1,6 +1,6 @@
-import { TController } from '../../../domain/types/contoller.type';
-import { User } from '../../../bd';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { TController } from '#domain/types';
+import { User } from '#bd';
+import { CLIENT_ERRORS } from '#domain/errors';
 import { ISetDisplayNameDto, ISetDisplayNameDtoResponse } from './set-display-name';
 
 export const setDisplayNameController: TController<ISetDisplayNameDto> = async (req, resp) => {

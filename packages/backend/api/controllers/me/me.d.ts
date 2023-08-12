@@ -1,4 +1,4 @@
-import { IUserBD } from '../../../bd/types/user-bd.interface';
+import { IUserBD } from '#bd/types';
 
 export interface IMeResponse {
     displayName: IUserBD['displayName'];
