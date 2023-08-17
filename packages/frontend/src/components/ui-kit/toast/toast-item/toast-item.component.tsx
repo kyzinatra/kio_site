@@ -2,7 +2,7 @@ import { forwardRef, useContext, useEffect, useRef } from 'react';
 
 import css from './toast-item.module.css';
 
-import { clx } from '../../../utils/clx';
+import { clx } from '../../../../utils/clx';
 import { useAtom } from 'jotai';
 import { removeToastAtom } from '@atoms/index';
 import { IToastItem } from '@atoms/toast/toast';

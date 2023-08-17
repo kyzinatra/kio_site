@@ -1,4 +1,4 @@
-import { useToast } from '@hooks/use-toast';
+import { useToast } from '@hooks/use-toast.hook';
 import { useMutation } from '@tanstack/react-query';
 import { TUseAppMutation } from './api';
 

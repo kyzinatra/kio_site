@@ -40,11 +40,13 @@
 
 html {
   font-size: 15px;
+  scrollbar-gutter: stable;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--primary-light-color);
+  scrollbar-gutter: stable;
 }
 
 *,

@@ -8,6 +8,19 @@
   color: var(--dark-text-color);
 }
 
+.link_block-hover {
+  text-decoration: inherit;
+  color: var(--blur-text-color);
+}
+.link_block-hover:hover,
+.link_block-hover:focus {
+  background-color: var(--border-light-color);
+}
+
+.link_alert {
+  color: var(--error-color);
+}
+
 .link_accent {
   color: var(--contrast-text-color);
   text-decoration: inherit;
