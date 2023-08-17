@@ -4,7 +4,9 @@ import { Footer } from '../footer/footer.component';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { useMeRequest } from '@api/index';
-import { Toast } from '../ui-kit/toast/toast.component';
+
+import { Toast } from '../toast/toast.component';
+import { SplashScreen } from '@pages/splash/splash.page';
 import { Modal } from '@components/ui-kit/modal/modal.comoponenxt';
 
 /**
@@ -23,7 +25,7 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
 }) => {
   const { isLoading, error, data } = useMeRequest();
 
-  if (isLoading && !error && !data) return <h1>Loading...</h1>;
+  if (isLoading && !error && !data) return <SplashScreen />;
   if (
     (error?.name === 'UNAUTHORIZED' && protectedFrom === 'anonymous') ||
     (data && protectedFrom === 'authorized')
