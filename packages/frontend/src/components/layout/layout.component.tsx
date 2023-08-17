@@ -5,9 +5,9 @@ import { Navigate } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { useMeRequest } from '@api/index';
 
-import { Toast } from '../toast/toast.component';
 import { SplashScreen } from '@pages/splash/splash.page';
-import { Modal } from '@components/ui-kit/modal/modal.comoponenxt';
+import { Toast } from '@components/ui-kit/toast/toast.component';
+import { AUTH_ERRORS } from '@api/constants/response';
 
 /**
  * @description Layout HOC for base settings for all pages
@@ -27,7 +27,7 @@ export const Layout: FC<PropsWithChildren<ILayout>> = ({
 
   if (isLoading && !error && !data) return <SplashScreen />;
   if (
-    (error?.name === 'UNAUTHORIZED' && protectedFrom === 'anonymous') ||
+    (error?.name === AUTH_ERRORS.UNAUTHORIZED && protectedFrom === 'anonymous') ||
     (data && protectedFrom === 'authorized')
   ) {
     return <Navigate to={ROUTES.DEFAULT_ROUTE} />;
