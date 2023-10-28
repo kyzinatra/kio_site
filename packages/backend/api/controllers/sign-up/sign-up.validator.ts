@@ -1,10 +1,10 @@
 import { ISignUpDto } from './sign-up';
 
-import { CLIENT_ERRORS } from '#domain/errors/client-errors';
-import { ERoles, User } from '#bd';
-import { TValidator } from '#domain/types/validator.type';
-import { isOnlyRussian } from '#domain/testers';
-import { keycloakApi } from '#keycloak/api/keycloakApi';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { ERoles, User } from '../../../bd';
+import { TValidator } from '../../../domain/types/validator.type';
+import { isOnlyRussian } from '../../../domain/testers';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
 
 export const signUpValidator: TValidator<ISignUpDto> = async req => {
     const { email, name, surname, patronymic, role, password } = req.body;

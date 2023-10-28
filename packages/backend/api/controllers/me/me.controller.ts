@@ -1,7 +1,7 @@
-import { TController } from '#domain/types';
+import { TController } from '../../../domain/types/contoller.type';
 import { IMeResponse } from './me';
-import { User } from '#bd';
-import { CLIENT_ERRORS } from '#domain/errors';
+import { User } from '../../../bd';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 
 export const meController: TController<null> = async (req, resp) => {
     const user = await User.findOne({ email: req.user?.email });

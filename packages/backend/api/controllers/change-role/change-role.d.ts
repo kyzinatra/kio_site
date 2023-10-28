@@ -1,5 +1,5 @@
-import { ISuccessResponse } from '#domain/types';
-import { ERoles } from '#bd';
+import { ISuccessResponse } from '../../../domain/types/success-anwer.interface';
+import { ERoles } from '../../../bd';
 
 export interface IChangeRoleDto {
     userId: string;

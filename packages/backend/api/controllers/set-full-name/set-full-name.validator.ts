@@ -1,6 +1,6 @@
-import { TValidator } from '#domain/types';
-import { CLIENT_ERRORS } from '#domain/errors';
-import { isOnlyRussian, isOnlyOneWord } from '#domain/testers';
+import { TValidator } from '../../../domain/types/validator.type';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { isOnlyRussian, isOnlyOneWord } from '../../../domain/testers';
 import { ISetFullNameDto } from './set-full-name';
 
 export const setFullNameValidator: TValidator<ISetFullNameDto> = async req => {

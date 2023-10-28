@@ -1,10 +1,10 @@
-import { TController } from '#domain/types';
+import { TController } from '../../../domain/types/contoller.type';
 import { IChangePasswordResponse, IChangePasswordDto } from './change-password';
-import { CLIENT_ERRORS } from '#domain/errors';
-import { keycloakApi } from '#keycloak/api';
-import { TOKEN_COLLECTION } from '#domain/token/token-collection';
-import { SERVER_ERRORS } from '#domain/errors';
-import { setAuthTokens } from '#domain/token/token-service';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
+import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
+import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
+import { setAuthTokens } from '../../../domain/token/token-service';
 
 export const changePasswordController: TController<IChangePasswordDto> = async (req, resp) => {
     const { newPassword, oldPassword } = req.body;

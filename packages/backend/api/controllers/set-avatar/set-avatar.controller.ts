@@ -1,12 +1,11 @@
+import { TController } from '../../../domain/types/contoller.type';
+import { User } from '../../../bd';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { ISetAvatarResponse, ISetAvatarDto } from './set-avatar';
 import { UploadedFile } from 'express-fileupload';
 import { randomUUID } from 'crypto';
 import { existsSync, mkdirSync, unlink } from 'fs';
 import path from 'path';
-
-import { TController } from '#domain/types';
-import { User } from '#bd';
-import { CLIENT_ERRORS } from '#domain/errors';
-import { ISetAvatarResponse, ISetAvatarDto } from './set-avatar';
 
 export const setAvatarController: TController<ISetAvatarDto> = async (req, resp) => {
     const user = await User.findOne({ email: req.user?.email });

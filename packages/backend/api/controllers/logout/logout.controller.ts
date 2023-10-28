@@ -1,7 +1,7 @@
-import { TController } from '#domain/types';
+import { TController } from '../../../domain/types/contoller.type';
 import { ILogoutResponse } from './logout';
-import { TOKEN_COLLECTION } from '#domain/token/token-collection';
-import { keycloakApi } from '#keycloak/api';
+import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
 
 export const logoutController: TController<null> = async (req, resp) => {
     resp.clearCookie(TOKEN_COLLECTION.REFRESH_TOKEN);

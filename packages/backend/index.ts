@@ -27,12 +27,3 @@ app.listen(port, async () => {
 
     console.log(`App listening on port ${port}`);
 });
-
-//            "./*.ts",
-//            "./*.tsx",
-//            "./*.js",
-//            "./*.jsx",
-//            "./*/index.ts",
-//            "./*/index.tsx",
-//            "./*/index.js",
-//            "./*/index.jsx"

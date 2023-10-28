@@ -4,10 +4,5 @@
   "singleQuote": true,
   "tabWidth": 4,
   "printWidth": 110,
-  "arrowParens": "avoid",
-  "importOrder": ["^components/(.*)$", "^[./]" ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "arrowParens": "avoid"
 }
-
-

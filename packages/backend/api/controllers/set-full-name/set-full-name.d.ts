@@ -1,4 +1,4 @@
-import { ISuccessResponse } from '#domain/types';
+import { ISuccessResponse } from '../../../domain/types/success-anwer.interface';
 
 export interface ISetFullNameDto {
     name: string;

@@ -1,10 +1,10 @@
-import { TValidator } from '#domain/types';
-import { CLIENT_ERRORS } from '#domain/errors';
+import { TValidator } from '../../../domain/types/validator.type';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 import { ISetAvatarDto } from './set-avatar';
 import { UploadedFile } from 'express-fileupload';
 import path from 'path';
 
-export const setAvatarValidator: TValidator<ISetAvatarDto> = async req => {
+export const signAvatarValidator: TValidator<ISetAvatarDto> = async req => {
     const file = req.files?.file as UploadedFile;
 
     if (!file) {

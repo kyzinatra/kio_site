@@ -1,8 +1,8 @@
-import { TController } from '#domain/types';
+import { TController } from '../../../domain/types/contoller.type';
 import { ISignInResponse, ISignInDto } from './sign-in';
-import { TOKEN_COLLECTION } from '#domain/token/token-collection';
-import { keycloakApi } from '#keycloak/api';
-import { CLIENT_ERRORS } from '#domain/errors';
+import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 
 export const signInController: TController<ISignInDto> = async (req, resp) => {
     const { email, password } = req.body;
