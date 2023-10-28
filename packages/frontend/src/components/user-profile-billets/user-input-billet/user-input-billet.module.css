@@ -1,0 +1,5 @@
+.user-input-billet__main-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

@@ -1,0 +1,6 @@
+.profile-tasks__forms{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-right: 100px;
+  }

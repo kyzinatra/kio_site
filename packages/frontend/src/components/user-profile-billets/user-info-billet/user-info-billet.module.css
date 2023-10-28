@@ -1,0 +1,17 @@
+.user-info-billet__main-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-info-billet__info-text{
+    display: flex;
+    align-items: center;
+    width: 32rem;
+    height: 2.5rem;
+    font-size: 18px;
+    border: solid 1px rgb(234,234,234);
+    background-color: white;
+    border-radius: 3px;
+    padding: 0 15px;
+}
