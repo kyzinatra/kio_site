@@ -1,0 +1,40 @@
+.toasts__item-times {
+  color: white;
+  font-size: 1.35rem;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.toasts__item-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.toasts__item {
+  padding: 10px 75px 10px 20px;
+  border-radius: var(--border-radius);
+  z-index: 5;
+  min-width: 150px;
+  position: relative;
+  will-change: transform;
+}
+
+.toast__item_error {
+  background-color: var(--error-color);
+}
+
+.toast__item_info {
+  background-color: var(--info-color);
+}
+
+.toast__item_warning {
+  background-color: var(--warning-color);
+}
+
+.toast__item_success {
+  background-color: var(--success-color);
+}

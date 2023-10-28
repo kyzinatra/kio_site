@@ -4,10 +4,7 @@ import { clx } from '../../../utils/clx';
 import css from './loader.module.css';
 import { ILoader } from './loader';
 
-export const Loader: FC<ILoader> = ({ theme = 'default', percent = 0, className }) => {
-  if (percent > 100) {
-    percent = 100;
-  }
+export const Loader: FC<ILoader> = ({ theme = 'default', className }) => {
 
   const loaderHidden = clx(css[`loader`], css[`loader__hidden`]);
   const loaderGradientTheme = clx(css[`loader`], css[`loader__gradient--${theme}`]);
@@ -15,13 +12,7 @@ export const Loader: FC<ILoader> = ({ theme = 'default', percent = 0, className 
   return (
     <div className={clx(css.loader, className)}>
       <div className={loaderGradientTheme}></div>
-      <div
-        style={{
-          left: `${percent}%`,
-          width: `${100 - percent}%`
-        }}
-        className={loaderHidden}
-      />
+      <div className={loaderHidden}></div>
     </div>
   );
 };
