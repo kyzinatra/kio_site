@@ -11,7 +11,7 @@ services:
             - sh
             - -c
             - |
-                cd packages/backend; node ../../common/scripts/install-run-rushx.js start
+                cd packages/backend; node ../../common/scripts/install-run-rushx.js dev
         ports:
             - 3001:3001
         networks:
@@ -20,20 +20,22 @@ services:
     mongodb:
         container_name: mongodb
         image: mongo
+        restart: always
         environment:
             - MONGO_INITDB_ROOT_USERNAME=admin
-            - MONGO_INITDB_DATABASE=site
             - MONGO_INITDB_ROOT_PASSWORD=admin
+            - MONGO_INITDB_DATABASE=site
         volumes:
             - dbdata:/data/db
+        ports:
+            - '27017:27017'
         networks:
             - app-network
-        ports:
-            - '27015:27015'
 
     mongo-express:
         container_name: mongo-express
         image: mongo-express
+        restart: always
         depends_on:
             - mongodb
         environment:
@@ -42,12 +44,26 @@ services:
             - ME_CONFIG_MONGODB_SERVER=mongodb
             - ME_CONFIG_BASICAUTH_USERNAME=admin
             - ME_CONFIG_BASICAUTH_PASSWORD=admin
-            - ME_CONFIG_MONGODB_URL=mongodb://admin:admin@mongodb:27015/
+            - ME_CONFIG_MONGODB_URL=mongodb://admin:admin@mongodb:27017/
         ports:
             - '8081:8081'
         networks:
             - app-network
 
+    keycloak:
+        container_name: keycloak
+        image: quay.io/keycloak/keycloak:21.1.1
+        environment:
+            - KEYCLOAK_ADMIN=admin
+            - KEYCLOAK_ADMIN_PASSWORD=admin
+        volumes:
+            - ./packages/backend/keycloak/realms:/opt/keycloak/data/import
+        ports:
+            - '8080:8080'
+        command: start-dev --import-realm
+
+        networks:
+            - app-network
 networks:
     app-network:
         driver: bridge

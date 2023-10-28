@@ -14,7 +14,7 @@ export const setFullNameValidator: TValidator<ISetFullNameDto> = async req => {
         return CLIENT_ERRORS.BAD_NAME;
     }
 
-    if (!isOnlyRussian(patronymic) || !isOnlyOneWord(patronymic)) {
+    if (patronymic && (!isOnlyRussian(patronymic) || !isOnlyOneWord(patronymic))) {
         return CLIENT_ERRORS.BAD_NAME;
     }
 };

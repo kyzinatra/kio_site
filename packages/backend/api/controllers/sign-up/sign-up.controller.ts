@@ -1,20 +1,38 @@
-import { User } from '../../../bd/schemas/user.schema';
-import { ISignUpDto, ISignUpResponse } from './sign-up.types';
-import bcrypt from 'bcryptjs';
-import { ERoles } from '../../../bd/types/role.type';
+import { User } from '../../../bd';
+import { ISignUpDto, ISignUpResponse } from './sign-up';
 import { SERVER_ERRORS } from '../../../domain/errors/server-errors';
 import { TController } from '../../../domain/types/contoller.type';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
+import { setAuthTokens } from '../../../domain/token/token-service';
 
 export const signUpController: TController<ISignUpDto> = async (req, resp) => {
-    const { password, email, name, surname, patronymic } = req.body;
+    const { password, email, name, surname, patronymic, role } = req.body;
+
+    await keycloakApi['create-user']({
+        username: email,
+        password,
+        email,
+        firstName: name,
+        lastName: surname
+    });
+
+    let userToken = await keycloakApi['get-user-access-token']({ username: email, password: password });
+
+    if (userToken.error) {
+        return resp.status(SERVER_ERRORS.AUTH_ERROR.code).json(SERVER_ERRORS.AUTH_ERROR);
+    }
+
+    let keycloakUser = await keycloakApi['get-user']({
+        email
+    });
 
     try {
         await new User({
+            _id: keycloakUser.id,
             email,
             name,
             surname,
             patronymic,
-            passHash: bcrypt.hashSync(password, 7),
             displayName: name,
             avatarUrl: '',
             phoneNumber: '',
@@ -22,7 +40,7 @@ export const signUpController: TController<ISignUpDto> = async (req, resp) => {
             paymentStatus: false,
             connections: [],
             claims: {
-                role: ERoles.User
+                role
             },
             info: {
                 createDate: Date.now(),
@@ -31,9 +49,13 @@ export const signUpController: TController<ISignUpDto> = async (req, resp) => {
 
             tasksId: []
         }).save();
-    } catch {
+    } catch (e) {
+        await keycloakApi['delete-user']({ user_id: keycloakUser.id });
+
         return resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
     }
+
+    setAuthTokens({ refresh_token: userToken.refresh_token, access_token: userToken.access_token, resp });
 
     const response: ISignUpResponse = { status: 'ok' };
 

@@ -17,23 +17,41 @@ services:
         networks:
             - app-network
 
+#    test-service:
+#        container_name: test-service
+#        image: node:18-alpine
+#        volumes:
+#            - .:/app
+#        working_dir: /app
+#        command:
+#            - sh
+#            - -c
+#            - |
+#              cd packages/test-service; npm start
+#        ports:
+#            - 3010:3010
+#        networks:
+#            - app-network
+
     mongodb:
         container_name: mongodb
         image: mongo
+        restart: always
         environment:
             - MONGO_INITDB_ROOT_USERNAME=admin
             - MONGO_INITDB_ROOT_PASSWORD=admin
             - MONGO_INITDB_DATABASE=site
         volumes:
             - dbdata:/data/db
-        networks:
-            - app-network
         ports:
             - '27017:27017'
+        networks:
+            - app-network
 
     mongo-express:
         container_name: mongo-express
         image: mongo-express
+        restart: always
         depends_on:
             - mongodb
         environment:
@@ -48,6 +66,20 @@ services:
         networks:
             - app-network
 
+    keycloak:
+        container_name: keycloak
+        image: quay.io/keycloak/keycloak:21.1.1
+        environment:
+            - KEYCLOAK_ADMIN=admin
+            - KEYCLOAK_ADMIN_PASSWORD=admin
+        volumes:
+            - ./packages/backend/keycloak/realms:/opt/keycloak/data/import
+        ports:
+            - '8080:8080'
+        command: start-dev --import-realm
+
+        networks:
+            - app-network
 networks:
     app-network:
         driver: bridge

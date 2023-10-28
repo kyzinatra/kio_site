@@ -1,12 +1,15 @@
 import { Router } from 'express';
 import { QUERY_KEYS } from '../../query-keys/';
-import { validationMiddleware } from '../../../domain/middleware/validation-middleware';
+import { validationMiddleware } from '../../../domain/middleware';
 import { check } from 'express-validator';
-import { logoutController, signUpController } from '../../controllers';
-import { signUpValidator } from '../../controllers';
-import { signInValidator } from '../../controllers';
-import { signInController } from '../../controllers';
-import { meController } from '../../controllers';
+import {
+    signUpValidator,
+    signInValidator,
+    signInController,
+    meController,
+    logoutController,
+    signUpController
+} from '../../controllers';
 
 const authRouter = Router();
 
@@ -17,7 +20,8 @@ authRouter.post(
             check('name').isString(),
             check('surname').isString(),
             check('email').isEmail(),
-            check('password').isString()
+            check('password').isString(),
+            check('role').isString()
         ],
         signUpValidator
     ),

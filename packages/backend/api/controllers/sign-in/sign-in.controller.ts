@@ -1,21 +1,27 @@
 import { TController } from '../../../domain/types/contoller.type';
-
-import { ISignInResponse, ISignInDto } from './sign-in.types';
-import { User } from '../../../bd';
+import { ISignInResponse, ISignInDto } from './sign-in';
 import { TOKEN_COLLECTION } from '../../../domain/token/token-collection';
-import { tokenService } from '../../../domain/token';
+import { keycloakApi } from '../../../keycloak/api/keycloakApi';
+import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
 
 export const signInController: TController<ISignInDto> = async (req, resp) => {
-    const { email } = req.body;
+    const { email, password } = req.body;
 
-    const ip = req.ip;
-    const browser = req.headers['user-agent'] ?? '';
+    const authResult = await keycloakApi['get-user-access-token']({ username: email, password: password });
 
-    const user = await User.findOne({ email });
+    if (authResult.error) {
+        return resp
+            .status(CLIENT_ERRORS.BAD_LOGIN_OR_PASSWORD.code)
+            .json(CLIENT_ERRORS.BAD_LOGIN_OR_PASSWORD);
+    }
 
-    const refreshToken = tokenService.createRefresh({ _id: user?._id.toString() as string, ip, browser });
+    resp.cookie(TOKEN_COLLECTION.ACCESS_TOKEN, authResult.access_token, {
+        httpOnly: true,
+        signed: true,
+        sameSite: true
+    });
 
-    resp.cookie(TOKEN_COLLECTION.REFRESH_TOKEN, refreshToken, {
+    resp.cookie(TOKEN_COLLECTION.REFRESH_TOKEN, authResult.refresh_token, {
         httpOnly: true,
         signed: true,
         sameSite: true

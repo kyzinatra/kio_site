@@ -1,2 +1,3 @@
-import { v4 } from 'uuid';
-export const secret = v4();
+import { randomUUID } from 'crypto';
+
+export const secret = randomUUID();

@@ -5,7 +5,7 @@
 
   "pnpmVersion": "6.7.1",
 
-  "nodeSupportedVersionRange": ">=12.13.0 <13.0.0 || >=14.15.0 <15.0.0 || >=16.13.0 <=19.0.0",
+  "nodeSupportedVersionRange": ">=12.13.0 <13.0.0 || >=14.15.0 <15.0.0 || >=16.13.0 <=21.0.0",
 
   "gitPolicy": {},
 
@@ -31,6 +31,10 @@
     {
       "packageName": "@kio/backend",
       "projectFolder": "packages/backend"
+    },
+    {
+      "packageName": "@kio/test-service",
+      "projectFolder": "packages/test-service"
     }
   ]
 }

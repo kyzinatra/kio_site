@@ -1,6 +1,7 @@
 import { TRole } from './role.type';
 
 export interface IUserBD {
+    _id: string;
     name: string;
     surname: string;
     patronymic: string;
