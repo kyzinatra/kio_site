@@ -4,7 +4,7 @@ import { ISetAvatarDto } from './set-avatar';
 import { UploadedFile } from 'express-fileupload';
 import path from 'path';
 
-export const signAvatarValidator: TValidator<ISetAvatarDto> = async req => {
+export const setAvatarValidator: TValidator<ISetAvatarDto> = async req => {
     const file = req.files?.file as UploadedFile;
 
     if (!file) {

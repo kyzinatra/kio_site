@@ -2,11 +2,14 @@ import { Router } from 'express';
 import { QUERY_KEYS } from '../../query-keys/';
 import { validationMiddleware } from '../../../domain/middleware';
 import { check } from 'express-validator';
-import { logoutController, signUpController } from '../../controllers';
-import { signUpValidator } from '../../controllers';
-import { signInValidator } from '../../controllers';
-import { signInController } from '../../controllers';
-import { meController } from '../../controllers';
+import {
+    signUpValidator,
+    signInValidator,
+    signInController,
+    meController,
+    logoutController,
+    signUpController
+} from '../../controllers';
 
 const authRouter = Router();
 
