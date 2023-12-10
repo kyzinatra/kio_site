@@ -13,19 +13,23 @@ import {
     switchHeadFrameController
 } from '../../controllers';
 import { controllerErrorBounding } from '../../../domain/errors';
+import { createTaskValidator } from '../../controllers/api/create-task/create-task.validator';
 
 const apiRouter = Router();
 
 apiRouter.post(
     QUERY_KEYS.CREATE_TASK,
 
-    validationMiddleware([
-        check('name').isString(),
-        check('description').isString(),
-        check('isAvailable').isBoolean().optional(),
-        check('preview').isString().optional(),
-        check('settings').isObject().optional()
-    ]),
+    validationMiddleware(
+        [
+            check('name').isString(),
+            check('description').isString(),
+            check('isAvailable').isBoolean().optional(),
+            check('preview').isString().optional(),
+            check('settings').isObject().optional()
+        ],
+        createTaskValidator
+    ),
 
     controllerErrorBounding(createTaskController)
 );

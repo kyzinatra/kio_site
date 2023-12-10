@@ -11,10 +11,12 @@ export type EErrorNames =
     | 'LACK_OF_RIGHTS'
     | 'USER_DOESNT_EXISTS'
     | 'BAD_PASSWORD'
+    | 'TASK_DOESNT_EXIST'
     | 'SOLUTION_DOESNT_EXIST'
     | 'TRY_DOESNT_EXIST'
     | 'FRAME_DOESNT_EXIST'
-    | 'SOLUTION_ALREADY_EXIST';
+    | 'SOLUTION_ALREADY_EXIST'
+    | 'NAME_IS_ALREADY_USED';
 
 export type ICLIENT_ERROR = TError<EErrorNames>;
 
@@ -49,6 +51,12 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         code: 400,
         name: 'BAD_NAME'
     },
+    NAME_IS_ALREADY_USED: {
+        title: 'Имя уже занято',
+        message: 'Попробуйте ввести другое имя',
+        code: 400,
+        name: 'NAME_IS_ALREADY_USED'
+    },
     EMAIL_IS_ALREADY_USED: {
         title: 'Email уже занят',
         message: 'Попробуйте ввести другой Email или войти в существующую учетную запись',
@@ -63,7 +71,7 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     },
     LACK_OF_RIGHTS: {
         title: 'Недостаточно прав',
-        message: 'У вас недостаточно прав, чтобы совершить действие',
+        message: 'У Вас недостаточно прав, чтобы совершить действие',
         code: 400,
         name: 'LACK_OF_RIGHTS'
     },
@@ -79,6 +87,12 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         code: 400,
         name: 'BAD_PASSWORD'
     },
+    TASK_DOESNT_EXIST: {
+        title: 'Нет указанной задачи',
+        message: 'Указанная задача не была найдена в базе',
+        code: 400,
+        name: 'TASK_DOESNT_EXIST'
+    },
     SOLUTION_DOESNT_EXIST: {
         title: 'Нет решения задачи',
         message: 'У пользователя нет решения для запрашиваемой задачи',
@@ -93,14 +107,14 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     },
     FRAME_DOESNT_EXIST: {
         title: 'Кадр не найден',
-        message: 'Указанный frame не был найден в базе',
+        message: 'Указанный кадр не был найден в базе',
         code: 400,
         name: 'FRAME_DOESNT_EXIST'
     },
 
     TRY_DOESNT_EXIST: {
         title: 'Попытка не найдена',
-        message: 'Указанный Try не был найден в базе',
+        message: 'Указанная попытка не был найдена в базе',
         code: 400,
         name: 'TRY_DOESNT_EXIST'
     }
