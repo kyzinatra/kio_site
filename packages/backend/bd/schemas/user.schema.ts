@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IUserBD } from '../types/user-bd.interface';
+import { IUserBD } from '../types';
 
 const userSchema = new mongoose.Schema<IUserBD>(
     {

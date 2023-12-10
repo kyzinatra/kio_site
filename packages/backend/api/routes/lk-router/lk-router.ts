@@ -15,18 +15,20 @@ import {
     changeRoleValidator
 } from '../../controllers';
 
+import { controllerErrorBounding } from '../../../domain/errors';
+
 const lkRouter = Router();
 
 lkRouter.post(
     QUERY_KEYS.SET_FULL_NAME,
     validationMiddleware([check('name').isString(), check('surname').isString()], setFullNameValidator),
-    setFullNameController
+    controllerErrorBounding(setFullNameController)
 );
 
 lkRouter.post(
     QUERY_KEYS.SET_DISPLAY_NAME,
     validationMiddleware([check('displayName').isString()]),
-    setDisplayNameController
+    controllerErrorBounding(setDisplayNameController)
 );
 
 lkRouter.post(QUERY_KEYS.SET_AVATAR, validationMiddleware([], setAvatarValidator), setAvatarController);
@@ -37,13 +39,13 @@ lkRouter.post(
         [check('oldPassword').isString(), check('newPassword').isString()],
         changePasswordValidator
     ),
-    changePasswordController
+    controllerErrorBounding(changePasswordController)
 );
 
 lkRouter.post(
     QUERY_KEYS.CHANGE_ROLE,
     validationMiddleware([check('role').isString(), check('userId').isString()], changeRoleValidator),
-    changeRoleController
+    controllerErrorBounding(changeRoleController)
 );
 
 export { lkRouter };

@@ -7,3 +7,5 @@ export * from './set-avatar';
 export * from './set-display-name';
 export * from './change-password';
 export * from './change-role';
+
+export * from './api';

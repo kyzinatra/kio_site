@@ -10,7 +10,10 @@ export type EErrorNames =
     | 'BAD_LOGIN_OR_PASSWORD'
     | 'LACK_OF_RIGHTS'
     | 'USER_DOESNT_EXISTS'
-    | 'BAD_PASSWORD';
+    | 'BAD_PASSWORD'
+    | 'SOLUTION_DOESNT_EXIST'
+    | 'FRAME_DOESNT_EXIST'
+    | 'SOLUTION_ALREADY_EXIST';
 
 export type ICLIENT_ERROR = TError<EErrorNames>;
 
@@ -74,5 +77,23 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         message: 'Пароль не подходит по длинне или содержит недопустимые символы',
         code: 400,
         name: 'BAD_PASSWORD'
+    },
+    SOLUTION_DOESNT_EXIST: {
+        title: 'Нет решения задачи',
+        message: 'У пользователя нет решения для запрашиваемой задачи',
+        code: 400,
+        name: 'SOLUTION_DOESNT_EXIST'
+    },
+    SOLUTION_ALREADY_EXIST: {
+        title: 'Решение задачи уже существует',
+        message: 'У пользователя уже есть решения для запрашиваемой задачи, повторное создание невозможно',
+        code: 400,
+        name: 'SOLUTION_ALREADY_EXIST'
+    },
+    FRAME_DOESNT_EXIST: {
+        title: 'Кадр не найден',
+        message: 'Указанный frame не был найден в базе',
+        code: 400,
+        name: 'FRAME_DOESNT_EXIST'
     }
 };

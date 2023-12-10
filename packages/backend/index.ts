@@ -1,10 +1,12 @@
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
-import { authRouter, lkRouter } from './api';
 import cookieParser from 'cookie-parser';
-import { authMiddleware } from './domain/middleware';
 import fileUpload from 'express-fileupload';
+
+import { authMiddleware, errorBoundingMiddleware } from './domain/middleware';
+import { authRouter, lkRouter, apiRouter } from './api';
+
 const app = express();
 
 const port = process.env.PORT ?? 3001;
@@ -21,6 +23,9 @@ app.use(authMiddleware);
 
 app.use(authRouter);
 app.use(lkRouter);
+app.use(apiRouter);
+
+app.use(errorBoundingMiddleware);
 
 app.listen(port, async () => {
     await mongoose.connect(url);

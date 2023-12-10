@@ -19,3 +19,4 @@ export {
 
 export { authRouter } from './routes/auth-router';
 export { lkRouter } from './routes/lk-router';
+export { apiRouter } from './routes/api-router';

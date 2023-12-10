@@ -1,6 +1,6 @@
-import { TController } from '../../../domain/types/contoller.type';
+import { TController } from '../../../domain/types';
 import { User } from '../../../bd';
-import { CLIENT_ERRORS } from '../../../domain/errors/client-errors';
+import { CLIENT_ERRORS } from '../../../domain/errors';
 import { ISetAvatarResponse, ISetAvatarDto } from './set-avatar';
 import { UploadedFile } from 'express-fileupload';
 import { randomUUID } from 'crypto';
