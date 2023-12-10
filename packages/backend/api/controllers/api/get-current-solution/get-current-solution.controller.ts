@@ -29,21 +29,25 @@ export const getCurrentSolutionController: TController<IGetCurrentSolutionDto> =
             .json(CLIENT_ERRORS.SOLUTION_DOESNT_EXIST);
     }
 
-    let tries, frame;
+    let mutablePromiseRes;
 
     try {
-        tries = await Try.find({ _id: { $in: solution.tries } }, '_id name');
-        frame = (await Frame.findOne({ _id: currentTry.headFrameId })) as IFrame;
+        mutablePromiseRes = await Promise.all([
+            Try.find({ _id: { $in: solution.tries } }, '_id name'),
+            Frame.findOne({ _id: currentTry.headFrameId })
+        ]);
     } catch (e) {
         return resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
     }
+
+    let [tries, frame] = mutablePromiseRes;
 
     const response: IGetCurrentSolutionResponse = {
         tries,
         currentTryId: solution.currentTryId,
         headFrameId: currentTry.headFrameId,
         framesTree: currentTry.framesTree,
-        frame
+        frame: frame as IFrame
     };
 
     resp.status(200).json(response);

@@ -12,6 +12,7 @@ export type EErrorNames =
     | 'USER_DOESNT_EXISTS'
     | 'BAD_PASSWORD'
     | 'SOLUTION_DOESNT_EXIST'
+    | 'TRY_DOESNT_EXIST'
     | 'FRAME_DOESNT_EXIST'
     | 'SOLUTION_ALREADY_EXIST';
 
@@ -95,5 +96,12 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         message: 'Указанный frame не был найден в базе',
         code: 400,
         name: 'FRAME_DOESNT_EXIST'
+    },
+
+    TRY_DOESNT_EXIST: {
+        title: 'Попытка не найдена',
+        message: 'Указанный Try не был найден в базе',
+        code: 400,
+        name: 'TRY_DOESNT_EXIST'
     }
 };

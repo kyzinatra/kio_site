@@ -7,7 +7,10 @@ import {
     createTaskController,
     getCurrentSolutionController,
     startSolutionController,
-    commitController
+    commitController,
+    newTryController,
+    switchTryController,
+    switchHeadFrameController
 } from '../../controllers';
 import { controllerErrorBounding } from '../../../domain/errors';
 
@@ -56,6 +59,28 @@ apiRouter.post(
     ]),
 
     controllerErrorBounding(commitController)
+);
+
+apiRouter.post(
+    QUERY_KEYS.NEW_TRY,
+    validationMiddleware([check('taskId').isString(), check('name').isString().optional()]),
+    controllerErrorBounding(newTryController)
+);
+
+apiRouter.post(
+    QUERY_KEYS.SWITCH_TRY,
+    validationMiddleware([check('taskId').isString(), check('tryId').isString()]),
+    controllerErrorBounding(switchTryController)
+);
+
+apiRouter.post(
+    QUERY_KEYS.SWITCH_HEAD_FRAME,
+    validationMiddleware([
+        check('taskId').isString(),
+        check('tryId').isString(),
+        check('frameId').isString()
+    ]),
+    controllerErrorBounding(switchHeadFrameController)
 );
 
 export { apiRouter };
