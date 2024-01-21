@@ -1,0 +1,20 @@
+.social-media-cell__container{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    background-color: rgb(240,240,240);
+    border-radius: 5px;
+    padding-left: 15px;
+    width: 9rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.social-media-cell__image{
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    object-fit: cover;
+    overflow: hidden;
+}

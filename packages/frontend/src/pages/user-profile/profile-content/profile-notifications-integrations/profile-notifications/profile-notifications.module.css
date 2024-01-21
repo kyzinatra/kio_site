@@ -1,0 +1,5 @@
+.profile-notifications__information-board-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

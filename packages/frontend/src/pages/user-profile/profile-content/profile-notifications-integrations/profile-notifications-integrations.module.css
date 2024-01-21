@@ -1,0 +1,12 @@
+.profile-notifications-integrations__forms{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-right: 100px;
+}
+
+.profile-notifications-integrations__container{
+  display: flex;
+  gap: 60px;
+  padding: 75px 0 30px 0;
+}

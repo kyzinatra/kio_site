@@ -1,0 +1,4 @@
+.user-social-media__container{
+    display: flex;
+    gap: 30px;
+}
