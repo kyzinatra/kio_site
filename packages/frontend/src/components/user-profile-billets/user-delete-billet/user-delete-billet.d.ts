@@ -1,4 +1,5 @@
 export interface IUserDeleteBillet {
-    title: String,
-    btnText?: String
+    title: string;
+    btnText?: string;
+    onClick?: () => void;
 }

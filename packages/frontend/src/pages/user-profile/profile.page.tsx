@@ -5,6 +5,7 @@ import { VerticalNavbar } from '@components/ui-kit/vertical-navbar/vertical-navb
 import { Layout } from '@components/layout/layout.component';
 import { ProfileHeader } from './profile-header/profile-header.component';
 import { ProfileRoutes } from './profile-routes/profile-routes.component';
+import { items, routes } from './profile.utils';
 
 export const UserProfile: FC<IUserProfile> = ({ theme }) => {
   return (
@@ -13,8 +14,8 @@ export const UserProfile: FC<IUserProfile> = ({ theme }) => {
         <ProfileHeader/>
         <div className={css['user-profile__container']}>
           <VerticalNavbar
-              items={['Общие', 'Социальные сети', 'Оплата', 'Задачи', 'Конструкторы', 'Уведомления и интеграции']} 
-              routes={['', 'socialMedia', 'payment', 'tasks', 'constructors', 'notificationsAndIntegrations']}
+              items={items} 
+              routes={routes}
           />
           <ProfileRoutes/>
         </div>

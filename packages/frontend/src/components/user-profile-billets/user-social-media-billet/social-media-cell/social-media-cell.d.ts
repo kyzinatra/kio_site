@@ -1,4 +1,4 @@
 export interface ISocialMediaCell {
-    title: String,
-    imageSrc: String
+    title: string,
+    imageSrc: string
 }

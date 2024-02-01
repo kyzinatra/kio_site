@@ -1,6 +1,6 @@
 export interface IUserSocialMediaInformationBoard {
-    title: String,
-    subtitle: String,
-    iconSrc: String,
-    statusIcon: String
+    title: string,
+    subtitle: string,
+    iconSrc: string,
+    statusIcon: string
 }

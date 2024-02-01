@@ -13,7 +13,7 @@ export const UserSocialMediaInformationBoard: FC<IUserSocialMediaInformationBoar
     <div>
         <UserIninitalInformationBoard title={title} iconSrc={iconSrc}>
             <span className={css[`social-media-information-board__user-name`]} >{subtitle}</span>
-            <img className={css[`social-media-information-board__icon`]} src={`${statusIcon}`} alt="" />
+            <img className={css[`social-media-information-board__icon`]} src={statusIcon} />
         </UserIninitalInformationBoard>
     </div>
   );

@@ -1,16 +1,16 @@
-.profile-content-header_container{
+.header-content_container{
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.profile-content-header_title{
+.header-content_title{
     font-size: 2rem;
     margin: 0;
 }
 
-.profile-content-header_text-header{
+.header-content_text-header{
     font-size: 1.25rem;
-    color: #444;
+    color: var(--blur-text-color);
     margin: 0;
 }

@@ -6,7 +6,7 @@
 
 .user-avatar-billet__info-text{
     font-size: 0.9rem;
-    color: #444;
+    color: var(--blur-text-color);
 }
 
 .user-avatar-billet__img-container{

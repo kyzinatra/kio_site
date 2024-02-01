@@ -1,4 +1,4 @@
-import { ProfileContentHeader } from '../profile-content-header/profile-content-header.component';
+import { HeaderContent } from '../profile-content-header/header-content.component';
 import css from './profile-notifications-integrations.module.css';
 import { ProfileNotifications } from './profile-notifications/profile-notifications.component';
 import { ProfileIntegrations } from './profile-integrations/profile-integrations.component';
@@ -6,7 +6,7 @@ import { ProfileIntegrations } from './profile-integrations/profile-integrations
 export const ProfileNotificationsIntegrations = () => {
   return (
     <div className={css['profile-notifications-integrations__forms']}>
-      <ProfileContentHeader 
+      <HeaderContent 
         title={"Уведомления"}
         textHeader={`
           Подписывайтесь на наши новые мероприятия и акции, 

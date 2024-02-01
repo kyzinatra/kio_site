@@ -10,7 +10,7 @@ export const UserIninitalInformationBoard: FC<PropsWithChildren<IUserInitialInfo
   return (
     <div className={css[`initial-information-board__container`]}>
         <div className={css[`initial-information-board__info`]}>
-            <img className={css[`initial-information-board__icon`]} src={`${iconSrc}`} alt="" />
+            <img className={css[`initial-information-board__icon`]} src={iconSrc} />
             <span>{title}</span>
         </div>
         <div className={css[`initial-information-board__info`]}>

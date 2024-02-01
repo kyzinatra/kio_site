@@ -8,7 +8,7 @@ export const SocialMediaCell: FC<ISocialMediaCell> = ({
     }) => {
     return (
         <div className={css[`social-media-cell__container`]}>
-            <img className={css[`social-media-cell__image`]} src={`${imageSrc}`} alt="" />
+            <img className={css[`social-media-cell__image`]} src={imageSrc} />
             <p>{title}</p>
         </div>
     );

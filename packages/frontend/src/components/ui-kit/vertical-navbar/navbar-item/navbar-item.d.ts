@@ -1,7 +1,6 @@
 export interface INavbarItem {
-    routes: Array,
-    item: String,
-    itemClass: String,
-    itemNumber: Number,
-    setNewActiveNavbarItem: Function,
+    route: string,
+    item: string,
+    isActive: string,
+    onClick: () => void,
 }

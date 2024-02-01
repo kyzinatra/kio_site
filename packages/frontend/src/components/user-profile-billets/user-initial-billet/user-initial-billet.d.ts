@@ -1,8 +1,8 @@
 export interface IUserInitialBillet {
-    title: String,
-    subtitle?: String,
-    footerText?: String,
-    btnText?: String,
+    title: string,
+    subtitle?: string,
+    footerText?: string,
+    btnText?: string,
     theme?: "default" | "red",
     btnTheme?: "accent" | "colored-red"
 }

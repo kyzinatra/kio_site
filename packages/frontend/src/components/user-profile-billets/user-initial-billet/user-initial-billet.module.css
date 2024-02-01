@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(234, 234, 234);
+    border: 1px solid var(--accent-light-color);
     border-radius: 8px;
     min-width: 700px;
     height: 200px;
@@ -10,11 +10,11 @@
 }
 
 .user-initial-billet__container--default{
-    border: 1px solid rgb(234, 234, 234);
+    border: 1px solid var(--accent-light-color);
 }
 
 .user-initial-billet__container--red{
-    border: 1px solid rgb(233,0,0);
+    border: 1px solid var(--error-color);
 }
 
 .user-initial-billet__header{
@@ -35,7 +35,7 @@
     font-weight: lighter;
     margin: 0;
     font-size: 0.9rem;
-    color: #444;
+    color: var(--blur-text-color);
 }
 
 .user-initial-billet__main{
@@ -50,13 +50,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(245, 245, 245);
-    border-top: 1px solid rgb(234, 234, 234);
+    background-color: var(--primary-light-color);
+    border-top: 1px solid var(--accent-light-color);
     height: 25%;
     padding: 0 30px;
 }
 
 .user-initial-billet__footer-text{
     font-size: 0.9rem;
-    color: #444;
+    color: var(--blur-text-color);
 }

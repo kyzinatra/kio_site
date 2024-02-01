@@ -1,6 +1,3 @@
-export interface IUserOfferBillet {
-    title: String,
-    subtitle: String,
-    footerText: String,
-    btnText: String
-}
+import { IUserInitialInformationBoard } from "@components/ui-kit/user-profile-information-board/user-initial-information-board/user-initial-information-board";
+
+export interface IUserOfferBillet extends Pick<IUserInitialBillet, title | subtitle | footerText | btnText> {}

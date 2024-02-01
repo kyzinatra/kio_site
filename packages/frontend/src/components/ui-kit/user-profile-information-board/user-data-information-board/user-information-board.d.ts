@@ -1,4 +1,4 @@
-export interface IUserNotificationsInformationBoard {
+export interface IUserInformationBoard {
     title: string,
     iconSrc: string,
     statusIcon: string

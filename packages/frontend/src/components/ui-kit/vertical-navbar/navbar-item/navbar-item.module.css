@@ -8,7 +8,7 @@
 }
 
 .navbar__item-link__default{
-    color: #444;
+    color: var(--blur-text-color);
 }
 
 .navbar__item-link{

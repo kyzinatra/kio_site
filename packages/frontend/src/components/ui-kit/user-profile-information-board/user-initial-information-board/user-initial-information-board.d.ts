@@ -1,4 +1,4 @@
 export interface IUserInitialInformationBoard {
-    title: String,
-    iconSrc: String,
+    title: string,
+    iconSrc: string,
 }

@@ -7,5 +7,5 @@
 }
 
 .social-media-information-board__user-name{
-    color: #2F2FFD;
+    color: var(--info-color);
 }

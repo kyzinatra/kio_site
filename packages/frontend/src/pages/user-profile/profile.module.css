@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu&display=swap');
 
 .page {
-  background-color: rgb(250, 250, 250);
-  font-family: 'Ubuntu', 'Times New Roman', Times, serif;
+  background-color: var(--primary-light-color);
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .user-profile__container{

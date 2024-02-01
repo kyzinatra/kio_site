@@ -13,7 +13,7 @@ export const ROUTES = {
   SIGN_IN_ROUTE: '/sign-in',
   SIGN_UP_ROUTE: '/sign-up',
   PAGE_404_ROUTE: '/404',
-  PROFILE_ROUTE: '/profile',
+  PROFILE_ROUTE: '/profile/*',
   FORGOT_PASSWORD_ROUTE: '/forgot-password',
   HELP_ROUTE: '/help'
 } as const;

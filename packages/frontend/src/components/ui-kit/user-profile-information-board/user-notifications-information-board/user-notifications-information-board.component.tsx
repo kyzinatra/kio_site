@@ -11,7 +11,7 @@ export const UserNotificationsInformationBoard: FC<IUserNotificationsInformation
   return (
     <div>
         <UserIninitalInformationBoard title={title} iconSrc={iconSrc}>
-            <img className={css[`notifications-information-board__icon`]} src={`${statusIcon}`} alt="" />
+            <img className={css[`notifications-information-board__icon`]} src={statusIcon} />
         </UserIninitalInformationBoard>
     </div>
   );

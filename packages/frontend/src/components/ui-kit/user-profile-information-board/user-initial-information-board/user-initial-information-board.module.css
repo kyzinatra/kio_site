@@ -3,9 +3,9 @@
     justify-content: space-between;
     min-width: 56.5rem;
     height: 3.5rem;
-    background-color: rgb(245,245,245);
+    background-color: var(--accent-light-color);
     padding: 0 25px;
-    border: 1px solid rgb(236,236,236);
+    border: 1px solid var(--border-light-color);
     border-radius: 8px;
 }
 

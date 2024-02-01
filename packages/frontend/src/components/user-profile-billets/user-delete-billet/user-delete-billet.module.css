@@ -5,5 +5,5 @@
 }
 
 .user-delete-billet__text-about-delete-profile{
-    color: rgb(114,114,114);
+    color: var(--placeholder-text-color);
 }

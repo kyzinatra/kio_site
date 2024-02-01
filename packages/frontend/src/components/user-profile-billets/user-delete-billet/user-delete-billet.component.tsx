@@ -5,7 +5,8 @@ import { UserIninitalBillet } from '../user-initial-billet/user-initial-billet.c
 
 export const UserDeleteBillet: FC<IUserDeleteBillet> = ({ 
         title,
-        btnText
+        btnText,
+        onClick
     }) => {
   return (
     <UserIninitalBillet title={title} btnText={btnText} theme='red' btnTheme='colored-red'>

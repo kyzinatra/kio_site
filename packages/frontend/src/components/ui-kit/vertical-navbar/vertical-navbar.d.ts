@@ -1,4 +1,4 @@
 export interface IVerticalNavbar {
-    items: Array,
-    routes: Array,
+    items: string[],
+    routes: string[],
 }

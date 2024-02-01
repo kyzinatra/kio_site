@@ -1,7 +1,7 @@
 export interface IUserAvatarBillet {
-    title: String,
-    subtitle?: String,
-    mainText?: String,
-    footerText?: String,
-    img?: String,
+    title: string,
+    subtitle?: string,
+    mainText?: string,
+    footerText?: string,
+    img?: string,
 }

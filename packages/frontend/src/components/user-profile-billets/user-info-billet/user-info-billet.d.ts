@@ -1,6 +1,6 @@
 export interface IUserInfoBillet {
-    title: String,
-    subtitle?: String,
-    footerText?: String,
-    textWithInfo?: String,
+    title: string,
+    subtitle?: string,
+    footerText?: string,
+    textWithInfo?: string,
 }

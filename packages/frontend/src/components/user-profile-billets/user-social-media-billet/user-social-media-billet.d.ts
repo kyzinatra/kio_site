@@ -1,4 +1,4 @@
 export interface IUserSocialMediaBillet {
-    title: String,
-    footerText?: String
+    title: string,
+    footerText?: string
 }
