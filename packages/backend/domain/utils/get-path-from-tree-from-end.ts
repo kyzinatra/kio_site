@@ -3,37 +3,28 @@ import { makeTreeDoublyConnected } from './make-tree-doubly-connected';
 import { IDoublyConnectedTree } from '../types/tree';
 import { treeForwardTraversal } from './tree-forward-traversal';
 
+export type IPathTree<T extends { data: object }> = IDoublyConnectedTree<T['data'] & { _id: string }>;
+
 export const getPathFromTreeFromEnd = <T extends ITree<T['data'] & { _id: string }>>(
     initialTree: T,
     startId: string
 ) => {
-    const tree = makeTreeDoublyConnected(initialTree) as IDoublyConnectedTree<T['data'] & { _id: string }>;
-    const result: IDoublyConnectedTree<T['data'] & { _id: string }>[] = [];
+    const tree = makeTreeDoublyConnected<ITree<T['data'] & { _id: string }>>(initialTree);
+    const result: IPathTree<T>[] = [];
 
-    const step = (
-        node: IDoublyConnectedTree<T['data'] & { _id: string }>,
-        id: string
-    ): IDoublyConnectedTree<T['data']> | void => {
+    const step = (node: IPathTree<T>, id: string): IDoublyConnectedTree<T> | void => {
         if (node.data._id === id) {
             result.push(node);
         }
 
         if (node.parent) {
-            //@ts-ignore
-            step(node.parent, node.parent.data._id);
+            step(node.parent as IPathTree<T>, node.parent.data._id);
         }
     };
 
-    const startNode = treeForwardTraversal(tree, ({ _id }) => _id === startId) as IDoublyConnectedTree<
-        T['data'] & { _id: string }
-    >;
+    const startNode = treeForwardTraversal(tree, ({ _id }) => _id === startId) as IPathTree<T>;
 
-    step(
-        treeForwardTraversal(tree, ({ _id }) => _id === startId) as IDoublyConnectedTree<
-            T['data'] & { _id: string }
-        >,
-        startNode.data._id
-    );
+    step(treeForwardTraversal(tree, ({ _id }) => _id === startId) as IPathTree<T>, startNode.data._id);
 
     return result.reverse();
 };

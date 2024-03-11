@@ -1,12 +1,12 @@
-import { CLIENT_ERRORS } from '../errors/client-errors';
+import { CLIENT_ERRORS } from '../errors';
 import { Response, NextFunction } from 'express';
 import { QUERY_WITHOUT_AUTH } from '../../api/query-keys/query-keys';
-import { CustomRequest } from '../types/custom-request.type';
+import { CustomRequest } from '../types';
 import { User } from '../../bd';
-import { IUserBD } from '../../bd/types/user-bd.interface';
-import { SERVER_ERRORS } from '../errors/server-errors';
+import { IUserBD } from '../../bd';
+import { SERVER_ERRORS } from '../errors';
 import { TOKEN_COLLECTION } from '../token/token-collection';
-import { keycloakApi } from '../../keycloak/api/keycloakApi';
+import { keycloakApi } from '../../keycloak/api';
 import { setAuthTokens } from '../token/token-service';
 
 export const authMiddleware = async <T>(

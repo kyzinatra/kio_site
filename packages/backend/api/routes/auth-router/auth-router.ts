@@ -36,6 +36,7 @@ authRouter.post(
 );
 
 authRouter.get(QUERY_KEYS.ME, controllerErrorBounding(meController));
+
 authRouter.post(QUERY_KEYS.LOGOUT, controllerErrorBounding(logoutController));
 
 export { authRouter };

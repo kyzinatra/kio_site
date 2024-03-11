@@ -3,6 +3,7 @@ export interface ITaskDB {
     name: string;
     description: string;
     isAvailable: boolean;
+    isApproved: boolean;
     settings: object;
     preview: string;
     creatorId: string;

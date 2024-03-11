@@ -9,6 +9,7 @@ const taskSchema = new Schema<ITaskDB>(
         description: { type: String, required: true },
         creatorId: { type: String, required: true },
         isAvailable: { type: Boolean, default: false },
+        isApproved: { type: Boolean, default: false },
         settings: { type: Schema.Types.Mixed, default: {} },
         preview: { type: String, default: '' },
         timestamp: { type: Number, default: () => Date.now() }

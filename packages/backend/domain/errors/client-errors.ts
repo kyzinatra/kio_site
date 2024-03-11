@@ -24,19 +24,19 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     UNAUTHORIZED: {
         title: 'Ошибка авторизации',
         message: 'Кажется, вы не вошли в систему',
-        code: 400,
+        code: 401,
         name: 'UNAUTHORIZED'
     },
     TOKEN_EXPIRED: {
         title: 'Токен истек',
         message: 'Время жизни токена авторизации истекло',
-        code: 400,
+        code: 401,
         name: 'TOKEN_EXPIRED'
     },
     BAD_TOKEN: {
         title: 'Неверный токен',
         message: 'Токен не прошел проверку на валидность',
-        code: 400,
+        code: 401,
         name: 'BAD_TOKEN'
     },
     BAD_DTO: {
@@ -78,7 +78,7 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     USER_DOESNT_EXISTS: {
         title: 'Пользователь не существует',
         message: 'Обращение к пользователю, которого не существует',
-        code: 400,
+        code: 404,
         name: 'USER_DOESNT_EXISTS'
     },
     BAD_PASSWORD: {
@@ -90,13 +90,13 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     TASK_DOESNT_EXIST: {
         title: 'Нет указанной задачи',
         message: 'Указанная задача не была найдена в базе',
-        code: 400,
+        code: 404,
         name: 'TASK_DOESNT_EXIST'
     },
     SOLUTION_DOESNT_EXIST: {
         title: 'Нет решения задачи',
         message: 'У пользователя нет решения для запрашиваемой задачи',
-        code: 400,
+        code: 404,
         name: 'SOLUTION_DOESNT_EXIST'
     },
     SOLUTION_ALREADY_EXIST: {
@@ -108,14 +108,14 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     FRAME_DOESNT_EXIST: {
         title: 'Кадр не найден',
         message: 'Указанный кадр не был найден в базе',
-        code: 400,
+        code: 404,
         name: 'FRAME_DOESNT_EXIST'
     },
 
     TRY_DOESNT_EXIST: {
         title: 'Попытка не найдена',
         message: 'Указанная попытка не был найдена в базе',
-        code: 400,
+        code: 404,
         name: 'TRY_DOESNT_EXIST'
     }
 };

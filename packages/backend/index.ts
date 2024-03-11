@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 
 import { authMiddleware, errorBoundingMiddleware } from './domain/middleware';
-import { authRouter, lkRouter, apiRouter } from './api';
+import { authRouter, lkRouter, apiRouter, siteRouter } from './api';
 
 const app = express();
 
@@ -23,6 +23,7 @@ app.use(authMiddleware);
 
 app.use(authRouter);
 app.use(lkRouter);
+app.use(siteRouter);
 app.use(apiRouter);
 
 app.use(errorBoundingMiddleware);

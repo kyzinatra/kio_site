@@ -1,11 +1,11 @@
 export interface ITree<T> {
-    parent: T | null;
+    parent: { data: T } | null;
     children: ITree<T>[];
     data: T;
 }
 
 export interface IDoublyConnectedTree<T> {
     parent: ITree<T> | null;
-    children: ITree<T>[];
+    children: IDoublyConnectedTree<T>[];
     data: T;
 }

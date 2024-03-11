@@ -7,21 +7,19 @@ import { treeForwardTraversal } from '../../../../domain/utils';
 export const commitController: TController<ICommitDto> = async (req, resp) => {
     const { taskId, parentId, tryId, comment, state, result } = req.body;
 
-    let solution, currentTry, parentFrame;
+    let res;
 
     try {
-        let res = await Promise.all([
+        res = await Promise.all([
             Solution.findOne({ ownerId: req.user?._id, taskId }),
             Try.findOne({ _id: tryId }),
             Frame.findOne({ _id: parentId }, '-state -result')
         ]);
-
-        solution = res[0];
-        currentTry = res[1];
-        parentFrame = res[2];
     } catch (e) {
         return resp.status(SERVER_ERRORS.BD_ERROR.code).json(SERVER_ERRORS.BD_ERROR);
     }
+
+    let [solution, currentTry, parentFrame] = res;
 
     if (!solution || !currentTry || !parentFrame) {
         return resp
@@ -38,7 +36,7 @@ export const commitController: TController<ICommitDto> = async (req, resp) => {
     const newFrame = new Frame({ state, result, comment: comment ?? null });
 
     parentTreeNode.children.push({
-        parent: { _id: parentTreeNode.data._id },
+        parent: { data: { _id: parentTreeNode.data._id } },
         data: { _id: newFrame._id },
         children: []
     });
