@@ -10,6 +10,7 @@ import {
     logoutController,
     signUpController
 } from '../../controllers';
+import { controllerErrorBounding } from '../../../domain/errors';
 
 const authRouter = Router();
 
@@ -25,16 +26,17 @@ authRouter.post(
         ],
         signUpValidator
     ),
-    signUpController
+    controllerErrorBounding(signUpController)
 );
 
 authRouter.post(
     QUERY_KEYS.SIGN_IN,
     validationMiddleware([check('email').isEmail(), check('password').isString()], signInValidator),
-    signInController
+    controllerErrorBounding(signInController)
 );
 
-authRouter.get(QUERY_KEYS.ME, meController);
-authRouter.post(QUERY_KEYS.LOGOUT, logoutController);
+authRouter.get(QUERY_KEYS.ME, controllerErrorBounding(meController));
+
+authRouter.post(QUERY_KEYS.LOGOUT, controllerErrorBounding(logoutController));
 
 export { authRouter };

@@ -10,7 +10,13 @@ export type EErrorNames =
     | 'BAD_LOGIN_OR_PASSWORD'
     | 'LACK_OF_RIGHTS'
     | 'USER_DOESNT_EXISTS'
-    | 'BAD_PASSWORD';
+    | 'BAD_PASSWORD'
+    | 'TASK_DOESNT_EXIST'
+    | 'SOLUTION_DOESNT_EXIST'
+    | 'TRY_DOESNT_EXIST'
+    | 'FRAME_DOESNT_EXIST'
+    | 'SOLUTION_ALREADY_EXIST'
+    | 'NAME_IS_ALREADY_USED';
 
 export type ICLIENT_ERROR = TError<EErrorNames>;
 
@@ -18,19 +24,19 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     UNAUTHORIZED: {
         title: 'Ошибка авторизации',
         message: 'Кажется, вы не вошли в систему',
-        code: 400,
+        code: 401,
         name: 'UNAUTHORIZED'
     },
     TOKEN_EXPIRED: {
         title: 'Токен истек',
         message: 'Время жизни токена авторизации истекло',
-        code: 400,
+        code: 401,
         name: 'TOKEN_EXPIRED'
     },
     BAD_TOKEN: {
         title: 'Неверный токен',
         message: 'Токен не прошел проверку на валидность',
-        code: 400,
+        code: 401,
         name: 'BAD_TOKEN'
     },
     BAD_DTO: {
@@ -44,6 +50,12 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         message: 'Имя содержит недопустимые символы',
         code: 400,
         name: 'BAD_NAME'
+    },
+    NAME_IS_ALREADY_USED: {
+        title: 'Имя уже занято',
+        message: 'Попробуйте ввести другое имя',
+        code: 400,
+        name: 'NAME_IS_ALREADY_USED'
     },
     EMAIL_IS_ALREADY_USED: {
         title: 'Email уже занят',
@@ -59,14 +71,14 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
     },
     LACK_OF_RIGHTS: {
         title: 'Недостаточно прав',
-        message: 'У вас недостаточно прав, чтобы совершить действие',
+        message: 'У Вас недостаточно прав, чтобы совершить действие',
         code: 400,
         name: 'LACK_OF_RIGHTS'
     },
     USER_DOESNT_EXISTS: {
         title: 'Пользователь не существует',
         message: 'Обращение к пользователю, которого не существует',
-        code: 400,
+        code: 404,
         name: 'USER_DOESNT_EXISTS'
     },
     BAD_PASSWORD: {
@@ -74,5 +86,36 @@ export const CLIENT_ERRORS: Record<EErrorNames, ICLIENT_ERROR> = {
         message: 'Пароль не подходит по длинне или содержит недопустимые символы',
         code: 400,
         name: 'BAD_PASSWORD'
+    },
+    TASK_DOESNT_EXIST: {
+        title: 'Нет указанной задачи',
+        message: 'Указанная задача не была найдена в базе',
+        code: 404,
+        name: 'TASK_DOESNT_EXIST'
+    },
+    SOLUTION_DOESNT_EXIST: {
+        title: 'Нет решения задачи',
+        message: 'У пользователя нет решения для запрашиваемой задачи',
+        code: 404,
+        name: 'SOLUTION_DOESNT_EXIST'
+    },
+    SOLUTION_ALREADY_EXIST: {
+        title: 'Решение задачи уже существует',
+        message: 'У пользователя уже есть решения для запрашиваемой задачи, повторное создание невозможно',
+        code: 400,
+        name: 'SOLUTION_ALREADY_EXIST'
+    },
+    FRAME_DOESNT_EXIST: {
+        title: 'Кадр не найден',
+        message: 'Указанный кадр не был найден в базе',
+        code: 404,
+        name: 'FRAME_DOESNT_EXIST'
+    },
+
+    TRY_DOESNT_EXIST: {
+        title: 'Попытка не найдена',
+        message: 'Указанная попытка не был найдена в базе',
+        code: 404,
+        name: 'TRY_DOESNT_EXIST'
     }
 };
