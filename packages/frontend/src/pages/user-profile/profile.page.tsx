@@ -9,16 +9,14 @@ import { items, routes } from './profile.utils';
 
 export const UserProfile: FC<IUserProfile> = ({ theme }) => {
   return (
-      <div className={css.page}>
-        <Layout withNav/>
-        <ProfileHeader/>
-        <div className={css['user-profile__container']}>
-          <VerticalNavbar
-              items={items} 
-              routes={routes}
-          />
-          <ProfileRoutes/>
-        </div>
+    <div className={css.page}>
+      <Layout withNav />
+      <ProfileHeader />
+
+      <div className={css['user-profile__container']}>
+        <VerticalNavbar items={items} routes={routes} />
+        <ProfileRoutes />
       </div>
+    </div>
   );
 };

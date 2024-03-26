@@ -33,7 +33,7 @@ export const useAppMutation: TUseAppMutation = function (options, withSuccess = 
   const toast = useToast();
   return useMutation({
     ...options,
-    onError(error) {
+    onError(error, variables, context) {
       if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
         toast.push({ title: error.message, theme: 'error' });
         return;
@@ -44,11 +44,11 @@ export const useAppMutation: TUseAppMutation = function (options, withSuccess = 
         return;
       }
 
-      options?.onError?.();
+      options?.onError?.(error, variables, context);
     },
-    onSuccess() {
+    onSuccess(data, variables, context) {
       withSuccess && toast.push({ title: withSuccess, theme: 'success' });
-      options?.onSuccess?.();
+      options?.onSuccess?.(data, variables, context);
     }
   });
 };
