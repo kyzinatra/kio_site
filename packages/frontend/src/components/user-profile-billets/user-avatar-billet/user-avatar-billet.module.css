@@ -1,0 +1,26 @@
+.user-avatar-billet__main-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-avatar-billet__info-text{
+    font-size: 0.9rem;
+    color: var(--blur-text-color);
+}
+
+.user-avatar-billet__img-container{
+    position: absolute;
+    top: 38%;
+    right: 0;
+    transform: translate(-20%, -50%);
+    cursor: pointer;
+}
+
+.user-avatar-billet__img{
+    object-fit: cover;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}

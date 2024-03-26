@@ -31,5 +31,12 @@ export const REACT_ROUTER = createBrowserRouter([
       return { Component: (await import('../pages/sign-up/sign-up.page')).SignUp };
     },
     errorElement: <Error />
+  },
+  {
+    path: ROUTES.PROFILE_ROUTE,
+    async lazy() {
+      return { Component: (await import('../pages/user-profile/profile.page')).UserProfile };
+    },
+    errorElement: <Error />
   }
 ]);

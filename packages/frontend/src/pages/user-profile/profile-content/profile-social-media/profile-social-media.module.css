@@ -1,0 +1,12 @@
+.profile-social-media__forms{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-right: 100px;
+}
+
+.profile-social-media__information-board-container{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

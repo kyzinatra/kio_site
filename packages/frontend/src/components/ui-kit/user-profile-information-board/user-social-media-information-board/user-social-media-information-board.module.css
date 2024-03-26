@@ -1,0 +1,11 @@
+.social-media-information-board__icon{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.social-media-information-board__user-name{
+    color: var(--info-color);
+}

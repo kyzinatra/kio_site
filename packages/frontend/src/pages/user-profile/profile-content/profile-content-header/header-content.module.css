@@ -1,0 +1,16 @@
+.header-content_container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.header-content_title{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.header-content_text-header{
+    font-size: 1.25rem;
+    color: var(--blur-text-color);
+    margin: 0;
+}

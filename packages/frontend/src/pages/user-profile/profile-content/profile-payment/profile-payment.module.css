@@ -1,0 +1,13 @@
+.profile-payment__forms{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 50px;
+  padding-right: 100px;
+}
+
+.profile-payment__information-board-container{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
